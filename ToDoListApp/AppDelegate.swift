@@ -15,10 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        print("LAUNCHED: didFinishLaunchingWithOptions -  APP GETS LOADED UP, BEFORE initial/viewDidLoad")
-        // Override point for customization after application launch.
+        print("LAUNCHED: didFinishLaunchingWithOptions - APP GETS LOADED UP, BEFORE INITIAL VIEW")
+        // Override point for customization after application launch. /before viewDidLoad
         
-        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
+        print("USER DEFAULTS PATH .plist: \(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)")
         
         return true
     }

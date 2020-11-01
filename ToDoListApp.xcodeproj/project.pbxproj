@@ -12,6 +12,7 @@
 		529B5733254D8FFC006EB720 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 529B5731254D8FFC006EB720 /* Main.storyboard */; };
 		529B5735254D9009006EB720 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 529B5734254D9009006EB720 /* Assets.xcassets */; };
 		529B5738254D9009006EB720 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 529B5736254D9009006EB720 /* LaunchScreen.storyboard */; };
+		52FB2FA5254F664C00984584 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB2FA4254F664C00984584 /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		529B5734254D9009006EB720 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		529B5737254D9009006EB720 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		529B5739254D9009006EB720 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52FB2FA4254F664C00984584 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +57,46 @@
 			isa = PBXGroup;
 			children = (
 				529B572B254D8FFC006EB720 /* AppDelegate.swift */,
+				52FB2FA6254F666800984584 /* Data Model */,
+				52FB2FA8254F66A800984584 /* Views */,
+				52FB2FA7254F668B00984584 /* Controllers */,
+				52FB2FAA254F675D00984584 /* Supporting Files */,
+			);
+			path = ToDoListApp;
+			sourceTree = "<group>";
+		};
+		52FB2FA6254F666800984584 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				52FB2FA4254F664C00984584 /* Item.swift */,
+			);
+			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		52FB2FA7254F668B00984584 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				529B572F254D8FFC006EB720 /* ToDoListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		52FB2FA8254F66A800984584 /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				529B5731254D8FFC006EB720 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		52FB2FAA254F675D00984584 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				529B5734254D9009006EB720 /* Assets.xcassets */,
 				529B5736254D9009006EB720 /* LaunchScreen.storyboard */,
 				529B5739254D9009006EB720 /* Info.plist */,
 			);
-			path = ToDoListApp;
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				529B5730254D8FFC006EB720 /* ToDoListViewController.swift in Sources */,
+				52FB2FA5254F664C00984584 /* Item.swift in Sources */,
 				529B572C254D8FFC006EB720 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,7 +318,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UADL7D88KK;
-				INFOPLIST_FILE = ToDoListApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ToDoListApp/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -301,7 +337,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UADL7D88KK;
-				INFOPLIST_FILE = ToDoListApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ToDoListApp/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
