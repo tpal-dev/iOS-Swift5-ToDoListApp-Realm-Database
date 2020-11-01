@@ -9,12 +9,20 @@
 import UIKit
 
 class ToDoListViewController: UITableViewController {
-
     
     var itemArray = ["Find Mike", "Buy Eggs", "Eat Pizza"]
     
+    let defaults = UserDefaults.standard
+    
+    
     override func viewDidLoad() {
+        print("LAUNCHED: ToDoListView viewDidLoad")
         super.viewDidLoad()
+        
+        // Data persisted using user defaults method
+        if let itemArrayCheck = defaults.array(forKey: "ToDoListArray") as? [String] {
+            itemArray = itemArrayCheck
+        }
        
         
         
@@ -40,10 +48,13 @@ class ToDoListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        // Selected row
         print(itemArray[indexPath.row])
         
+        // Deselect row animation
         tableView.deselectRow(at: indexPath, animated: true)
         
+        // Checkmark
         if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
             tableView.cellForRow(at: indexPath)?.accessoryType = .none
         }else {
@@ -58,7 +69,7 @@ class ToDoListViewController: UITableViewController {
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
-        
+        // Scope var
         var textField = UITextField()
         
         let alert = UIAlertController(title: "Add New ToDo Item", message: "", preferredStyle: .alert)
@@ -66,11 +77,15 @@ class ToDoListViewController: UITableViewController {
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
             
             if textField.text != nil {
+                // Apped texfield to arrow
                 self.itemArray.append(textField.text!)
+                // Save iteamArray in a .plist file (app sandbox / device storage)
+                self.defaults.set(self.itemArray, forKey: "ToDoListArray")
+                // Reload TableView
                 self.tableView.reloadData()
                 
             }else {
-                print("error add new todo to array")
+                print("ERROR in add new todo to array")
             }
               
         }
