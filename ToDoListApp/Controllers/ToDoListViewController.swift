@@ -12,27 +12,21 @@ class ToDoListViewController: UITableViewController {
     
     var itemArray = [Item]()
     
-    let defaults = UserDefaults.standard
+    // Create a Item.plist for itemArray
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Item.plist")
     
     
     override func viewDidLoad() {
         print("LAUNCHED: viewDidLoad(ToDoListView)")
         super.viewDidLoad()
         
-        let newItem = Item()
-        newItem.title = "Eat Pizza"
-        itemArray.append(newItem)
-        
-        let newItem2 = Item()
-        newItem2.title = "Shopping"
-        itemArray.append(newItem2)
-        
-        // Data persisted using user defaults method
-        if let itemArrayCheck = defaults.array(forKey: "ToDoListArray") as? [Item] {
-            itemArray = itemArrayCheck
-        }
         
         
+        print(dataFilePath)
+        
+
+        
+        loadItems()
         
     }
     
@@ -45,7 +39,7 @@ class ToDoListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
+        
         let item = itemArray[indexPath.row]
         
         // Set name of cell
@@ -56,7 +50,7 @@ class ToDoListViewController: UITableViewController {
         
         // Set checkmark (done statement) by using TERNARY OPERATOR
         cell.accessoryType = item.done ? .checkmark : .none
-
+        
         return cell
     }
     
@@ -71,17 +65,11 @@ class ToDoListViewController: UITableViewController {
         
         // Deselect row animation
         tableView.deselectRow(at: indexPath, animated: true)
-
+        
         // Set done statement
         itemArray[indexPath.row].done = !itemArray[indexPath.row].done
-        // if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
-        //     tableView.cellForRow(at: indexPath)?.accessoryType = .none
-        // }else {
-        //     tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        // }
         
-        // Reload TableView
-        tableView.reloadData()
+        saveItemsAndReload()
         
     }
     
@@ -103,15 +91,8 @@ class ToDoListViewController: UITableViewController {
             
             // Apped texfield to arrow
             self.itemArray.append(newItem)
-           
-            // Save iteamArray in a .plist file (app sandbox / device storage)
-            self.defaults.set(self.itemArray, forKey: "ToDoListArray")
             
-            // Reload TableView
-            self.tableView.reloadData()
-            
-            
-            
+            self.saveItemsAndReload()
         }
         
         alert.addTextField { (alertTextField) in
@@ -125,5 +106,40 @@ class ToDoListViewController: UITableViewController {
         
     }
     
+    //MARK: - Model Manipulation Method
+    
+    func saveItemsAndReload() {
+        
+        // Save iteamArray in a .plist file (app sandboxing / device storage)
+        let encoder = PropertyListEncoder()
+        
+        do {
+            let data = try encoder.encode(itemArray)
+            try data.write(to: dataFilePath!)
+        }catch {
+            print("Error encoding item array, \(error)")
+        }
+        
+        // Reload TableView
+        tableView.reloadData()
+    }
+    
+    func loadItems() {
+        
+        // Retrieve itemArray from Item.plist file.
+        if let data = try? Data(contentsOf: dataFilePath!) {
+            
+            let decoder = PropertyListDecoder()
+            
+            do {
+                itemArray = try decoder.decode([Item].self, from: data)
+            }catch {
+                print("Error decoding item array, \(error)")
+            }
+        }
+    }
+        
 }
+
+
 
