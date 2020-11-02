@@ -22,7 +22,7 @@ class ToDoListViewController: UITableViewController {
         
         
         
-        print(dataFilePath)
+        print(dataFilePath ?? "none")
         
 
         
