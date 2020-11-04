@@ -66,6 +66,20 @@ class CategoryViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        // Delete row
+        if (editingStyle == .delete) {
+            
+            deleteData(at: indexPath)
+            
+        }
+    }
+    
     
     //MARK: - Data Manipulation Methods
     
@@ -89,6 +103,28 @@ class CategoryViewController: UITableViewController {
         categories = realm.objects(Category.self)
     }
     
+    func deleteData(at indexPath: IndexPath) {
+        
+        if let categoriesForDeletion = categories?[indexPath.row] {
+            
+            // delete selected data
+            do {
+                try realm.write {
+                    // Delete children's also
+                    realm.delete(categoriesForDeletion.items)
+                    // Delete category Object
+                    realm.delete(categoriesForDeletion)
+                }
+            } catch {
+                print("ERROR DELETING CATEGORY: \(error)")
+            }
+
+        }
+        
+        tableView.reloadData()
+        
+    }
+    
     
     
     //MARK: - Add New Categories
@@ -105,9 +141,10 @@ class CategoryViewController: UITableViewController {
         
         mainAlert.addAction(UIAlertAction(title: "Add", style: .default) { (action) in
             
-            // Add new Item to context
+            // Add new Category
             let newCategory = Category()
             newCategory.name = textField.text!
+            
             
             guard newCategory.name != "" else{
                 let alert = UIAlertController(title: "Text field is empty", message: "You have to type something here", preferredStyle: .alert)
@@ -118,10 +155,7 @@ class CategoryViewController: UITableViewController {
                 
                 return
             }
-            
-            
- 
-            
+    
             self.save(category: newCategory)
         })
         

@@ -36,7 +36,7 @@ class ToDoListViewController: UITableViewController{
     
     
     //MARK: - TableView DataSource Methods
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todoItems?.count ?? 1
     }
@@ -68,7 +68,7 @@ class ToDoListViewController: UITableViewController{
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-
+        // Changing done status
         if let item = todoItems?[indexPath.row] {
             
             do {
@@ -87,6 +87,23 @@ class ToDoListViewController: UITableViewController{
     
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        // Deleting cell
+        if (editingStyle == .delete) {
+            
+            
+            
+            deleteData(indexPath: indexPath)
+            
+            
+            
+        }
+    }
     
     
     //MARK: - Add New Items
@@ -104,6 +121,8 @@ class ToDoListViewController: UITableViewController{
         
         mainAlert.addAction(UIAlertAction(title: "Add Item", style: .default) { (action) in
             
+            
+            // Try to save Item
             if let currentCategory = self.selectedCategory {
                 
                 do {
@@ -146,8 +165,8 @@ class ToDoListViewController: UITableViewController{
     }
     
     //MARK: - Data Manipulation Method
-    
    
+    
     
     func loadItems() {
         
@@ -157,10 +176,27 @@ class ToDoListViewController: UITableViewController{
         
     }
     
+    func deleteData(indexPath: IndexPath) {
+        
+        if let itemForDeletion = todoItems?[indexPath.row] {
+            
+            do {
+                try realm.write {
+                    realm.delete(itemForDeletion)
+                }
+            } catch {
+                print("ERROR DELETING ITEM: \(error)")
+            }
+            
+            tableView.reloadData()
+            
+        }
+        
+    }
+    
+    
+    
 }
-
-
-
 //MARK: - SearchBar Method
 
 extension ToDoListViewController: UISearchBarDelegate {
