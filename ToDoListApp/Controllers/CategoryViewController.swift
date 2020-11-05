@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import ChameleonFramework
 
 class CategoryViewController: UITableViewController {
     
@@ -15,12 +16,26 @@ class CategoryViewController: UITableViewController {
     
     var categories: Results<Category>?
     
-  
+    
     
     override func viewDidLoad() {
+        print("LAUNCHED: viewDidLoad(CategoryListView)")
         super.viewDidLoad()
         
         loadCategories()
+        
+        tableView.separatorStyle = .none
+        tableView.rowHeight = 60
+        
+    }
+    
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
     }
     
     
@@ -36,8 +51,20 @@ class CategoryViewController: UITableViewController {
         // Set name of cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
         
-        // Set text in row
-        cell.textLabel?.text = categories?[indexPath.row].name ?? "No Categories Added Yet"
+        if let category = categories?[indexPath.row] {
+            // Set text in row
+            cell.textLabel?.text = category.name
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
+            
+            
+            guard let categoryColor = UIColor(hexString: category.color) else { fatalError() }
+            
+            // Cell backgroundColor
+            cell.backgroundColor = categoryColor
+            // Cell text color
+            cell.textLabel?.textColor = ContrastColorOf(categoryColor, returnFlat: true)
+        }
+        
         
         return cell
     }
@@ -50,6 +77,7 @@ class CategoryViewController: UITableViewController {
         
         performSegue(withIdentifier: "goToItems", sender: self)
         
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -69,7 +97,7 @@ class CategoryViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         // Delete row
@@ -118,7 +146,7 @@ class CategoryViewController: UITableViewController {
             } catch {
                 print("ERROR DELETING CATEGORY: \(error)")
             }
-
+            
         }
         
         tableView.reloadData()
@@ -144,6 +172,7 @@ class CategoryViewController: UITableViewController {
             // Add new Category
             let newCategory = Category()
             newCategory.name = textField.text!
+            newCategory.color = UIColor.randomFlat().hexValue()
             
             
             guard newCategory.name != "" else{
@@ -155,12 +184,14 @@ class CategoryViewController: UITableViewController {
                 
                 return
             }
-    
+            
             self.save(category: newCategory)
         })
         
         mainAlert.addTextField { (alertTextField) in
             alertTextField.placeholder = "Create a new category"
+            alertTextField.autocorrectionType = .yes
+            alertTextField.spellCheckingType = .yes
             textField = alertTextField
         }
         
