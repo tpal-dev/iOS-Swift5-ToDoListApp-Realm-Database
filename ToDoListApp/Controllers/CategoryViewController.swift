@@ -16,17 +16,62 @@ class CategoryViewController: UITableViewController {
     
     var categories: Results<Category>?
     
-    
-    
     override func viewDidLoad() {
         print("LAUNCHED: viewDidLoad(CategoryListView)")
         super.viewDidLoad()
         
         loadCategories()
         
+        
+        
         tableView.separatorStyle = .none
         tableView.rowHeight = 60
         
+    let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longpress))
+              tableView.addGestureRecognizer(longPress)
+        
+    }
+    
+    @objc func longpress(sender: UILongPressGestureRecognizer) {
+
+        if sender.state == UIGestureRecognizer.State.began {
+            let touchPoint = sender.location(in: tableView)
+            if let indexPath = tableView.indexPathForRow(at: touchPoint) {
+                // your code here, get the row for the indexPath or do whatever you want
+                
+                
+                
+                let alert = UIAlertController(style: .actionSheet)
+                alert.addColorPicker(color: UIColor(hex: 0xFF2DC6)) { color in
+                    
+                    
+                    if let categoriesForDeletion = self.categories?[indexPath.row] {
+                        
+                        // delete selected data
+                        do {
+                            try self.realm.write {
+                              
+                                // Delete category
+                                categoriesForDeletion.color = "\(color.hexValue())"
+                            }
+                        } catch {
+                            print("ERROR DELETING CATEGORY: \(error)")
+                        }
+                        
+                    }
+                    
+                    self.tableView.reloadData()
+                    
+                    print(color.hexValue())
+                    
+                }
+                alert.show()
+                
+                print("Long press Pressed:\(indexPath.row)")
+            }
+        }
+
+
     }
     
     
