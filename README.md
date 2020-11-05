@@ -5,7 +5,7 @@ You can find here:
 
 * How to store data in Realm Database - CRUD Create Read Update Delete
 * UITableViewController and cells management in a Table Viev
-<br>
+
 * CocoaPods to manage and use third party libraries
 * Embed View Controllers in a Navigation Controller
 * Navigation between View Controllers using Segues
