@@ -40,15 +40,21 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Items" id="WOF-QK-TYw">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2we-PY-jbt">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="addButtonPressed:" destination="1c5-mA-8R6" id="ZK3-IO-fwL"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="edit" id="eXS-QO-pms">
+                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="2we-PY-jbt">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="1c5-mA-8R6" id="ZK3-IO-fwL"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="nPR-TF-DDw" id="lmK-o6-84e"/>
+                        <outlet property="tableView" destination="jmo-F4-Fud" id="q2h-sp-59v"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Zu-OD-4Tj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -81,7 +87,7 @@
             </objects>
             <point key="canvasLocation" x="319" y="52"/>
         </scene>
-        <!--ToDoList-->
+        <!--Category-->
         <scene sceneID="hTK-cZ-q5r">
             <objects>
                 <tableViewController id="sPt-kG-M6u" customClass="CategoryViewController" customModule="ToDoListApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -109,7 +115,7 @@
                             <outlet property="delegate" destination="sPt-kG-M6u" id="TKU-2X-zti"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="ToDoList" id="oZe-aF-CxJ">
+                    <navigationItem key="navigationItem" title="Category" id="oZe-aF-CxJ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Tdv-RN-mgf">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>

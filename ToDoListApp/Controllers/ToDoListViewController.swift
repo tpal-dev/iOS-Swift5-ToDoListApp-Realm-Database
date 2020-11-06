@@ -33,6 +33,7 @@ class ToDoListViewController: UITableViewController{
         
         tableView.separatorStyle = .none
         tableView.rowHeight = 60
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
         
     }
     
@@ -118,9 +119,7 @@ class ToDoListViewController: UITableViewController{
         
     }
     
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
+    
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
@@ -132,6 +131,34 @@ class ToDoListViewController: UITableViewController{
         }
     }
     
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+       
+        
+        // Drag and Drop
+        if let item = todoItems?[sourceIndexPath.row] {
+            
+            do {
+                try realm.write {
+                    
+                    swap(&item.title, &todoItems![destinationIndexPath.row].title)
+                    swap(&item.done, &todoItems![destinationIndexPath.row].done)
+                    swap(&item.dateCreated, &todoItems![destinationIndexPath.row].dateCreated)
+                    
+                }
+            } catch {
+                print("ERROR SAVING DONE STATUS: \(error)")
+            }
+        }
+    
+         tableView.reloadData()
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+          return true
+      }
+
+
     
     //MARK: - Add New Items
     
