@@ -209,9 +209,12 @@ class CategoryViewController: UITableViewController {
             let touchPoint = sender.location(in: tableView)
             if let indexPath = tableView.indexPathForRow(at: touchPoint) {
                 
+                
+                
+                let pickedRowColor = categories?[indexPath.row].color ?? "#ffffff"
+                
                 let alert = UIAlertController(style: .alert)
-                alert.addColorPicker(color: UIColor(hex: 0xFF2DC6)) { color in
-                    
+                alert.addColorPicker(color: UIColor(hexString: pickedRowColor)) { color in
                     
                     if let categoriesForDeletion = self.categories?[indexPath.row] {
                         

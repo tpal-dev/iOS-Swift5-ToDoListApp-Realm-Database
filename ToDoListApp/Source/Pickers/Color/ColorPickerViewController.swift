@@ -21,10 +21,10 @@ extension UIAlertController {
         guard let vc = storyboard.instantiateViewController(withIdentifier: "ColorPicker") as? ColorPickerViewController else { return }
         set(vc: vc)
         
-        set(title: color.hexString, font: .systemFont(ofSize: 17), color: color)
+        //set(title: color.hexString, font: .systemFont(ofSize: 17), color: color)
         vc.set(color: color) { new in
             color = new
-            self.set(title: color.hexString, font: .systemFont(ofSize: 17), color: color)
+            //self.set(title: color.hexString, font: .systemFont(ofSize: 17), color: color)
         }
         addAction(buttonSelection)
     }
