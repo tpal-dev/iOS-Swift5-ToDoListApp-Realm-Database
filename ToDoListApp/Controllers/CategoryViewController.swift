@@ -49,20 +49,20 @@ class CategoryViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        // Set name of cell
+        /// Set name of cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
         
         if let category = categories?[indexPath.row] {
-            // Set text in row
+            /// Set text in row
             cell.textLabel?.text = category.name
             cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
             
             
             guard let categoryColor = UIColor(hexString: category.color) else { fatalError() }
             
-            // Cell backgroundColor
+            /// Cell backgroundColor
             cell.backgroundColor = categoryColor
-            // Cell text color
+            /// Cell text color
             cell.textLabel?.textColor = ContrastColorOf(categoryColor, returnFlat: true)
         }
         
@@ -89,7 +89,7 @@ class CategoryViewController: UITableViewController {
             
             if let indexPath = tableView.indexPathForSelectedRow {
                 
-                // Property selectedCategory created and sended to ToDoListConroller
+                /// Property selectedCategory created and sended to ToDoListConroller
                 destinationVC.selectedCategory = categories?[indexPath.row]
             }
         }
@@ -101,7 +101,7 @@ class CategoryViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
-        // Delete row
+        /// Delete row
         if (editingStyle == .delete) {
             
             deleteData(at: indexPath)
@@ -160,17 +160,17 @@ class CategoryViewController: UITableViewController {
     
     @IBAction func addButtonPressed(_ sender: Any) {
         
-        // Main property for TextField
+        /// Main property for TextField
         var textField = UITextField()
         
-        // Set Alert Window
+        /// Set Alert Window
         let mainAlert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
         
         mainAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         mainAlert.addAction(UIAlertAction(title: "Add", style: .default) { (action) in
             
-            // Add new Category
+            /// Add new Category
             let newCategory = Category()
             newCategory.name = textField.text!
             newCategory.color = UIColor.randomFlat().hexValue()
@@ -216,16 +216,16 @@ class CategoryViewController: UITableViewController {
                 let alert = UIAlertController(style: .alert)
                 alert.addColorPicker(color: UIColor(hexString: pickedRowColor)) { color in
                     
-                    if let categoriesForDeletion = self.categories?[indexPath.row] {
+                    if let categoryColor = self.categories?[indexPath.row] {
                         
                         // update row color
                         do {
                             try self.realm.write {
 
-                                categoriesForDeletion.color = "\(color.hexValue())"
+                                categoryColor.color = "\(color.hexValue())"
                             }
                         } catch {
-                            print("ERROR DELETING CATEGORY: \(error)")
+                            print("ERROR CHANGE CATEGORY COLOR: \(error)")
                         }
 
                     }

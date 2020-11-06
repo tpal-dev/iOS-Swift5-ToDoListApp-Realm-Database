@@ -18,7 +18,7 @@ class ToDoListViewController: UITableViewController{
     
     let realm = try! Realm()
     
-    // Property sended from CategoryViewController by segue
+    /// Property sended from CategoryViewController by segue
     var selectedCategory : Category? {
         didSet{
             loadItems()
@@ -35,6 +35,10 @@ class ToDoListViewController: UITableViewController{
         tableView.rowHeight = 60
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longpress))
+               tableView.addGestureRecognizer(longPress)
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,6 +50,7 @@ class ToDoListViewController: UITableViewController{
     }
     
     
+   
     
     //MARK: - TableView DataSource Methods
     
@@ -55,33 +60,36 @@ class ToDoListViewController: UITableViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        // Set checkmark image
+        /// Set checkmark image
         var imageView : UIImageView
         imageView  = UIImageView(frame:CGRect(x: 0, y: 0, width: 30, height: 30))
         imageView.layer.cornerRadius = 10
         imageView.image = UIImage(named:"checkmark.png")
         
-        // Set cell
+        /// Set cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
+    
         cell.accessoryView = imageView
         cell.textLabel?.numberOfLines = 0
         cell.selectionStyle = .none
         
         
-        
         if let item = todoItems?[indexPath.row] {
             
-            // Set text in row
+            /// Set text in row
             cell.textLabel?.text = item.title
+            cell.detailTextLabel?.text = item.date
+            cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 9)
             
             if let color = UIColor(hexString: selectedCategory!.color)?.darken(byPercentage: (CGFloat(indexPath.row) / CGFloat(todoItems!.count)) - CGFloat(0.1)) {
                 cell.backgroundColor = color
                 cell.textLabel?.textColor = ContrastColorOf(color, returnFlat: true)
+                cell.detailTextLabel?.textColor = ContrastColorOf(color, returnFlat: true)
                 //tableView.backgroundColor = UIColor(hexString: selectedCategory!.color)?.darken(byPercentage: CGFloat(indexPath.row + 1) / CGFloat(todoItems!.count + 1))
                 
             }
             
-            // Set checkmark (done statement) by using TERNARY OPERATOR
+            /// Set checkmark (done statement) by using TERNARY OPERATOR
             cell.accessoryView = item.done ? imageView : .none
             
         }else {
@@ -99,7 +107,7 @@ class ToDoListViewController: UITableViewController{
         
         searchBar.endEditing(true)
         
-        // Changing done status
+        /// Changing done status
         if let item = todoItems?[indexPath.row] {
             
             do {
@@ -123,7 +131,7 @@ class ToDoListViewController: UITableViewController{
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
-        // Deleting cell
+        /// Deleting cell
         if (editingStyle == .delete) {
             
             deleteData(indexPath: indexPath)
@@ -134,7 +142,7 @@ class ToDoListViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
        
         
-        // Drag and Drop
+        /// Drag and Drop
         if let item = todoItems?[sourceIndexPath.row] {
             
             do {
@@ -164,11 +172,11 @@ class ToDoListViewController: UITableViewController{
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
-        // Main property for TextField
+        /// Main property for TextField
         var textField = UITextField()
         
         
-        // Set Alert Window
+        /// Set Alert Window
         let mainAlert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
         
         mainAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -176,16 +184,17 @@ class ToDoListViewController: UITableViewController{
         mainAlert.addAction(UIAlertAction(title: "Add Item", style: .default) { (action) in
             
             
-            // Try to save Item
+            /// Try to save Item
             if let currentCategory = self.selectedCategory {
                 
                 do {
                     try self.realm.write {
                         
-                        // Add new Item to context
+                        /// Add new Item to context
                         let newItem = Item()
                         newItem.title = textField.text!
                         newItem.dateCreated = Date()
+            
                         
                         guard newItem.title != "" else{
                             let alert = UIAlertController(title: "Text field is empty", message: "You have to type something here", preferredStyle: .alert)
@@ -265,7 +274,7 @@ class ToDoListViewController: UITableViewController{
                 
                 searchBar.barTintColor = navBarColor
                 
-                // Extra options
+                /// Extra options
                 //navBar.barTintColor = navBarColor
                 //navBar.tintColor = ContrastColorOf(navBarColor, returnFlat: true)
                 //navBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : ContrastColorOf(navBarColor, returnFlat: true)]
@@ -303,6 +312,50 @@ extension ToDoListViewController: UISearchBarDelegate {
             
         }
     }
+    
+    
+    
+    //MARK: - LongPress Gesture Configuration for Color Change
+        
+    @objc func longpress(sender: UILongPressGestureRecognizer) {
+        
+        if sender.state == UIGestureRecognizer.State.began {
+            let touchPoint = sender.location(in: tableView)
+            if let indexPath = tableView.indexPathForRow(at: touchPoint) {
+                
+                /// Add date to item
+                let alert = UIAlertController(title: "Date Picker", message: "Select Date", preferredStyle: .alert)
+                alert.addDatePicker(mode: .dateAndTime, date: Date(), minimumDate: nil, maximumDate: nil) { date in
+                    
+                    
+                    if let itemDate = self.todoItems?[indexPath.row] {
+                        
+                        do {
+                            try self.realm.write {
+                                itemDate.date = date.dateTimeString(ofStyle: .short)
+                            }
+                        } catch {
+                            print("ERROR ADD DATE TO ITEM: \(error)")
+                        }
+                        
+                        self.tableView.reloadData()
+                        
+                    }
+                    
+                    print(date.dateTimeString(ofStyle: .short))
+                    
+                }
+                alert.addAction(title: "OK", style: .cancel)
+                alert.show()
+                
+                print("Long press Pressed:\(indexPath.row)")
+                
+            }
+        }
+        
+    }
+    
+    
     
 }
 
