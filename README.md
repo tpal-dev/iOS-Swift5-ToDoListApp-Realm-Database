@@ -18,6 +18,8 @@ Realm Syncto keep app data up-to-date in real time across multiple users, device
 Chameleon framework - easily stop tinkering with RGB values, wasting hours figuring out the right color combinations 
 to use in app, and worrying about whether your text will be readable on the various background colors of your app.
 
+Alerts&Pickers library - Advanced usage of native UIAlertController with TextField, TextView, DatePicker, PickerView, TableView, CollectionView and MapView.
+
 ![GIF](https://s8.gifyu.com/images/Hnet-image-3.gif) 
 
 
