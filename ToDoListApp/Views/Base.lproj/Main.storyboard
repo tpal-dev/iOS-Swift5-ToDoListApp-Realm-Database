@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Bfe-Cj-4V5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Bfe-Cj-4V5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -131,8 +130,8 @@
             <objects>
                 <viewController storyboardIdentifier="ColorPicker" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6rP-bQ-1Vk" customClass="ColorPickerViewController" customModule="ToDoListApp" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ua8-6A-cY7"/>
-                        <viewControllerLayoutGuide type="bottom" id="lcm-Rv-37Q"/>
+                        <viewControllerLayoutGuide type="top" id="aXk-Fd-gJy"/>
+                        <viewControllerLayoutGuide type="bottom" id="7E4-ZM-s9Z"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JaL-jy-YC4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -168,8 +167,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bQx-XA-m2G">
                                         <rect key="frame" x="0.0" y="258" width="350" height="148"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgS-mX-RGo" customClass="GradientSlider" customModule="MMBAlertsPickers" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="350" height="36"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgS-mX-RGo" customClass="GradientSlider" customModule="ToDoListApp" customModuleProvider="target">
+                                                <rect key="frame" x="-2" y="-4" width="354" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="4WT-wU-XLS"/>
                                                 </constraints>
@@ -188,8 +187,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UE4-DO-Sv8" customClass="GradientSlider" customModule="MMBAlertsPickers" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="56" width="350" height="36"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UE4-DO-Sv8" customClass="GradientSlider" customModule="ToDoListApp" customModuleProvider="target">
+                                                <rect key="frame" x="-2" y="52" width="354" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="FO6-TN-84a"/>
                                                 </constraints>
@@ -209,8 +208,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D4q-t9-dA5" customClass="GradientSlider" customModule="MMBAlertsPickers" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="112" width="350" height="36"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D4q-t9-dA5" customClass="GradientSlider" customModule="ToDoListApp" customModuleProvider="target">
+                                                <rect key="frame" x="-2" y="108" width="354" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="ymJ-hy-vd9"/>
                                                 </constraints>
@@ -243,10 +242,9 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="mlj-pX-d4x" secondAttribute="trailing" constant="32" id="6cP-Bb-apI"/>
                             <constraint firstItem="mlj-pX-d4x" firstAttribute="top" secondItem="JaL-jy-YC4" secondAttribute="top" constant="44" id="K51-Ie-Ly5"/>
-                            <constraint firstItem="lcm-Rv-37Q" firstAttribute="top" relation="greaterThanOrEqual" secondItem="mlj-pX-d4x" secondAttribute="bottom" constant="32" id="RJ8-ev-jYa"/>
+                            <constraint firstItem="7E4-ZM-s9Z" firstAttribute="top" relation="greaterThanOrEqual" secondItem="mlj-pX-d4x" secondAttribute="bottom" constant="32" id="RJ8-ev-jYa"/>
                             <constraint firstItem="mlj-pX-d4x" firstAttribute="leading" secondItem="JaL-jy-YC4" secondAttribute="leading" constant="32" id="ewk-Zh-vzV"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="EVI-hy-lju"/>
                     </view>
                     <connections>
                         <outlet property="brightnessSlider" destination="UE4-DO-Sv8" id="hle-3J-AUf"/>
