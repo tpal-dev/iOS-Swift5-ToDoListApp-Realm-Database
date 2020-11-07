@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 import RealmSwift
 import ChameleonFramework
 
@@ -21,6 +22,15 @@ class CategoryViewController: UITableViewController {
         super.viewDidLoad()
         
         loadCategories()
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (success, error) in
+            if success {
+                print("USER NOTIFICATION SUCCESS")
+            } else if let error = error {
+                print("Error USER NOTIFICATION : \(error)")
+            }
+        }
+        
         
         tableView.separatorStyle = .none
         tableView.rowHeight = 60
@@ -136,12 +146,13 @@ class CategoryViewController: UITableViewController {
         
         if let categoriesForDeletion = categories?[indexPath.row] {
             
-            // delete selected data
+            /// Delete selected data
             do {
                 try realm.write {
-                    // Delete children's also
+                    /// Delete children's also
                     realm.delete(categoriesForDeletion.items)
-                    // Delete category Object
+                    
+                    /// Delete category Object
                     realm.delete(categoriesForDeletion)
                 }
             } catch {

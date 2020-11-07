@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 import RealmSwift
 import ChameleonFramework
 
@@ -33,11 +34,11 @@ class ToDoListViewController: UITableViewController{
         
         tableView.separatorStyle = .none
         tableView.rowHeight = 60
+        
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longpress))
                tableView.addGestureRecognizer(longPress)
-        
         
     }
     
@@ -72,6 +73,8 @@ class ToDoListViewController: UITableViewController{
         cell.accessoryView = imageView
         cell.textLabel?.numberOfLines = 0
         cell.selectionStyle = .none
+        cell.layer.borderColor = #colorLiteral(red: 0.05518321701, green: 0.05518321701, blue: 0.05518321701, alpha: 1)
+        cell.layer.borderWidth = 0
         
         
         if let item = todoItems?[indexPath.row] {
@@ -81,7 +84,7 @@ class ToDoListViewController: UITableViewController{
             cell.detailTextLabel?.text = item.date
             cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 9)
             
-            if let color = UIColor(hexString: selectedCategory!.color)?.darken(byPercentage: (CGFloat(indexPath.row) / CGFloat(todoItems!.count)) - CGFloat(0.1)) {
+            if let color = UIColor(hexString: selectedCategory!.color)?.darken(byPercentage: (CGFloat(indexPath.row) / CGFloat(todoItems!.count)) - CGFloat(0.05)) {
                 cell.backgroundColor = color
                 cell.textLabel?.textColor = ContrastColorOf(color, returnFlat: true)
                 cell.detailTextLabel?.textColor = ContrastColorOf(color, returnFlat: true)
@@ -98,6 +101,7 @@ class ToDoListViewController: UITableViewController{
         
         return cell
     }
+    
     
     
     
@@ -127,8 +131,6 @@ class ToDoListViewController: UITableViewController{
         
     }
     
-    
-    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         /// Deleting cell
@@ -138,6 +140,16 @@ class ToDoListViewController: UITableViewController{
             
         }
     }
+      /// Alternative editingStyle .delete
+//    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        let deleteButton = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
+//            self.deleteData(indexPath: indexPath)
+//        }
+//
+//        deleteButton.backgroundColor = .red
+//
+//        return [deleteButton]
+//    }
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
        
@@ -245,14 +257,18 @@ class ToDoListViewController: UITableViewController{
         
         if let itemForDeletion = todoItems?[indexPath.row] {
             
+            let notificationCenter = UNUserNotificationCenter.current()
+            notificationCenter.removePendingNotificationRequests(withIdentifiers: ["id_\(itemForDeletion.title) \(String(describing: itemForDeletion.dateCreated))"])
+            
             do {
                 try realm.write {
+                    //print("ITEM WITH IDENTIFIER : id_\(itemForDeletion.title) \(String(describing: itemForDeletion.dateCreated))")
                     realm.delete(itemForDeletion)
                 }
             } catch {
                 print("ERROR DELETING ITEM: \(error)")
             }
-            
+            print("ITEM DELETED")
             tableView.reloadData()
             
         }
@@ -281,7 +297,6 @@ class ToDoListViewController: UITableViewController{
             }
         }
     }
-    
     
     
     
@@ -315,7 +330,7 @@ extension ToDoListViewController: UISearchBarDelegate {
     
     
     
-    //MARK: - LongPress Gesture Configuration for Color Change
+    //MARK: - LongPress Gesture Configuration (Add a New Date Notification)
         
     @objc func longpress(sender: UILongPressGestureRecognizer) {
         
@@ -323,32 +338,54 @@ extension ToDoListViewController: UISearchBarDelegate {
             let touchPoint = sender.location(in: tableView)
             if let indexPath = tableView.indexPathForRow(at: touchPoint) {
                 
+                var dateSet : Date?
+                
                 /// Add date to item
                 let alert = UIAlertController(title: "Date Picker", message: "Select Date", preferredStyle: .alert)
                 alert.addDatePicker(mode: .dateAndTime, date: Date(), minimumDate: nil, maximumDate: nil) { date in
                     
+                    dateSet = date
                     
-                    if let itemDate = self.todoItems?[indexPath.row] {
+                }
+                alert.addAction(title: "OK", style: .default) { alert in
+                    
+                    if let item = self.todoItems?[indexPath.row] {
                         
                         do {
                             try self.realm.write {
-                                itemDate.date = date.dateTimeString(ofStyle: .short)
+                                item.date = dateSet?.dateTimeString(ofStyle: .short)
                             }
                         } catch {
                             print("ERROR ADD DATE TO ITEM: \(error)")
                         }
                         
-                        self.tableView.reloadData()
+                        let content = UNMutableNotificationContent()
+                        content.title = "ToDoList - You have something to do :)"
+                        content.sound = .default
+                        content.body = "YOUR NOTE: \(item.title)"
                         
+                        if let targetDate = dateSet {
+                            let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: targetDate), repeats: false)
+                            
+                            let request = UNNotificationRequest(identifier: "id_\(item.title) \(String(describing: item.dateCreated))", content: content, trigger: trigger)
+                            UNUserNotificationCenter.current().add(request) { (error) in
+                                if error != nil {
+                                    print("ERROR NOTIFICATION REQUEST: \(String(describing: error))")
+                                }
+                                //print("ADD DATE AND NOTIFICATION SUCCESS WITH ID: id_\(item.title) \(String(describing: item.dateCreated))")
+                            }
+                            
+                            self.tableView.reloadData()
+                            
+                            
+                        }
                     }
                     
-                    print(date.dateTimeString(ofStyle: .short))
-                    
                 }
-                alert.addAction(title: "OK", style: .cancel)
+                
                 alert.show()
                 
-                print("Long press Pressed:\(indexPath.row)")
+                print("Long press Pressed:\(indexPath.row) \(String(describing: todoItems?[indexPath.row].title))")
                 
             }
         }
