@@ -114,6 +114,8 @@
 		521E27EE2554DF20003E7071 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E27832554DF20003E7071 /* TextField.swift */; };
 		521E27EF2554DF20003E7071 /* PickerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E27842554DF20003E7071 /* PickerStyle.swift */; };
 		521E27F02554DF20003E7071 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E27852554DF20003E7071 /* Button.swift */; };
+		529A1D3125562EEA00C6CFA3 /* BeginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529A1D3025562EEA00C6CFA3 /* BeginViewController.swift */; };
+		529A1D33255633CD00C6CFA3 /* checklist.json in Resources */ = {isa = PBXBuildFile; fileRef = 529A1D32255633CC00C6CFA3 /* checklist.json */; };
 		529B572C254D8FFC006EB720 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B572B254D8FFC006EB720 /* AppDelegate.swift */; };
 		529B5730254D8FFC006EB720 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B572F254D8FFC006EB720 /* ToDoListViewController.swift */; };
 		529B5733254D8FFC006EB720 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 529B5731254D8FFC006EB720 /* Main.storyboard */; };
@@ -235,6 +237,8 @@
 		521E27832554DF20003E7071 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		521E27842554DF20003E7071 /* PickerStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerStyle.swift; sourceTree = "<group>"; };
 		521E27852554DF20003E7071 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		529A1D3025562EEA00C6CFA3 /* BeginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginViewController.swift; sourceTree = "<group>"; };
+		529A1D32255633CC00C6CFA3 /* checklist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = checklist.json; sourceTree = "<group>"; };
 		529B5728254D8FFB006EB720 /* ToDoListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		529B572B254D8FFC006EB720 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		529B572F254D8FFC006EB720 /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
@@ -682,6 +686,7 @@
 		52FB2FA7254F668B00984584 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				529A1D3025562EEA00C6CFA3 /* BeginViewController.swift */,
 				52F028002550E144007FFE20 /* CategoryViewController.swift */,
 				529B572F254D8FFC006EB720 /* ToDoListViewController.swift */,
 			);
@@ -699,6 +704,7 @@
 		52FB2FAA254F675D00984584 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				529A1D32255633CC00C6CFA3 /* checklist.json */,
 				529B5734254D9009006EB720 /* Assets.xcassets */,
 				529B5736254D9009006EB720 /* LaunchScreen.storyboard */,
 				529B5739254D9009006EB720 /* Info.plist */,
@@ -776,6 +782,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				529A1D33255633CD00C6CFA3 /* checklist.json in Resources */,
 				521E27C42554DF20003E7071 /* Countries.bundle in Resources */,
 				529B5738254D9009006EB720 /* LaunchScreen.storyboard in Resources */,
 				529B5735254D9009006EB720 /* Assets.xcassets in Resources */,
@@ -893,6 +900,7 @@
 				521E27A52554DF20003E7071 /* ThumbnailCell.swift in Sources */,
 				521E27DE2554DF20003E7071 /* AssetsCollection+ChangesObserver.swift in Sources */,
 				521E27AA2554DF20003E7071 /* PickerCustomizableButton.swift in Sources */,
+				529A1D3125562EEA00C6CFA3 /* BeginViewController.swift in Sources */,
 				521E27C32554DF20003E7071 /* TextViewController.swift in Sources */,
 				521E27DA2554DF20003E7071 /* DatePickerViewController.swift in Sources */,
 				521E27E52554DF20003E7071 /* CollectionViewCameraCell.swift in Sources */,

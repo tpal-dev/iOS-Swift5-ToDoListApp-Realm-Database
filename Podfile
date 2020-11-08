@@ -9,6 +9,6 @@ target 'ToDoListApp' do
 
 pod 'RealmSwift'
 pod 'ChameleonFramework/Swift', :git => 'https://github.com/wowansm/Chameleon.git', :branch => 'swift5'
-
+pod 'lottie-ios'
 
 end

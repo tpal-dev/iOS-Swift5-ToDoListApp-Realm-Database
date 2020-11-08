@@ -2,6 +2,7 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
+  - lottie-ios (3.1.9)
   - Realm (10.1.1):
     - Realm/Headers (= 10.1.1)
   - Realm/Headers (10.1.1)
@@ -10,10 +11,12 @@ PODS:
 
 DEPENDENCIES:
   - ChameleonFramework/Swift (from `https://github.com/wowansm/Chameleon.git`, branch `swift5`)
+  - lottie-ios
   - RealmSwift
 
 SPEC REPOS:
   trunk:
+    - lottie-ios
     - Realm
     - RealmSwift
 
@@ -29,9 +32,10 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
   Realm: 784ca1da1453e31a9c9adc14445421a81f316119
   RealmSwift: cc52fe0dcea56387274dff36e19219e055a3bb84
 
-PODFILE CHECKSUM: a73435e4a33bdea4edc07001de9544c80c85aebc
+PODFILE CHECKSUM: e50ddd937413a90efb296523fd42011bd6b4783f
 
 COCOAPODS: 1.10.0

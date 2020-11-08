@@ -13,28 +13,38 @@ import ChameleonFramework
 
 class CategoryViewController: UITableViewController {
     
+    let defaults = UserDefaults.standard
+    
     let realm = try! Realm()
     
     var categories: Results<Category>?
+    
     
     override func viewDidLoad() {
         print("LAUNCHED: viewDidLoad(CategoryListView)")
         super.viewDidLoad()
         
+        if defaults.value(forKey: "FirstLaunch") as? Bool ?? true == true {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                     let newViewController = storyBoard.instantiateViewController(withIdentifier: "BeginViewController") as! BeginViewController
+        newViewController.modalPresentationStyle = .fullScreen
+        newViewController.modalTransitionStyle = .partialCurl
+                        self.navigationController?.present(newViewController, animated: true, completion: nil)
+           
+        }
+        
         loadCategories()
         
+        /// Request to use PUSH Notification
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (success, error) in
             if success {
-                print("USER NOTIFICATION SUCCESS")
+                print("USER PUSH NOTIFICATION SUCCESS")
             } else if let error = error {
                 print("Error USER NOTIFICATION : \(error)")
             }
         }
         
-        
-        tableView.separatorStyle = .none
-        tableView.rowHeight = 60
-        
+      
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longpress))
         tableView.addGestureRecognizer(longPress)
         
@@ -124,7 +134,6 @@ class CategoryViewController: UITableViewController {
     
     func save(category: Category) {
         
-        // Save data in context (CoreData)
         do {
             try realm.write {
                 realm.add(category)
@@ -229,7 +238,7 @@ class CategoryViewController: UITableViewController {
                     
                     if let categoryColor = self.categories?[indexPath.row] {
                         
-                        // update row color
+                        /// Update row color
                         do {
                             try self.realm.write {
 

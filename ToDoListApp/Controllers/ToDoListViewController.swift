@@ -307,7 +307,7 @@ class ToDoListViewController: UITableViewController{
 extension ToDoListViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
+        searchBar.resignFirstResponder()
     }
     
     
@@ -370,7 +370,7 @@ extension ToDoListViewController: UISearchBarDelegate {
                             let request = UNNotificationRequest(identifier: "id_\(item.title) \(String(describing: item.dateCreated))", content: content, trigger: trigger)
                             UNUserNotificationCenter.current().add(request) { (error) in
                                 if error != nil {
-                                    print("ERROR NOTIFICATION REQUEST: \(String(describing: error))")
+                                    print("ERROR PUSH NOTIFICATION REQUEST: \(String(describing: error))")
                                 }
                                 //print("ADD DATE AND NOTIFICATION SUCCESS WITH ID: id_\(item.title) \(String(describing: item.dateCreated))")
                             }

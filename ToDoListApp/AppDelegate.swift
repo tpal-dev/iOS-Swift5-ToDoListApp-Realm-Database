@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    
         // MARK: - Realm Database Config
         
-        print(Realm.Configuration.defaultConfiguration.fileURL)
+        //print(Realm.Configuration.defaultConfiguration.fileURL)
         do {
             _ = try Realm()
         }catch {

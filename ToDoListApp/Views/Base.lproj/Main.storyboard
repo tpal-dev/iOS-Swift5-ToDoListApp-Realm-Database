@@ -48,6 +48,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="tintColor" red="0.71203312760000004" green="1" blue="0.55328803240000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="contentStretch" x="0.10000000000000001" y="0.10000000000000001" width="1" height="1"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -75,13 +76,44 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Zu-OD-4Tj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1977" y="51"/>
+            <point key="canvasLocation" x="1976.8115942028987" y="50.892857142857139"/>
+        </scene>
+        <!--Begin View Controller-->
+        <scene sceneID="h4o-1l-JzU">
+            <objects>
+                <viewController storyboardIdentifier="BeginViewController" id="ZMM-Xf-bR0" customClass="BeginViewController" customModule="ToDoListApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="s9S-pj-qUr"/>
+                        <viewControllerLayoutGuide type="bottom" id="zoN-1V-nLL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kue-zY-ada">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="reT-zB-zOC">
+                                <rect key="frame" x="0.0" y="688" width="414" height="208"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="NXF-ri-HnK"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="euO-g6-exa"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="reT-zB-zOC" id="Kr6-j5-Jwn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Ma-kt-GB7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-764" y="52"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="roe-rr-sl6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Bfe-Cj-4V5" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="O9g-ul-V9A"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="aPT-Y5-0ol">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -101,12 +133,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="THF-ey-kIa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="319" y="52"/>
+            <point key="canvasLocation" x="174" y="52"/>
         </scene>
         <!--Category-->
         <scene sceneID="hTK-cZ-q5r">
             <objects>
-                <tableViewController id="sPt-kG-M6u" customClass="CategoryViewController" customModule="ToDoListApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CategoryViewController" id="sPt-kG-M6u" customClass="CategoryViewController" customModule="ToDoListApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3eM-0N-eAk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -190,7 +222,7 @@
                                         <rect key="frame" x="0.0" y="258" width="350" height="148"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgS-mX-RGo" customClass="GradientSlider" customModule="ToDoListApp" customModuleProvider="target">
-                                                <rect key="frame" x="-2" y="-4" width="354" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="4WT-wU-XLS"/>
                                                 </constraints>
@@ -210,7 +242,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UE4-DO-Sv8" customClass="GradientSlider" customModule="ToDoListApp" customModuleProvider="target">
-                                                <rect key="frame" x="-2" y="52" width="354" height="44"/>
+                                                <rect key="frame" x="0.0" y="56" width="350" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="FO6-TN-84a"/>
                                                 </constraints>
@@ -231,7 +263,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D4q-t9-dA5" customClass="GradientSlider" customModule="ToDoListApp" customModuleProvider="target">
-                                                <rect key="frame" x="-2" y="108" width="354" height="44"/>
+                                                <rect key="frame" x="0.0" y="112" width="350" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="ymJ-hy-vd9"/>
                                                 </constraints>
