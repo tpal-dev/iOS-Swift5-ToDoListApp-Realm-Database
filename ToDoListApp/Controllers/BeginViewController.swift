@@ -17,7 +17,7 @@ class BeginViewController: UIViewController, UIScrollViewDelegate {
 
     var animationView: AnimationView?
     
-    let stringArray = [ "Welcome to do list\n\nSwipe to begin\n→", "First tip:\n\nLongPress Category Cell\nto Change Color\n", "Second tip:\n\nLongPress Item Cell\nto set Reminder\n"]
+    let stringArray = [ "Welcome\n\nSwipe to begin\n ͢", "First tip:\n\nLongPress Category Cell\nto Change Color\n", "Second tip:\n\nLongPress Item Cell\nto set Reminder\n"]
     
     
     
@@ -43,7 +43,7 @@ class BeginViewController: UIViewController, UIScrollViewDelegate {
                                             width: 160,
                                             height: 80))
         button.setTitle("Let's start", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Noteworthy-Bold", size: 25)
+        button.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 25)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         button.layer.cornerRadius = button.frame.height / 2
@@ -55,12 +55,12 @@ class BeginViewController: UIViewController, UIScrollViewDelegate {
         scrollView.addSubview(button)
         
         for i in 0..<stringArray.count {
-            let label = UILabel(frame: CGRect(x: scrollView.center.x + CGFloat(i) * self.view.frame.size.width - 140,
+            let label = UILabel(frame: CGRect(x: scrollView.center.x + CGFloat(i) * self.view.frame.size.width - 150,
                                               y: 10,
-                                              width: 280,
+                                              width: 300,
                                               height: 170))
 
-            label.font = UIFont(name: "Noteworthy-Bold", size: 25)
+            label.font = UIFont(name: "HelveticaNeue-Bold", size: 25)
             label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             label.lineBreakMode = .byWordWrapping
             label.numberOfLines = 0

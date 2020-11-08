@@ -20,6 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("LAUNCHED: didFinishLaunchingWithOptions - APP GETS LOADED UP, BEFORE INITIAL VIEW")
         // Override point for customization after application launch. /before viewDidLoad
    
+        for family: String in UIFont.familyNames.sorted() {
+            print("\(family)")
+            for names: String in UIFont.fontNames(forFamilyName: family) {
+                print("== \(names)")
+            }
+        }
+        
+        
         // MARK: - Realm Database Config
         
         //print(Realm.Configuration.defaultConfiguration.fileURL)

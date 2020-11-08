@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import EventKit
 import RealmSwift
 import ChameleonFramework
 
@@ -18,6 +19,7 @@ class ToDoListViewController: UITableViewController{
     @IBOutlet weak var searchBar: UISearchBar!
     
     let realm = try! Realm()
+    
     
     /// Property sended from CategoryViewController by segue
     var selectedCategory : Category? {
@@ -81,7 +83,7 @@ class ToDoListViewController: UITableViewController{
             
             /// Set text in row
             cell.textLabel?.text = item.title
-            cell.detailTextLabel?.text = item.date
+            cell.detailTextLabel?.text = item.dateReminder
             cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 9)
             
             if let color = UIColor(hexString: selectedCategory!.color)?.darken(byPercentage: (CGFloat(indexPath.row) / CGFloat(todoItems!.count)) - CGFloat(0.05)) {
@@ -353,14 +355,15 @@ extension ToDoListViewController: UISearchBarDelegate {
                         
                         do {
                             try self.realm.write {
-                                item.date = dateSet?.dateTimeString(ofStyle: .short)
+                                item.dateReminder = dateSet?.dateTimeString(ofStyle: .short)
                             }
                         } catch {
                             print("ERROR ADD DATE TO ITEM: \(error)")
                         }
                         
+                        
                         let content = UNMutableNotificationContent()
-                        content.title = "ToDoList - You have something to do :)"
+                        content.title = "TO DO LIST - You have something to do :)"
                         content.sound = .default
                         content.body = "YOUR NOTE: \(item.title)"
                         
@@ -371,18 +374,39 @@ extension ToDoListViewController: UISearchBarDelegate {
                             UNUserNotificationCenter.current().add(request) { (error) in
                                 if error != nil {
                                     print("ERROR PUSH NOTIFICATION REQUEST: \(String(describing: error))")
+                                    
                                 }
-                                //print("ADD DATE AND NOTIFICATION SUCCESS WITH ID: id_\(item.title) \(String(describing: item.dateCreated))")
+                               
                             }
                             
-                            self.tableView.reloadData()
+                            let eventStore = EKEventStore()
                             
+                            let event:EKEvent = EKEvent(eventStore: eventStore)
+                            let startDate = targetDate
+                            let endDate = startDate.addingTimeInterval(1 * 60 * 60)
+                            
+                            event.title = item.title
+                            event.startDate = startDate
+                            event.endDate = endDate
+                            event.notes = "Created by TO DO LIST CALENDAR"
+                            event.calendar = eventStore.defaultCalendarForNewEvents
+                            do {
+                                try eventStore.save(event, span: .thisEvent)
+                                try self.realm.write { item.eventID = event.eventIdentifier }
+                            } catch let error as NSError {
+                                print("FAILED TO SAVE EVENT WITH ERROR : \(error)")
+                            }
+                            print("EVENT SAVED with ID: \(event.eventIdentifier ?? "error ID")")
                             
                         }
+   
+                        self.tableView.reloadData()
+                                              
                     }
                     
                 }
                 
+                alert.addAction(title: "Cancel", style: .cancel)
                 alert.show()
                 
                 print("Long press Pressed:\(indexPath.row) \(String(describing: todoItems?[indexPath.row].title))")

@@ -8,12 +8,15 @@
 
 import UIKit
 import UserNotifications
+import EventKit
 import RealmSwift
 import ChameleonFramework
 
 class CategoryViewController: UITableViewController {
     
     let defaults = UserDefaults.standard
+    
+    
     
     let realm = try! Realm()
     
@@ -44,11 +47,35 @@ class CategoryViewController: UITableViewController {
             }
         }
         
-      
+        let eventStore = EKEventStore()
+        
+        switch EKEventStore.authorizationStatus(for: .event) {
+        case .authorized:
+            print("CALENDAR AUTHORIZED")
+            //insertEvent(store: eventStore)
+        case .denied:
+            print("CALENDAR ACCESS DENIED")
+        case .notDetermined:
+            // 3
+            eventStore.requestAccess(to: .event, completion:
+                {(granted: Bool, error: Error?) -> Void in
+                    if granted {
+                        print("CALENDAR GRANTED")
+                        //self!.insertEvent(store: eventStore)
+                    } else {
+                        print("CALENDAR ACCESS DENIED")
+                    }
+            })
+        default:
+            print("CALENDAR CASE DEFAULT")
+        }
+        
+        
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longpress))
         tableView.addGestureRecognizer(longPress)
         
     }
+    
     
 
     
