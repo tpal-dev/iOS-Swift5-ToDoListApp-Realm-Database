@@ -20,6 +20,8 @@ class ToDoListViewController: UITableViewController{
     
     let realm = try! Realm()
     
+    let eventStore = EKEventStore()
+    
     
     /// Property sended from CategoryViewController by segue
     var selectedCategory : Category? {
@@ -40,7 +42,7 @@ class ToDoListViewController: UITableViewController{
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longpress))
-               tableView.addGestureRecognizer(longPress)
+        tableView.addGestureRecognizer(longPress)
         
     }
     
@@ -53,7 +55,7 @@ class ToDoListViewController: UITableViewController{
     }
     
     
-   
+    
     
     //MARK: - TableView DataSource Methods
     
@@ -71,7 +73,7 @@ class ToDoListViewController: UITableViewController{
         
         /// Set cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
-    
+        
         cell.accessoryView = imageView
         cell.textLabel?.numberOfLines = 0
         cell.selectionStyle = .none
@@ -142,19 +144,19 @@ class ToDoListViewController: UITableViewController{
             
         }
     }
-      /// Alternative editingStyle .delete
-//    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//        let deleteButton = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
-//            self.deleteData(indexPath: indexPath)
-//        }
-//
-//        deleteButton.backgroundColor = .red
-//
-//        return [deleteButton]
-//    }
+    /// Alternative editingStyle .delete
+    //    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    //        let deleteButton = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
+    //            self.deleteData(indexPath: indexPath)
+    //        }
+    //
+    //        deleteButton.backgroundColor = .red
+    //
+    //        return [deleteButton]
+    //    }
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-       
+        
         
         /// Drag and Drop
         if let item = todoItems?[sourceIndexPath.row] {
@@ -171,16 +173,16 @@ class ToDoListViewController: UITableViewController{
                 print("ERROR SAVING DONE STATUS: \(error)")
             }
         }
-    
-         tableView.reloadData()
+        
+        tableView.reloadData()
         
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-          return true
-      }
-
-
+        return true
+    }
+    
+    
     
     //MARK: - Add New Items
     
@@ -208,7 +210,7 @@ class ToDoListViewController: UITableViewController{
                         let newItem = Item()
                         newItem.title = textField.text!
                         newItem.dateCreated = Date()
-            
+                        
                         
                         guard newItem.title != "" else{
                             let alert = UIAlertController(title: "Text field is empty", message: "You have to type something here", preferredStyle: .alert)
@@ -257,21 +259,34 @@ class ToDoListViewController: UITableViewController{
     
     func deleteData(indexPath: IndexPath) {
         
-        if let itemForDeletion = todoItems?[indexPath.row] {
+        
+        if let itemForDeletion = self.todoItems?[indexPath.row] {
             
             let notificationCenter = UNUserNotificationCenter.current()
             notificationCenter.removePendingNotificationRequests(withIdentifiers: ["id_\(itemForDeletion.title) \(String(describing: itemForDeletion.dateCreated))"])
             
+            
+            if let eventID = itemForDeletion.eventID {
+                if let event = self.eventStore.event(withIdentifier: eventID) {
+                    do {
+                        try self.eventStore.remove(event, span: .thisEvent)
+                    } catch let error as NSError {
+                        print("FAILED TO SAVE EVENT WITH ERROR : \(error)")
+                    }
+                }
+            }
+            
+            
             do {
-                try realm.write {
-                    //print("ITEM WITH IDENTIFIER : id_\(itemForDeletion.title) \(String(describing: itemForDeletion.dateCreated))")
-                    realm.delete(itemForDeletion)
+                try self.realm.write {
+                    print("ITEM WITH IDENTIFIER : id_\(itemForDeletion.title) \(String(describing: itemForDeletion.dateCreated)) CalendarID: \(itemForDeletion.eventID ?? "no ID")")
+                    self.realm.delete(itemForDeletion)
                 }
             } catch {
                 print("ERROR DELETING ITEM: \(error)")
             }
             print("ITEM DELETED")
-            tableView.reloadData()
+            self.tableView.reloadData()
             
         }
         
@@ -333,7 +348,7 @@ extension ToDoListViewController: UISearchBarDelegate {
     
     
     //MARK: - LongPress Gesture Configuration (Add a New Date Notification)
-        
+    
     @objc func longpress(sender: UILongPressGestureRecognizer) {
         
         if sender.state == UIGestureRecognizer.State.began {
@@ -361,7 +376,7 @@ extension ToDoListViewController: UISearchBarDelegate {
                             print("ERROR ADD DATE TO ITEM: \(error)")
                         }
                         
-                        
+                        /// Create a new PUSH Notification
                         let content = UNMutableNotificationContent()
                         content.title = "TO DO LIST - You have something to do :)"
                         content.sound = .default
@@ -376,32 +391,48 @@ extension ToDoListViewController: UISearchBarDelegate {
                                     print("ERROR PUSH NOTIFICATION REQUEST: \(String(describing: error))")
                                     
                                 }
-                               
                             }
                             
-                            let eventStore = EKEventStore()
-                            
-                            let event:EKEvent = EKEvent(eventStore: eventStore)
-                            let startDate = targetDate
-                            let endDate = startDate.addingTimeInterval(1 * 60 * 60)
-                            
-                            event.title = item.title
-                            event.startDate = startDate
-                            event.endDate = endDate
-                            event.notes = "Created by TO DO LIST CALENDAR"
-                            event.calendar = eventStore.defaultCalendarForNewEvents
-                            do {
-                                try eventStore.save(event, span: .thisEvent)
-                                try self.realm.write { item.eventID = event.eventIdentifier }
-                            } catch let error as NSError {
-                                print("FAILED TO SAVE EVENT WITH ERROR : \(error)")
+                            DispatchQueue.main.async {
+                                
+                                /// Check if item has already event created. If true delete event
+                                if let eventID = item.eventID {
+                                    if let event = self.eventStore.event(withIdentifier: eventID) {
+                                        do {
+                                            try self.eventStore.remove(event, span: .thisEvent)
+                                        } catch let error as NSError {
+                                            print("FAILED TO SAVE EVENT WITH ERROR : \(error)")
+                                        }
+                                    }
+                                }
+                                
+                                /// Create new event
+                                let event:EKEvent = EKEvent(eventStore: self.eventStore)
+                                let startDate = targetDate
+                                let endDate = startDate.addingTimeInterval(1 * 60 * 60)
+                                let alarm = EKAlarm(relativeOffset: 0)
+                                let alarm1H = EKAlarm(relativeOffset: -3600)
+                                
+                                event.title = item.title
+                                event.startDate = startDate
+                                event.endDate = endDate
+                                event.notes = "Created by TO DO LIST CALENDAR"
+                                event.addAlarm(alarm)
+                                event.addAlarm(alarm1H)
+                                event.calendar = self.eventStore.defaultCalendarForNewEvents
+                                do {
+                                    try self.eventStore.save(event, span: .thisEvent)
+                                    try self.realm.write { item.eventID = event.eventIdentifier }
+                                } catch let error as NSError {
+                                    print("FAILED TO SAVE EVENT WITH ERROR : \(error)")
+                                }
+                                print("EVENT SAVED with ID: \(event.eventIdentifier ?? "error ID")")
                             }
-                            print("EVENT SAVED with ID: \(event.eventIdentifier ?? "error ID")")
                             
                         }
-   
+                        
                         self.tableView.reloadData()
-                                              
+                        
                     }
                     
                 }

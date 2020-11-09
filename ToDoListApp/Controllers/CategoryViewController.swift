@@ -27,17 +27,16 @@ class CategoryViewController: UITableViewController {
         print("LAUNCHED: viewDidLoad(CategoryListView)")
         super.viewDidLoad()
         
+        
+        /// Check first launch. If true then show BeginViewController
         if defaults.value(forKey: "FirstLaunch") as? Bool ?? true == true {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                      let newViewController = storyBoard.instantiateViewController(withIdentifier: "BeginViewController") as! BeginViewController
         newViewController.modalPresentationStyle = .fullScreen
         newViewController.modalTransitionStyle = .partialCurl
                         self.navigationController?.present(newViewController, animated: true, completion: nil)
-           
         }
-        
-        loadCategories()
-        
+    
         /// Request to use PUSH Notification
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (success, error) in
             if success {
@@ -47,6 +46,7 @@ class CategoryViewController: UITableViewController {
             }
         }
         
+        /// Request to use Calendar
         let eventStore = EKEventStore()
         
         switch EKEventStore.authorizationStatus(for: .event) {
@@ -70,6 +70,11 @@ class CategoryViewController: UITableViewController {
             print("CALENDAR CASE DEFAULT")
         }
         
+        
+        tableView.separatorStyle = .none
+        tableView.rowHeight = 60
+        
+        loadCategories()
         
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longpress))
         tableView.addGestureRecognizer(longPress)
