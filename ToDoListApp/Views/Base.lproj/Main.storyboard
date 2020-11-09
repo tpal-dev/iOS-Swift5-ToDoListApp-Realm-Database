@@ -135,10 +135,10 @@
             </objects>
             <point key="canvasLocation" x="174" y="52"/>
         </scene>
-        <!--Category-->
+        <!--Category View Controller-->
         <scene sceneID="hTK-cZ-q5r">
             <objects>
-                <tableViewController storyboardIdentifier="CategoryViewController" id="sPt-kG-M6u" customClass="CategoryViewController" customModule="ToDoListApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CategoryViewController" id="sPt-kG-M6u" userLabel="Category View Controller" customClass="CategoryViewController" customModule="ToDoListApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3eM-0N-eAk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -222,7 +222,7 @@
                                         <rect key="frame" x="0.0" y="258" width="350" height="148"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgS-mX-RGo" customClass="GradientSlider" customModule="ToDoListApp" customModuleProvider="target">
-                                                <rect key="frame" x="-2" y="-4" width="354" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="4WT-wU-XLS"/>
                                                 </constraints>
@@ -242,7 +242,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UE4-DO-Sv8" customClass="GradientSlider" customModule="ToDoListApp" customModuleProvider="target">
-                                                <rect key="frame" x="-2" y="52" width="354" height="44"/>
+                                                <rect key="frame" x="0.0" y="56" width="350" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="FO6-TN-84a"/>
                                                 </constraints>
@@ -263,7 +263,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D4q-t9-dA5" customClass="GradientSlider" customModule="ToDoListApp" customModuleProvider="target">
-                                                <rect key="frame" x="-2" y="108" width="354" height="44"/>
+                                                <rect key="frame" x="0.0" y="112" width="350" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="ymJ-hy-vd9"/>
                                                 </constraints>
@@ -311,6 +311,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0bd-Py-fSX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1087" y="777"/>
+        </scene>
+        <!--Options View Controller-->
+        <scene sceneID="CPB-gT-fw9">
+            <objects>
+                <viewController storyboardIdentifier="OptionsViewController" id="KWe-e9-ZaD" customClass="OptionsViewController" customModule="ToDoListApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7tc-Zr-kpW"/>
+                        <viewControllerLayoutGuide type="bottom" id="YjQ-Ji-OB3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YXb-89-e3D">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TST-sc-FCL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1977" y="777"/>
         </scene>
     </scenes>
 </document>

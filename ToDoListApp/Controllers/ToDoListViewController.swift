@@ -31,7 +31,7 @@ class ToDoListViewController: UITableViewController{
     }
     
     override func viewDidLoad() {
-        print("LAUNCHED: viewDidLoad(ToDoListView)")
+        //print("LAUNCHED: viewDidLoad(ToDoListView)")
         super.viewDidLoad()
         
         loadItems()
@@ -47,7 +47,7 @@ class ToDoListViewController: UITableViewController{
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("LAUNCHED: viewWillAppear(ToDoListView)")
+        //print("LAUNCHED: viewWillAppear(ToDoListView)")
         super.viewWillAppear(animated)
         
         viewSetUp()
@@ -280,13 +280,13 @@ class ToDoListViewController: UITableViewController{
             
             do {
                 try self.realm.write {
-                    print("ITEM WITH IDENTIFIER : id_\(item.title) \(String(describing: item.dateCreated)) CalendarID: \(item.eventID ?? "no ID")")
+                    //print("ITEM WITH IDENTIFIER : id_\(item.title) \(String(describing: item.dateCreated)) CalendarID: \(item.eventID ?? "no ID")")
                     self.realm.delete(item)
                 }
             } catch {
                 print("ERROR DELETING ITEM: \(error)")
             }
-            print("ITEM DELETED")
+            //print("ITEM DELETED")
             self.tableView.reloadData()
             
         }
@@ -381,7 +381,7 @@ extension ToDoListViewController: UISearchBarDelegate {
                         if item.dateCreated != nil {
                             let notificationCenter = UNUserNotificationCenter.current()
                             notificationCenter.removePendingNotificationRequests(withIdentifiers: ["id_\(item.title)-\(String(describing: item.dateCreated))"])
-                            print("Old PUSH Notification date DELETED")
+                            //print("Old PUSH Notification date DELETED")
                             
                         }
                         
@@ -420,7 +420,7 @@ extension ToDoListViewController: UISearchBarDelegate {
                                 let event:EKEvent = EKEvent(eventStore: self.eventStore)
                                 let startDate = targetDate
                                 let endDate = startDate.addingTimeInterval(1 * 60 * 60)
-                                let alarm = EKAlarm(relativeOffset: 300)
+                                let alarm = EKAlarm(relativeOffset: -300)
                                 let alarm1H = EKAlarm(relativeOffset: -3600)
                                 
                                 event.title = item.title
@@ -436,7 +436,7 @@ extension ToDoListViewController: UISearchBarDelegate {
                                 } catch let error as NSError {
                                     print("FAILED TO SAVE EVENT WITH ERROR : \(error)")
                                 }
-                                print("EVENT SAVED with ID: \(event.eventIdentifier ?? "error ID")")
+                                //print("EVENT SAVED with ID: \(event.eventIdentifier ?? "error ID")")
                             }
                             
                         }

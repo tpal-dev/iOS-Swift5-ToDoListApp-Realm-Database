@@ -24,7 +24,7 @@ class CategoryViewController: UITableViewController {
     
     
     override func viewDidLoad() {
-        print("LAUNCHED: viewDidLoad(CategoryListView)")
+        //print("LAUNCHED: viewDidLoad(CategoryListView)")
         super.viewDidLoad()
         
         
@@ -50,16 +50,13 @@ class CategoryViewController: UITableViewController {
         switch EKEventStore.authorizationStatus(for: .event) {
         case .authorized:
             print("CALENDAR AUTHORIZED")
-            //insertEvent(store: eventStore)
         case .denied:
             print("CALENDAR ACCESS DENIED")
         case .notDetermined:
-            // 3
             eventStore.requestAccess(to: .event, completion:
                 {(granted: Bool, error: Error?) -> Void in
                     if granted {
                         print("CALENDAR GRANTED")
-                        //self!.insertEvent(store: eventStore)
                     } else {
                         print("CALENDAR ACCESS DENIED")
                     }
@@ -77,8 +74,14 @@ class CategoryViewController: UITableViewController {
         tableView.separatorStyle = .none
         tableView.rowHeight = 60
         
+       navigationItem.leftBarButtonItem = UIBarButtonItem.optionsButton(self, action: #selector(optionsButtonPressed), imageName: "options")
+        
+        
     }
     
+    @objc func optionsButtonPressed() {
+          print("Menu button pressed")
+      }
     
     
     //MARK: - TableView DataSource Methods
@@ -105,9 +108,9 @@ class CategoryViewController: UITableViewController {
             /// Cell text color
             cell.textLabel?.textColor = ContrastColorOf(categoryColor, returnFlat: true)
         }
-        
-        
+    
         return cell
+        
     }
     
     
@@ -291,13 +294,13 @@ class CategoryViewController: UITableViewController {
 
                     self.tableView.reloadData()
 
-                    print(color.hexValue())
+                    //print(color.hexValue())
 
                 }
                 alert.addAction(title: "Cancel", style: .cancel)
                 alert.show()
 
-                print("Long press Pressed:\(indexPath.row)")
+                //print("Long press Pressed:\(indexPath.row)")
             }
         }
 
@@ -305,4 +308,20 @@ class CategoryViewController: UITableViewController {
     
     
     
+}
+
+extension UIBarButtonItem {
+
+    static func optionsButton(_ target: Any?, action: Selector, imageName: String) -> UIBarButtonItem {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: imageName), for: .normal)
+        button.addTarget(target, action: action, for: .touchUpInside)
+
+        let menuBarItem = UIBarButtonItem(customView: button)
+        menuBarItem.customView?.translatesAutoresizingMaskIntoConstraints = false
+        menuBarItem.customView?.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        menuBarItem.customView?.widthAnchor.constraint(equalToConstant: 24).isActive = true
+
+        return menuBarItem
+    }
 }
