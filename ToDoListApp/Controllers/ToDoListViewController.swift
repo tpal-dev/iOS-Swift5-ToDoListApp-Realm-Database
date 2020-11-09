@@ -271,7 +271,7 @@ class ToDoListViewController: UITableViewController{
                     do {
                         try self.eventStore.remove(event, span: .thisEvent)
                     } catch let error as NSError {
-                        print("FAILED TO SAVE EVENT WITH ERROR : \(error)")
+                        print("ERROR DELETING EVENT: \(error)")
                     }
                 }
             }

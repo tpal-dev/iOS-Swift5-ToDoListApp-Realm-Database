@@ -16,7 +16,7 @@ class CategoryViewController: UITableViewController {
     
     let defaults = UserDefaults.standard
     
-    
+    let eventStore = EKEventStore()
     
     let realm = try! Realm()
     
@@ -47,8 +47,6 @@ class CategoryViewController: UITableViewController {
         }
         
         /// Request to use Calendar
-        let eventStore = EKEventStore()
-        
         switch EKEventStore.authorizationStatus(for: .event) {
         case .authorized:
             print("CALENDAR AUTHORIZED")
@@ -186,6 +184,25 @@ class CategoryViewController: UITableViewController {
     func deleteData(at indexPath: IndexPath) {
         
         if let categoriesForDeletion = categories?[indexPath.row] {
+            
+            /// Delete all Calendar Events and PUSH Notifications in Category Folder
+            for item in categoriesForDeletion.items {
+                
+                let notificationCenter = UNUserNotificationCenter.current()
+                notificationCenter.removePendingNotificationRequests(withIdentifiers: ["id_\(item.title) \(String(describing: item.dateCreated))"])
+                
+                
+                if let eventID = item.eventID {
+                    if let event = self.eventStore.event(withIdentifier: eventID) {
+                        do {
+                            try self.eventStore.remove(event, span: .thisEvent)
+                        } catch let error as NSError {
+                            print("FAILED TO DELETE EVENT WITH ERROR : \(error)")
+                        }
+                    }
+                }
+                
+            }
             
             /// Delete selected data
             do {
