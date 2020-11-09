@@ -114,6 +114,7 @@
 		521E27EE2554DF20003E7071 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E27832554DF20003E7071 /* TextField.swift */; };
 		521E27EF2554DF20003E7071 /* PickerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E27842554DF20003E7071 /* PickerStyle.swift */; };
 		521E27F02554DF20003E7071 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E27852554DF20003E7071 /* Button.swift */; };
+		5258BA632558D1B300A5C1FB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258BA622558D1B300A5C1FB /* Constants.swift */; };
 		529A1D3125562EEA00C6CFA3 /* BeginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529A1D3025562EEA00C6CFA3 /* BeginViewController.swift */; };
 		529A1D33255633CD00C6CFA3 /* checklist.json in Resources */ = {isa = PBXBuildFile; fileRef = 529A1D32255633CC00C6CFA3 /* checklist.json */; };
 		529B572C254D8FFC006EB720 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B572B254D8FFC006EB720 /* AppDelegate.swift */; };
@@ -237,6 +238,7 @@
 		521E27832554DF20003E7071 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		521E27842554DF20003E7071 /* PickerStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerStyle.swift; sourceTree = "<group>"; };
 		521E27852554DF20003E7071 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		5258BA622558D1B300A5C1FB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		529A1D3025562EEA00C6CFA3 /* BeginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginViewController.swift; sourceTree = "<group>"; };
 		529A1D32255633CC00C6CFA3 /* checklist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = checklist.json; sourceTree = "<group>"; };
 		529B5728254D8FFB006EB720 /* ToDoListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -665,7 +667,7 @@
 			isa = PBXGroup;
 			children = (
 				529B572B254D8FFC006EB720 /* AppDelegate.swift */,
-				52FB2FA6254F666800984584 /* Data Model */,
+				52FB2FA6254F666800984584 /* Models */,
 				52FB2FA8254F66A800984584 /* Views */,
 				52FB2FA7254F668B00984584 /* Controllers */,
 				52FB2FAA254F675D00984584 /* Supporting Files */,
@@ -674,13 +676,14 @@
 			path = ToDoListApp;
 			sourceTree = "<group>";
 		};
-		52FB2FA6254F666800984584 /* Data Model */ = {
+		52FB2FA6254F666800984584 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				52A653AC255207E200B7570B /* Category.swift */,
 				52A653AA255207D200B7570B /* Item.swift */,
+				5258BA622558D1B300A5C1FB /* Constants.swift */,
 			);
-			path = "Data Model";
+			path = Models;
 			sourceTree = "<group>";
 		};
 		52FB2FA7254F668B00984584 /* Controllers */ = {
@@ -879,6 +882,7 @@
 				521E27D42554DF20003E7071 /* PickerViewViewController.swift in Sources */,
 				521E27D02554DF20003E7071 /* LocationPickerViewController.swift in Sources */,
 				521E27AE2554DF20003E7071 /* CGPoint.swift in Sources */,
+				5258BA632558D1B300A5C1FB /* Constants.swift in Sources */,
 				521E27B52554DF20003E7071 /* UIApplication.swift in Sources */,
 				521E27CC2554DF20003E7071 /* OneTextFieldViewController.swift in Sources */,
 				521E279C2554DF20003E7071 /* GalleryConfiguration.swift in Sources */,

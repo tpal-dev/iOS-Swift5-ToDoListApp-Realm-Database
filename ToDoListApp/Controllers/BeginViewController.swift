@@ -43,7 +43,7 @@ class BeginViewController: UIViewController, UIScrollViewDelegate {
                                             width: 160,
                                             height: 80))
         button.setTitle("Let's start", for: .normal)
-        button.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 25)
+        button.titleLabel?.font = UIFont(name: Fonts.helveticNeueBold, size: 25)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         button.layer.cornerRadius = button.frame.height / 2
@@ -60,7 +60,7 @@ class BeginViewController: UIViewController, UIScrollViewDelegate {
                                               width: 300,
                                               height: 170))
 
-            label.font = UIFont(name: "HelveticaNeue-Bold", size: 25)
+            label.font = UIFont(name: Fonts.helveticNeueBold, size: 25)
             label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             label.lineBreakMode = .byWordWrapping
             label.numberOfLines = 0

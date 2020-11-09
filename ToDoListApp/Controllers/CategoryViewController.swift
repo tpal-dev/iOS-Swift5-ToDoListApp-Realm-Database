@@ -68,24 +68,14 @@ class CategoryViewController: UITableViewController {
             print("CALENDAR CASE DEFAULT")
         }
         
-        
-        tableView.separatorStyle = .none
-        tableView.rowHeight = 60
-        
-        loadCategories()
-        
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longpress))
         tableView.addGestureRecognizer(longPress)
         
-    }
-    
-    
-
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        loadCategories()
         
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        tableView.separatorStyle = .none
+        tableView.rowHeight = 60
         
     }
     
@@ -101,13 +91,13 @@ class CategoryViewController: UITableViewController {
         
         /// Set name of cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
+        cell.textLabel?.numberOfLines = 0
         
         if let category = categories?[indexPath.row] {
             /// Set text in row
             cell.textLabel?.text = category.name
-            cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
-            
-            
+            cell.textLabel?.font = UIFont(name: Fonts.helveticNeueMedium, size: 20)
+
             guard let categoryColor = UIColor(hexString: category.color) else { fatalError() }
             
             /// Cell backgroundColor

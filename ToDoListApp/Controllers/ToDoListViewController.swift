@@ -303,9 +303,9 @@ class ToDoListViewController: UITableViewController{
             
             //guard let navBar = navigationController?.navigationBar else {fatalError("NavigationController does not exist") }
             
-            if let navBarColor = UIColor(hexString: colorHex) {
+            if let customColor = UIColor(hexString: colorHex) {
                 
-                searchBar.barTintColor = navBarColor
+                searchBar.barTintColor = customColor
                 
                 /// Extra options
                 //navBar.barTintColor = navBarColor
@@ -380,7 +380,7 @@ extension ToDoListViewController: UISearchBarDelegate {
                         let content = UNMutableNotificationContent()
                         content.title = "TO DO LIST - You have something to do :)"
                         content.sound = .default
-                        content.body = "YOUR NOTE: \(item.title)"
+                        content.body = "\(item.title)"
                         
                         if let targetDate = dateSet {
                             let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: targetDate), repeats: false)
