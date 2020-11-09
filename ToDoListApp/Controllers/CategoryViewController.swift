@@ -80,7 +80,11 @@ class CategoryViewController: UITableViewController {
     }
     
     @objc func optionsButtonPressed() {
-          print("Menu button pressed")
+       let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                       let newViewController = storyBoard.instantiateViewController(withIdentifier: "OptionsViewController") as! OptionsViewController
+          newViewController.modalPresentationStyle = .fullScreen
+          newViewController.modalTransitionStyle = .partialCurl
+                          self.navigationController?.present(newViewController, animated: true, completion: nil)
       }
     
     

@@ -125,6 +125,7 @@
 		529B5738254D9009006EB720 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 529B5736254D9009006EB720 /* LaunchScreen.storyboard */; };
 		52A653AB255207D200B7570B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A653AA255207D200B7570B /* Item.swift */; };
 		52A653AD255207E200B7570B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A653AC255207E200B7570B /* Category.swift */; };
+		52D025872559EEB2006DF45A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D025862559EEB2006DF45A /* CustomButton.swift */; };
 		52F028012550E144007FFE20 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F028002550E144007FFE20 /* CategoryViewController.swift */; };
 		87C49C9B0B4B318B7CAA1EFF /* Pods_ToDoListApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6D306DF5E7DCA2FABE48ED /* Pods_ToDoListApp.framework */; };
 /* End PBXBuildFile section */
@@ -252,6 +253,7 @@
 		529B5739254D9009006EB720 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52A653AA255207D200B7570B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		52A653AC255207E200B7570B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		52D025862559EEB2006DF45A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		52F028002550E144007FFE20 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		8A6D306DF5E7DCA2FABE48ED /* Pods_ToDoListApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoListApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2DBBA7C9A6547B557F31D4D /* Pods-ToDoListApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListApp.release.xcconfig"; path = "Target Support Files/Pods-ToDoListApp/Pods-ToDoListApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -684,6 +686,7 @@
 				52A653AC255207E200B7570B /* Category.swift */,
 				52A653AA255207D200B7570B /* Item.swift */,
 				5258BA622558D1B300A5C1FB /* Constants.swift */,
+				52D025862559EEB2006DF45A /* CustomButton.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -889,6 +892,7 @@
 				5258BA632558D1B300A5C1FB /* Constants.swift in Sources */,
 				521E27B52554DF20003E7071 /* UIApplication.swift in Sources */,
 				521E27CC2554DF20003E7071 /* OneTextFieldViewController.swift in Sources */,
+				52D025872559EEB2006DF45A /* CustomButton.swift in Sources */,
 				521E279C2554DF20003E7071 /* GalleryConfiguration.swift in Sources */,
 				521E27972554DF20003E7071 /* AVCaptureSession+Extensions.swift in Sources */,
 				521E27DB2554DF20003E7071 /* ImagePickerViewController.swift in Sources */,
