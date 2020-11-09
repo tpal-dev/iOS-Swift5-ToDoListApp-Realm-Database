@@ -178,10 +178,10 @@ class CategoryViewController: UITableViewController {
             /// Delete all Calendar Events and PUSH Notifications in Category Folder
             for item in categoriesForDeletion.items {
                 
-                let notificationCenter = UNUserNotificationCenter.current()
-                notificationCenter.removePendingNotificationRequests(withIdentifiers: ["id_\(item.title) \(String(describing: item.dateCreated))"])
-                
-                
+                if item.dateCreated != nil {
+                    let notificationCenter = UNUserNotificationCenter.current()
+                    notificationCenter.removePendingNotificationRequests(withIdentifiers: ["id_\(item.title)-\(String(describing: item.dateCreated))"])
+                }
                 if let eventID = item.eventID {
                     if let event = self.eventStore.event(withIdentifier: eventID) {
                         do {

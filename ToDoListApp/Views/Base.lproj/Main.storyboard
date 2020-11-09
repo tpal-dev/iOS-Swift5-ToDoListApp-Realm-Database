@@ -97,13 +97,6 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="NXF-ri-HnK"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="euO-g6-exa"/>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4p4-dN-c6P">
-                                <rect key="frame" x="170" y="186" width="165" height="117"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="28"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </view>
@@ -113,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ma-kt-GB7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-765.21739130434787" y="51.5625"/>
+            <point key="canvasLocation" x="174" y="778"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="roe-rr-sl6">
@@ -184,7 +177,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ih3-Dh-vQv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1151" y="51"/>
+            <point key="canvasLocation" x="1087" y="51"/>
         </scene>
         <!--Color Picker View Controller-->
         <scene sceneID="20S-U3-HiA">
@@ -229,7 +222,7 @@
                                         <rect key="frame" x="0.0" y="258" width="350" height="148"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgS-mX-RGo" customClass="GradientSlider" customModule="ToDoListApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="350" height="36"/>
+                                                <rect key="frame" x="-2" y="-4" width="354" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="4WT-wU-XLS"/>
                                                 </constraints>
@@ -249,7 +242,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UE4-DO-Sv8" customClass="GradientSlider" customModule="ToDoListApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="56" width="350" height="36"/>
+                                                <rect key="frame" x="-2" y="52" width="354" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="FO6-TN-84a"/>
                                                 </constraints>
@@ -270,7 +263,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D4q-t9-dA5" customClass="GradientSlider" customModule="ToDoListApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="112" width="350" height="36"/>
+                                                <rect key="frame" x="-2" y="108" width="354" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="ymJ-hy-vd9"/>
                                                 </constraints>
@@ -317,7 +310,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0bd-Py-fSX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2775" y="52"/>
+            <point key="canvasLocation" x="1087" y="777"/>
         </scene>
     </scenes>
 </document>

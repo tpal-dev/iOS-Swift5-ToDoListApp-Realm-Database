@@ -260,13 +260,14 @@ class ToDoListViewController: UITableViewController{
     func deleteData(indexPath: IndexPath) {
         
         
-        if let itemForDeletion = self.todoItems?[indexPath.row] {
+        if let item = self.todoItems?[indexPath.row] {
             
-            let notificationCenter = UNUserNotificationCenter.current()
-            notificationCenter.removePendingNotificationRequests(withIdentifiers: ["id_\(itemForDeletion.title) \(String(describing: itemForDeletion.dateCreated))"])
+            if item.dateCreated != nil {
+                let notificationCenter = UNUserNotificationCenter.current()
+                notificationCenter.removePendingNotificationRequests(withIdentifiers: ["id_\(item.title)-\(String(describing: item.dateCreated))"])
+            }
             
-            
-            if let eventID = itemForDeletion.eventID {
+            if let eventID = item.eventID {
                 if let event = self.eventStore.event(withIdentifier: eventID) {
                     do {
                         try self.eventStore.remove(event, span: .thisEvent)
@@ -279,8 +280,8 @@ class ToDoListViewController: UITableViewController{
             
             do {
                 try self.realm.write {
-                    print("ITEM WITH IDENTIFIER : id_\(itemForDeletion.title) \(String(describing: itemForDeletion.dateCreated)) CalendarID: \(itemForDeletion.eventID ?? "no ID")")
-                    self.realm.delete(itemForDeletion)
+                    print("ITEM WITH IDENTIFIER : id_\(item.title) \(String(describing: item.dateCreated)) CalendarID: \(item.eventID ?? "no ID")")
+                    self.realm.delete(item)
                 }
             } catch {
                 print("ERROR DELETING ITEM: \(error)")
@@ -376,6 +377,14 @@ extension ToDoListViewController: UISearchBarDelegate {
                             print("ERROR ADD DATE TO ITEM: \(error)")
                         }
                         
+                        /// Delete Push Notification if exist
+                        if item.dateCreated != nil {
+                            let notificationCenter = UNUserNotificationCenter.current()
+                            notificationCenter.removePendingNotificationRequests(withIdentifiers: ["id_\(item.title)-\(String(describing: item.dateCreated))"])
+                            print("Old PUSH Notification date DELETED")
+                            
+                        }
+                        
                         /// Create a new PUSH Notification
                         let content = UNMutableNotificationContent()
                         content.title = "TO DO LIST - You have something to do :)"
@@ -385,7 +394,7 @@ extension ToDoListViewController: UISearchBarDelegate {
                         if let targetDate = dateSet {
                             let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: targetDate), repeats: false)
                             
-                            let request = UNNotificationRequest(identifier: "id_\(item.title) \(String(describing: item.dateCreated))", content: content, trigger: trigger)
+                            let request = UNNotificationRequest(identifier: "id_\(item.title)-\(String(describing: item.dateCreated))", content: content, trigger: trigger)
                             UNUserNotificationCenter.current().add(request) { (error) in
                                 if error != nil {
                                     print("ERROR PUSH NOTIFICATION REQUEST: \(String(describing: error))")
@@ -395,7 +404,7 @@ extension ToDoListViewController: UISearchBarDelegate {
                             
                             DispatchQueue.main.async {
                                 
-                                /// Check if item has already event created. If true delete event
+                                /// Delete calendar event if exist
                                 if let eventID = item.eventID {
                                     if let event = self.eventStore.event(withIdentifier: eventID) {
                                         do {
@@ -403,6 +412,7 @@ extension ToDoListViewController: UISearchBarDelegate {
                                         } catch let error as NSError {
                                             print("FAILED TO SAVE EVENT WITH ERROR : \(error)")
                                         }
+                                      print("Old Calendar Event DELETED")
                                     }
                                 }
                                 
@@ -410,7 +420,7 @@ extension ToDoListViewController: UISearchBarDelegate {
                                 let event:EKEvent = EKEvent(eventStore: self.eventStore)
                                 let startDate = targetDate
                                 let endDate = startDate.addingTimeInterval(1 * 60 * 60)
-                                let alarm = EKAlarm(relativeOffset: 0)
+                                let alarm = EKAlarm(relativeOffset: 300)
                                 let alarm1H = EKAlarm(relativeOffset: -3600)
                                 
                                 event.title = item.title
