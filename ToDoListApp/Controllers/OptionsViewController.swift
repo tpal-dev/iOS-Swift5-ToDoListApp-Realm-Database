@@ -21,6 +21,9 @@ class OptionsViewController: UIViewController {
     }
     
     
+    @IBAction func returnButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     
 
