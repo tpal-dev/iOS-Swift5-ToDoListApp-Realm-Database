@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5215DAFF255C42620028CE3C /* DefaultSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215DAFE255C42620028CE3C /* DefaultSettings.swift */; };
+		5215DB03255C52210028CE3C /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215DB02255C52210028CE3C /* Helper.swift */; };
 		521E27862554DF20003E7071 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E26FA2554DF1F003E7071 /* Array+Extensions.swift */; };
 		521E27872554DF20003E7071 /* UISegmentedControl+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E26FB2554DF1F003E7071 /* UISegmentedControl+Extensions.swift */; };
 		521E27882554DF20003E7071 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E26FC2554DF1F003E7071 /* UIImageView+Extensions.swift */; };
@@ -119,7 +121,7 @@
 		529A1D3125562EEA00C6CFA3 /* BeginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529A1D3025562EEA00C6CFA3 /* BeginViewController.swift */; };
 		529A1D33255633CD00C6CFA3 /* checklist.json in Resources */ = {isa = PBXBuildFile; fileRef = 529A1D32255633CC00C6CFA3 /* checklist.json */; };
 		529B572C254D8FFC006EB720 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B572B254D8FFC006EB720 /* AppDelegate.swift */; };
-		529B5730254D8FFC006EB720 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B572F254D8FFC006EB720 /* ToDoListViewController.swift */; };
+		529B5730254D8FFC006EB720 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B572F254D8FFC006EB720 /* ItemViewController.swift */; };
 		529B5733254D8FFC006EB720 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 529B5731254D8FFC006EB720 /* Main.storyboard */; };
 		529B5735254D9009006EB720 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 529B5734254D9009006EB720 /* Assets.xcassets */; };
 		529B5738254D9009006EB720 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 529B5736254D9009006EB720 /* LaunchScreen.storyboard */; };
@@ -132,6 +134,8 @@
 
 /* Begin PBXFileReference section */
 		44B0E2FD6916DE031EF25A56 /* Pods-ToDoListApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListApp.debug.xcconfig"; path = "Target Support Files/Pods-ToDoListApp/Pods-ToDoListApp.debug.xcconfig"; sourceTree = "<group>"; };
+		5215DAFE255C42620028CE3C /* DefaultSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSettings.swift; sourceTree = "<group>"; };
+		5215DB02255C52210028CE3C /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		521E26FA2554DF1F003E7071 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		521E26FB2554DF1F003E7071 /* UISegmentedControl+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Extensions.swift"; sourceTree = "<group>"; };
 		521E26FC2554DF1F003E7071 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
@@ -246,7 +250,7 @@
 		529A1D32255633CC00C6CFA3 /* checklist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = checklist.json; sourceTree = "<group>"; };
 		529B5728254D8FFB006EB720 /* ToDoListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		529B572B254D8FFC006EB720 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		529B572F254D8FFC006EB720 /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
+		529B572F254D8FFC006EB720 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		529B5732254D8FFC006EB720 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		529B5734254D9009006EB720 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		529B5737254D9009006EB720 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -687,6 +691,8 @@
 				52A653AA255207D200B7570B /* Item.swift */,
 				5258BA622558D1B300A5C1FB /* Constants.swift */,
 				52D025862559EEB2006DF45A /* CustomButton.swift */,
+				5215DAFE255C42620028CE3C /* DefaultSettings.swift */,
+				5215DB02255C52210028CE3C /* Helper.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -696,7 +702,7 @@
 			children = (
 				529A1D3025562EEA00C6CFA3 /* BeginViewController.swift */,
 				52F028002550E144007FFE20 /* CategoryViewController.swift */,
-				529B572F254D8FFC006EB720 /* ToDoListViewController.swift */,
+				529B572F254D8FFC006EB720 /* ItemViewController.swift */,
 				525DE16C2559BED9008FDC2D /* OptionsViewController.swift */,
 			);
 			path = Controllers;
@@ -759,7 +765,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = "Tomasz Paluszkiewicz";
 				TargetAttributes = {
 					529B5727254D8FFB006EB720 = {
@@ -906,6 +912,7 @@
 				521E27A22554DF20003E7071 /* GallerySwipeToDismissTransition.swift in Sources */,
 				521E27D62554DF20003E7071 /* Contacts.swift in Sources */,
 				521E27892554DF20003E7071 /* UIViewController+Extensions.swift in Sources */,
+				5215DAFF255C42620028CE3C /* DefaultSettings.swift in Sources */,
 				521E279A2554DF20003E7071 /* UITextField+Extensions.swift in Sources */,
 				521E279D2554DF20003E7071 /* ItemControllerDelegate.swift in Sources */,
 				521E27AB2554DF20003E7071 /* UIColor.swift in Sources */,
@@ -922,7 +929,7 @@
 				521E27ED2554DF20003E7071 /* GradientSlider.swift in Sources */,
 				521E27E12554DF20003E7071 /* TelegramPickerConfigurator.swift in Sources */,
 				521E279B2554DF20003E7071 /* AttributedTextBlock.swift in Sources */,
-				529B5730254D8FFC006EB720 /* ToDoListViewController.swift in Sources */,
+				529B5730254D8FFC006EB720 /* ItemViewController.swift in Sources */,
 				521E27E62554DF20003E7071 /* CollectionViewPhotoCell.swift in Sources */,
 				521E27C02554DF20003E7071 /* VideoViewController.swift in Sources */,
 				521E27E22554DF20003E7071 /* PhotoLayout.swift in Sources */,
@@ -941,6 +948,7 @@
 				521E27CA2554DF20003E7071 /* CountryCell.swift in Sources */,
 				521E27D82554DF20003E7071 /* ContactCell.swift in Sources */,
 				521E27D92554DF20003E7071 /* ColorPickerViewController.swift in Sources */,
+				5215DB03255C52210028CE3C /* Helper.swift in Sources */,
 				521E27B72554DF20003E7071 /* UISlider.swift in Sources */,
 				521E27962554DF20003E7071 /* PHFetchResult+Extensions.swift in Sources */,
 				521E27DC2554DF20003E7071 /* ItemWithImage.swift in Sources */,
@@ -1024,6 +1032,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1085,6 +1094,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

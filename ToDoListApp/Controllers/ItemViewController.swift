@@ -14,14 +14,12 @@ import ChameleonFramework
 
 class ItemViewController: UITableViewController{
     
-    
     @IBOutlet weak var searchBar: UISearchBar!
     
     var todoItems: Results<Item>?
     let realm = try! Realm()
     
     let eventStore = EKEventStore()
-    let myDefaults = MyDefaults()
     
     /// Property sended from CategoryViewController by segue
     var selectedCategory : Category? {
@@ -30,30 +28,24 @@ class ItemViewController: UITableViewController{
         }
     }
     
+    
     override func viewDidLoad() {
         //print("LAUNCHED: viewDidLoad(ToDoListView)")
         super.viewDidLoad()
         
         loadItems()
-        
-        tableView.separatorStyle = .none
-        tableView.rowHeight = 60
-        
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longpress))
-        tableView.addGestureRecognizer(longPress)
+        viewDidLoadConfig()
         
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         //print("LAUNCHED: viewWillAppear(ToDoListView)")
         super.viewWillAppear(animated)
         
-        viewSetUp()
+        viewWillAppearConfig()
         
     }
-    
     
     
     
@@ -95,7 +87,6 @@ class ItemViewController: UITableViewController{
                 //tableView.backgroundColor = UIColor(hexString: selectedCategory!.color)?.darken(byPercentage: CGFloat(indexPath.row + 1) / CGFloat(todoItems!.count + 1))
                 
             }
-            
             /// Set checkmark (done statement) by using TERNARY OPERATOR
             cell.accessoryView = item.done ? imageView : .none
             
@@ -149,9 +140,7 @@ class ItemViewController: UITableViewController{
     //        let deleteButton = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
     //            self.deleteData(indexPath: indexPath)
     //        }
-    //
     //        deleteButton.backgroundColor = .red
-    //
     //        return [deleteButton]
     //    }
     
@@ -191,14 +180,12 @@ class ItemViewController: UITableViewController{
         /// Main property for TextField
         var textField = UITextField()
         
-        
         /// Set Alert Window
         let mainAlert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
         
         mainAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         mainAlert.addAction(UIAlertAction(title: "Add Item", style: .default) { (action) in
-            
             
             /// Try to save Item
             if let currentCategory = self.selectedCategory {
@@ -247,8 +234,6 @@ class ItemViewController: UITableViewController{
     
     //MARK: - Data Manipulation Method
     
-    
-    
     func loadItems() {
         
         todoItems = selectedCategory?.items.sorted(byKeyPath: "dateCreated", ascending: true)
@@ -258,7 +243,6 @@ class ItemViewController: UITableViewController{
     }
     
     func deleteData(indexPath: IndexPath) {
-        
         
         if let item = self.todoItems?[indexPath.row] {
             
@@ -277,7 +261,6 @@ class ItemViewController: UITableViewController{
                 }
             }
             
-            
             do {
                 try self.realm.write {
                     //print("ITEM WITH IDENTIFIER : id_\(item.title) \(String(describing: item.dateCreated)) CalendarID: \(item.eventID ?? "no ID")")
@@ -292,61 +275,6 @@ class ItemViewController: UITableViewController{
         }
         
     }
-    
-    
-    
-    //MARK: - Set up NavigationBar
-    
-    func viewSetUp() {
-        if let colorHex = selectedCategory?.color {
-            
-            title = selectedCategory!.name
-            
-            //guard let navBar = navigationController?.navigationBar else {fatalError("NavigationController does not exist") }
-            
-            if let customColor = UIColor(hexString: colorHex) {
-                
-                searchBar.barTintColor = customColor
-                
-                /// Extra options
-                //navBar.barTintColor = navBarColor
-                //navBar.tintColor = ContrastColorOf(navBarColor, returnFlat: true)
-                //navBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : ContrastColorOf(navBarColor, returnFlat: true)]
-            }
-        }
-    }
-    
-    
-    
-    
-}
-//MARK: - SearchBar Method
-
-extension ItemViewController: UISearchBarDelegate {
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-    }
-    
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        todoItems = todoItems?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "dateCreated", ascending: true)
-        
-        tableView.reloadData()
-        
-        if searchBar.text?.count == 0 {
-            
-            loadItems()
-            
-            DispatchQueue.main.async {
-                searchBar.resignFirstResponder()
-            }
-            
-        }
-    }
-    
-    
     
     //MARK: - LongPress Gesture Configuration (Add a New Date Notification)
     
@@ -412,7 +340,7 @@ extension ItemViewController: UISearchBarDelegate {
                                         } catch let error as NSError {
                                             print("FAILED TO SAVE EVENT WITH ERROR : \(error)")
                                         }
-                                      print("Old Calendar Event DELETED")
+                                        print("Old Calendar Event DELETED")
                                     }
                                 }
                                 
@@ -456,6 +384,77 @@ extension ItemViewController: UISearchBarDelegate {
         }
         
     }
+    
+    
+    // MARK: - ViewDidLoad Configuration
+    
+    func viewDidLoadConfig() {
+        
+        tableView.separatorStyle = .none
+        tableView.rowHeight = 60
+        
+        
+        
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longpress))
+        tableView.addGestureRecognizer(longPress)
+    }
+    
+    
+    //MARK: - ViewDidAppear Configuration
+    
+    func viewWillAppearConfig() {
+        
+        if let colorHex = selectedCategory?.color {
+            
+            title = selectedCategory!.name
+            self.navigationItem.rightBarButtonItem = self.editButtonItem
+            //guard let navBar = navigationController?.navigationBar else {fatalError("NavigationController does not exist") }
+            
+            if let customColor = UIColor(hexString: colorHex) {
+                
+                searchBar.barTintColor = customColor
+                
+                /// Extra options
+                //navBar.barTintColor = navBarColor
+                //navBar.tintColor = ContrastColorOf(navBarColor, returnFlat: true)
+                //navBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : ContrastColorOf(navBarColor, returnFlat: true)]
+            }
+        }
+    }
+    
+    
+    
+    
+}
+//MARK: - SearchBar Method
+
+extension ItemViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        todoItems = todoItems?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "dateCreated", ascending: true)
+        
+        tableView.reloadData()
+        
+        if searchBar.text?.count == 0 {
+            
+            loadItems()
+            
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+            
+        }
+    }
+    
+    
+    
+    
     
     
     

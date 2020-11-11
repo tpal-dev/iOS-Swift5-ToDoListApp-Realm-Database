@@ -19,23 +19,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         //print("LAUNCHED: didFinishLaunchingWithOptions - APP GETS LOADED UP, BEFORE INITIAL VIEW")
         // Override point for customization after application launch. /before viewDidLoad
-   
-//        for family: String in UIFont.familyNames.sorted() {
-//            print("\(family)")
-//            for names: String in UIFont.fontNames(forFamilyName: family) {
-//                print("== \(names)")
-//            }
-//        }
         
+        Helper.navBarIOS13()
+        Helper.themeCheck()
+    
         
-        // MARK: - Realm Database Config
-        
+        /// Realm Database Config
         //print(Realm.Configuration.defaultConfiguration.fileURL)
         do {
             _ = try Realm()
         }catch {
             print("Error initialising new realm: \(error)")
         }
+        ///
+        
         
         return true
     }

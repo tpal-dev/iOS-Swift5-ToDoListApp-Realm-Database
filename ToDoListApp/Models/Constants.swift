@@ -13,3 +13,15 @@ struct Fonts {
     static let helveticNeueBold = "HelveticaNeue-Bold"
     static let helveticNeueMedium = "HelveticaNeue-Medium"
 }
+
+struct KeyUserDefaults {
+    static let firstLaunch = "FirstLaunch"
+    static let colorTheme = "DarkMode"
+}
+
+struct IdentifierVC {
+    static let beginVC = "BeginViewController"
+    static let categoryVC = "CategoryViewController"
+    static let itemVC = "ItemViewController"
+    static let optionsVC = "OptionsViewController"
+}

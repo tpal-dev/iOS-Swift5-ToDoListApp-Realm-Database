@@ -20,7 +20,6 @@ class BeginViewController: UIViewController, UIScrollViewDelegate {
     let stringArray = [ "Welcome\n\nSwipe to begin\n ͢", "First tip:\n\nLongPress Category Cell\nto Change Color\n", "Second tip:\n\nLongPress Item Cell\nto set Reminder\n"]
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,7 +30,13 @@ class BeginViewController: UIViewController, UIScrollViewDelegate {
         setupScrollView()
 
     }
+
     
+    @objc
+      func buttonAction() {
+        defaults.set(true, forKey: KeyUserDefaults.firstLaunch)
+          self.dismiss(animated: true, completion: nil)
+      }
 
     
     func setupScrollView() {
@@ -73,15 +78,6 @@ class BeginViewController: UIViewController, UIScrollViewDelegate {
     }
     
     
-    
-    @objc
-    func buttonAction() {
-        defaults.set(false, forKey: "FirstLaunch")
-        self.dismiss(animated: true, completion: nil)
-    }
-
-    
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let progress = scrollView.contentOffset.x / scrollView.contentSize.width
         animationView?.currentProgress = progress
@@ -89,4 +85,6 @@ class BeginViewController: UIViewController, UIScrollViewDelegate {
         
     }
 
+    
+    
 }

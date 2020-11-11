@@ -192,6 +192,8 @@ final public class PhotoLibraryPickerViewController: UIViewController {
                 self.alertController?.dismiss(animated: true)
             }
             alert.show()
+        case .limited:
+            fatalError()
         @unknown default:
             fatalError()
         }

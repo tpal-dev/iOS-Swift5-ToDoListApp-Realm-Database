@@ -7,19 +7,17 @@
 //
 
 import UIKit
+import RealmSwift
 import UserNotifications
 import EventKit
-import RealmSwift
 import ChameleonFramework
 
 class CategoryViewController: UITableViewController {
     
     let defaults = UserDefaults.standard
-    
     let eventStore = EKEventStore()
     
     let realm = try! Realm()
-    
     var categories: Results<Category>?
     
     
@@ -27,65 +25,40 @@ class CategoryViewController: UITableViewController {
         //print("LAUNCHED: viewDidLoad(CategoryListView)")
         super.viewDidLoad()
         
-        
         /// Check first launch. If true then show BeginViewController
-        if defaults.value(forKey: "FirstLaunch") as? Bool ?? true == true {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                     let newViewController = storyBoard.instantiateViewController(withIdentifier: "BeginViewController") as! BeginViewController
-        newViewController.modalPresentationStyle = .fullScreen
-        newViewController.modalTransitionStyle = .partialCurl
-                        self.navigationController?.present(newViewController, animated: true, completion: nil)
-        }
-    
-        /// Request to use PUSH Notification
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (success, error) in
-            if success {
-                print("USER PUSH NOTIFICATION SUCCESS")
-            } else if let error = error {
-                print("Error USER NOTIFICATION : \(error)")
-            }
+        let firstLaunch = defaults.bool(forKey: KeyUserDefaults.firstLaunch)
+        if firstLaunch == false {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "BeginViewController") as! BeginViewController
+            newViewController.modalPresentationStyle = .fullScreen
+            //newViewController.modalTransitionStyle = .partialCurl
+            self.navigationController?.present(newViewController, animated: true, completion: nil)
         }
         
-        /// Request to use Calendar
-        switch EKEventStore.authorizationStatus(for: .event) {
-        case .authorized:
-            print("CALENDAR AUTHORIZED")
-        case .denied:
-            print("CALENDAR ACCESS DENIED")
-        case .notDetermined:
-            eventStore.requestAccess(to: .event, completion:
-                {(granted: Bool, error: Error?) -> Void in
-                    if granted {
-                        print("CALENDAR GRANTED")
-                    } else {
-                        print("CALENDAR ACCESS DENIED")
-                    }
-            })
-        default:
-            print("CALENDAR CASE DEFAULT")
-        }
-        
-        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longpress))
-        tableView.addGestureRecognizer(longPress)
-        
-        loadCategories()
-        
-        navigationController?.navigationBar.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        tableView.separatorStyle = .none
-        tableView.rowHeight = 60
-        
-       navigationItem.leftBarButtonItem = UIBarButtonItem.optionsButton(self, action: #selector(optionsButtonPressed), imageName: "options")
-        
+        Helper.authorizationPushNotification()
+        Helper.authorizationCalendarEvent()
+        loadReamDatabase()
+        viewDidLoadConfig()
         
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.view.backgroundColor = DefaultSettings.sharedInstance.backgroundColor
+        
+    }
+    
+    
     @objc func optionsButtonPressed() {
-       let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                       let newViewController = storyBoard.instantiateViewController(withIdentifier: "OptionsViewController") as! OptionsViewController
-          newViewController.modalPresentationStyle = .fullScreen
-          newViewController.modalTransitionStyle = .partialCurl
-                          self.navigationController?.present(newViewController, animated: true, completion: nil)
-      }
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "OptionsViewController") as! OptionsViewController
+        newViewController.modalPresentationStyle = .fullScreen
+        //newViewController.modalTransitionStyle = .partialCurl
+        self.navigationController?.present(newViewController, animated: true, completion: nil)
+        
+    }
     
     
     //MARK: - TableView DataSource Methods
@@ -104,7 +77,7 @@ class CategoryViewController: UITableViewController {
             /// Set text in row
             cell.textLabel?.text = category.name
             cell.textLabel?.font = UIFont(name: Fonts.helveticNeueMedium, size: 20)
-
+            
             guard let categoryColor = UIColor(hexString: category.color) else { fatalError() }
             
             /// Cell backgroundColor
@@ -112,7 +85,7 @@ class CategoryViewController: UITableViewController {
             /// Cell text color
             cell.textLabel?.textColor = ContrastColorOf(categoryColor, returnFlat: true)
         }
-    
+        
         return cell
         
     }
@@ -132,7 +105,7 @@ class CategoryViewController: UITableViewController {
         
         
         if segue.identifier == "goToItems" {
-            let destinationVC = segue.destination as! ToDoListViewController
+            let destinationVC = segue.destination as! ItemViewController
             
             if let indexPath = tableView.indexPathForSelectedRow {
                 
@@ -173,7 +146,7 @@ class CategoryViewController: UITableViewController {
         
     }
     
-    func loadCategories() {
+    func loadReamDatabase() {
         
         categories = realm.objects(Category.self)
     }
@@ -287,45 +260,62 @@ class CategoryViewController: UITableViewController {
                         /// Update row color
                         do {
                             try self.realm.write {
-
+                                
                                 categoryColor.color = "\(color.hexValue())"
                             }
                         } catch {
                             print("ERROR CHANGE CATEGORY COLOR: \(error)")
                         }
-
+                        
                     }
-
+                    
                     self.tableView.reloadData()
-
-                    //print(color.hexValue())
-
+                    
                 }
                 alert.addAction(title: "Cancel", style: .cancel)
                 alert.show()
-
-                //print("Long press Pressed:\(indexPath.row)")
+                
             }
         }
-
+        
     }
+    
+    
+    
+    //MARK: - ViewDidLoad Configuration
+    
+    func viewDidLoadConfig() {
+        
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longpress))
+        tableView.addGestureRecognizer(longPress)
+        
+        navigationController?.navigationBar.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        tableView.separatorStyle = .none
+        tableView.rowHeight = 60
+        navigationItem.leftBarButtonItem = UIBarButtonItem.optionsButton(self, action: #selector(optionsButtonPressed), imageName: "options")
+        
+    }
+    
     
     
     
 }
 
-extension UIBarButtonItem {
 
+//MARK: - Extensions
+
+extension UIBarButtonItem {
+    
     static func optionsButton(_ target: Any?, action: Selector, imageName: String) -> UIBarButtonItem {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: imageName), for: .normal)
         button.addTarget(target, action: action, for: .touchUpInside)
-
+        
         let menuBarItem = UIBarButtonItem(customView: button)
         menuBarItem.customView?.translatesAutoresizingMaskIntoConstraints = false
         menuBarItem.customView?.heightAnchor.constraint(equalToConstant: 24).isActive = true
         menuBarItem.customView?.widthAnchor.constraint(equalToConstant: 24).isActive = true
-
+        
         return menuBarItem
     }
 }

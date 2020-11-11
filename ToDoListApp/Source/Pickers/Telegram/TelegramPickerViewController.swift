@@ -507,6 +507,9 @@ final public class TelegramPickerViewController: UIViewController {
             if let alert = localizer.localizedAlert(failure: .noAccessToPhoto) {
                 alert.show()
             }
+        case .limited:
+            fatalError()
+            
         @unknown default:
             fatalError()
        
