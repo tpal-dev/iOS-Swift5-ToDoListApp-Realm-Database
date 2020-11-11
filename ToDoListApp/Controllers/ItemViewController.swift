@@ -413,7 +413,13 @@ class ItemViewController: UITableViewController{
             if let customColor = UIColor(hexString: colorHex) {
                 
                 searchBar.barTintColor = customColor
+                searchBar.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 
+                if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
+                    textfield.textColor = UIColor.black
+                    textfield.backgroundColor = UIColor.white
+                    textfield.attributedPlaceholder = NSAttributedString(string: textfield.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray])
+                }
                 /// Extra options
                 //navBar.barTintColor = navBarColor
                 //navBar.tintColor = ContrastColorOf(navBarColor, returnFlat: true)
@@ -434,7 +440,6 @@ extension ItemViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
     }
     
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         todoItems = todoItems?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "dateCreated", ascending: true)
@@ -450,13 +455,8 @@ extension ItemViewController: UISearchBarDelegate {
             }
             
         }
+        
     }
-    
-    
-    
-    
-    
-    
     
 }
 

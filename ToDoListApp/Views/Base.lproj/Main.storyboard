@@ -223,7 +223,7 @@
                                         <rect key="frame" x="0.0" y="258" width="326" height="148"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgS-mX-RGo" customClass="GradientSlider" customModule="ToDoListApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="326" height="36"/>
+                                                <rect key="frame" x="-2" y="-4" width="330" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="4WT-wU-XLS"/>
                                                 </constraints>
@@ -243,7 +243,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UE4-DO-Sv8" customClass="GradientSlider" customModule="ToDoListApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="56" width="326" height="36"/>
+                                                <rect key="frame" x="-2" y="52" width="330" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="FO6-TN-84a"/>
                                                 </constraints>
@@ -264,7 +264,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D4q-t9-dA5" customClass="GradientSlider" customModule="ToDoListApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="112" width="326" height="36"/>
+                                                <rect key="frame" x="-2" y="108" width="330" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="ymJ-hy-vd9"/>
                                                 </constraints>
@@ -338,10 +338,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhp-Oo-Bsy">
-                                                <rect key="frame" x="14" y="52.666666666666664" width="25" height="16.999999999999993"/>
+                                                <rect key="frame" x="18" y="49.666666666666629" width="27" height="20"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="25" id="Gvb-o1-u0h"/>
-                                                    <constraint firstAttribute="height" constant="17" id="fCQ-px-pAc"/>
+                                                    <constraint firstAttribute="width" constant="27" id="Gvb-o1-u0h"/>
+                                                    <constraint firstAttribute="height" constant="20" id="fCQ-px-pAc"/>
                                                 </constraints>
                                                 <state key="normal" image="back">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
@@ -354,10 +354,10 @@
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="BQO-wZ-d9V" secondAttribute="trailing" id="7OL-l6-Wde"/>
-                                            <constraint firstItem="qhp-Oo-Bsy" firstAttribute="leading" secondItem="fLR-es-njf" secondAttribute="leading" constant="14" id="LfH-NP-qhs"/>
+                                            <constraint firstItem="qhp-Oo-Bsy" firstAttribute="leading" secondItem="fLR-es-njf" secondAttribute="leading" constant="18" id="LfH-NP-qhs"/>
                                             <constraint firstItem="BQO-wZ-d9V" firstAttribute="leading" secondItem="fLR-es-njf" secondAttribute="leading" id="lLG-85-bha"/>
                                             <constraint firstAttribute="bottom" secondItem="BQO-wZ-d9V" secondAttribute="bottom" constant="10" id="wiQ-nr-CxE"/>
-                                            <constraint firstAttribute="bottom" secondItem="qhp-Oo-Bsy" secondAttribute="bottom" constant="14.666666666666671" id="xqB-Ja-gW9"/>
+                                            <constraint firstAttribute="bottom" secondItem="qhp-Oo-Bsy" secondAttribute="bottom" constant="14.6666666666667" id="xqB-Ja-gW9"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0gP-Ib-tMf">
@@ -586,8 +586,17 @@
         <designable name="BUd-Qh-ZVv">
             <size key="intrinsicContentSize" width="88" height="38"/>
         </designable>
+        <designable name="D4q-t9-dA5">
+            <size key="intrinsicContentSize" width="-1" height="28"/>
+        </designable>
+        <designable name="GgS-mX-RGo">
+            <size key="intrinsicContentSize" width="-1" height="28"/>
+        </designable>
         <designable name="TZO-oa-Obq">
             <size key="intrinsicContentSize" width="60" height="38"/>
+        </designable>
+        <designable name="UE4-DO-Sv8">
+            <size key="intrinsicContentSize" width="-1" height="28"/>
         </designable>
         <designable name="VUi-Sa-yfT">
             <size key="intrinsicContentSize" width="82" height="38"/>

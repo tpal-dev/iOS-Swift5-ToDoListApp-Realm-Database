@@ -17,7 +17,7 @@ class BeginViewController: UIViewController, UIScrollViewDelegate {
 
     var animationView: AnimationView?
     
-    let stringArray = [ "Welcome\n\nSwipe to begin\n ͢", "First tip:\n\nLongPress Category Cell\nto Change Color\n", "Second tip:\n\nLongPress Item Cell\nto set Reminder\n"]
+    let stringArray = [ "Welcome\n\nSwipe to begin\n", "First tip:\n\nLongPress Category Cell\nto Change Color\n", "Second tip:\n\nLongPress Item Cell\nto set Reminder\n"]
     
     
     override func viewDidLoad() {
