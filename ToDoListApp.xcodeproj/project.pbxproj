@@ -130,6 +130,16 @@
 		52A653AB255207D200B7570B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A653AA255207D200B7570B /* Item.swift */; };
 		52A653AD255207E200B7570B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A653AC255207E200B7570B /* Category.swift */; };
 		52AFDA78255DC8380014CDF0 /* AboutText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFDA77255DC8380014CDF0 /* AboutText.swift */; };
+		52AFDA87255DDA2F0014CDF0 /* ARSLineProgressHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFDA7D255DDA2D0014CDF0 /* ARSLineProgressHelpers.swift */; };
+		52AFDA88255DDA2F0014CDF0 /* ARSLineProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFDA7E255DDA2D0014CDF0 /* ARSLineProgress.swift */; };
+		52AFDA89255DDA2F0014CDF0 /* ARSLineProgressExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFDA7F255DDA2D0014CDF0 /* ARSLineProgressExtensions.swift */; };
+		52AFDA8A255DDA2F0014CDF0 /* ARSInfiniteLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFDA80255DDA2E0014CDF0 /* ARSInfiniteLoader.swift */; };
+		52AFDA8B255DDA2F0014CDF0 /* ARSProgressLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFDA81255DDA2E0014CDF0 /* ARSProgressLoader.swift */; };
+		52AFDA8C255DDA2F0014CDF0 /* ARSLineProgressConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFDA82255DDA2E0014CDF0 /* ARSLineProgressConstants.swift */; };
+		52AFDA8D255DDA2F0014CDF0 /* ARSLineProgressTypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFDA83255DDA2E0014CDF0 /* ARSLineProgressTypeAliases.swift */; };
+		52AFDA8E255DDA2F0014CDF0 /* ARSLineProgressCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFDA84255DDA2F0014CDF0 /* ARSLineProgressCustomization.swift */; };
+		52AFDA8F255DDA2F0014CDF0 /* ARSLineProgressProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFDA85255DDA2F0014CDF0 /* ARSLineProgressProtocols.swift */; };
+		52AFDA90255DDA2F0014CDF0 /* ARSStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFDA86255DDA2F0014CDF0 /* ARSStatus.swift */; };
 		52D025872559EEB2006DF45A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D025862559EEB2006DF45A /* CustomButton.swift */; };
 		52F028012550E144007FFE20 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F028002550E144007FFE20 /* CategoryViewController.swift */; };
 		87C49C9B0B4B318B7CAA1EFF /* Pods_ToDoListApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6D306DF5E7DCA2FABE48ED /* Pods_ToDoListApp.framework */; };
@@ -263,6 +273,16 @@
 		52A653AA255207D200B7570B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		52A653AC255207E200B7570B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		52AFDA77255DC8380014CDF0 /* AboutText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutText.swift; sourceTree = "<group>"; };
+		52AFDA7D255DDA2D0014CDF0 /* ARSLineProgressHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressHelpers.swift; sourceTree = "<group>"; };
+		52AFDA7E255DDA2D0014CDF0 /* ARSLineProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgress.swift; sourceTree = "<group>"; };
+		52AFDA7F255DDA2D0014CDF0 /* ARSLineProgressExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressExtensions.swift; sourceTree = "<group>"; };
+		52AFDA80255DDA2E0014CDF0 /* ARSInfiniteLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSInfiniteLoader.swift; sourceTree = "<group>"; };
+		52AFDA81255DDA2E0014CDF0 /* ARSProgressLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSProgressLoader.swift; sourceTree = "<group>"; };
+		52AFDA82255DDA2E0014CDF0 /* ARSLineProgressConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressConstants.swift; sourceTree = "<group>"; };
+		52AFDA83255DDA2E0014CDF0 /* ARSLineProgressTypeAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressTypeAliases.swift; sourceTree = "<group>"; };
+		52AFDA84255DDA2F0014CDF0 /* ARSLineProgressCustomization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressCustomization.swift; sourceTree = "<group>"; };
+		52AFDA85255DDA2F0014CDF0 /* ARSLineProgressProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressProtocols.swift; sourceTree = "<group>"; };
+		52AFDA86255DDA2F0014CDF0 /* ARSStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSStatus.swift; sourceTree = "<group>"; };
 		52D025862559EEB2006DF45A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		52F028002550E144007FFE20 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		8A6D306DF5E7DCA2FABE48ED /* Pods_ToDoListApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoListApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -292,6 +312,16 @@
 		521E26F82554DF1F003E7071 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				52AFDA80255DDA2E0014CDF0 /* ARSInfiniteLoader.swift */,
+				52AFDA7E255DDA2D0014CDF0 /* ARSLineProgress.swift */,
+				52AFDA82255DDA2E0014CDF0 /* ARSLineProgressConstants.swift */,
+				52AFDA84255DDA2F0014CDF0 /* ARSLineProgressCustomization.swift */,
+				52AFDA7F255DDA2D0014CDF0 /* ARSLineProgressExtensions.swift */,
+				52AFDA7D255DDA2D0014CDF0 /* ARSLineProgressHelpers.swift */,
+				52AFDA85255DDA2F0014CDF0 /* ARSLineProgressProtocols.swift */,
+				52AFDA83255DDA2E0014CDF0 /* ARSLineProgressTypeAliases.swift */,
+				52AFDA81255DDA2E0014CDF0 /* ARSProgressLoader.swift */,
+				52AFDA86255DDA2F0014CDF0 /* ARSStatus.swift */,
 				521E26F92554DF1F003E7071 /* Extensions */,
 				521E270F2554DF1F003E7071 /* Viewers */,
 				521E273E2554DF1F003E7071 /* Pickers */,
@@ -695,10 +725,10 @@
 			children = (
 				52A653AC255207E200B7570B /* Category.swift */,
 				52A653AA255207D200B7570B /* Item.swift */,
+				5215DB02255C52210028CE3C /* Helper.swift */,
 				5258BA622558D1B300A5C1FB /* Constants.swift */,
 				52D025862559EEB2006DF45A /* CustomButton.swift */,
 				5215DAFE255C42620028CE3C /* DefaultSettings.swift */,
-				5215DB02255C52210028CE3C /* Helper.swift */,
 				52AFDA77255DC8380014CDF0 /* AboutText.swift */,
 			);
 			path = Models;
@@ -886,6 +916,7 @@
 				521E27D22554DF20003E7071 /* Location.swift in Sources */,
 				521E27862554DF20003E7071 /* Array+Extensions.swift in Sources */,
 				521E27BF2554DF20003E7071 /* Slider.swift in Sources */,
+				52AFDA8C255DDA2F0014CDF0 /* ARSLineProgressConstants.swift in Sources */,
 				521E278A2554DF20003E7071 /* UIView+Extensions.swift in Sources */,
 				521E27DD2554DF20003E7071 /* TelegramPickerGalleryItemsDataSource.swift in Sources */,
 				521E27A82554DF20003E7071 /* CALayer.swift in Sources */,
@@ -932,6 +963,8 @@
 				521E27DE2554DF20003E7071 /* AssetsCollection+ChangesObserver.swift in Sources */,
 				521E27AA2554DF20003E7071 /* PickerCustomizableButton.swift in Sources */,
 				529A1D3125562EEA00C6CFA3 /* BeginViewController.swift in Sources */,
+				52AFDA88255DDA2F0014CDF0 /* ARSLineProgress.swift in Sources */,
+				52AFDA87255DDA2F0014CDF0 /* ARSLineProgressHelpers.swift in Sources */,
 				521E27C32554DF20003E7071 /* TextViewController.swift in Sources */,
 				521E27DA2554DF20003E7071 /* DatePickerViewController.swift in Sources */,
 				521E27E52554DF20003E7071 /* CollectionViewCameraCell.swift in Sources */,
@@ -939,12 +972,14 @@
 				521E279F2554DF20003E7071 /* BlurView.swift in Sources */,
 				521E27F02554DF20003E7071 /* Button.swift in Sources */,
 				521E27ED2554DF20003E7071 /* GradientSlider.swift in Sources */,
+				52AFDA8D255DDA2F0014CDF0 /* ARSLineProgressTypeAliases.swift in Sources */,
 				521E27E12554DF20003E7071 /* TelegramPickerConfigurator.swift in Sources */,
 				521E279B2554DF20003E7071 /* AttributedTextBlock.swift in Sources */,
 				529B5730254D8FFC006EB720 /* ItemViewController.swift in Sources */,
 				521E27E62554DF20003E7071 /* CollectionViewPhotoCell.swift in Sources */,
 				521E27C02554DF20003E7071 /* VideoViewController.swift in Sources */,
 				521E27E22554DF20003E7071 /* PhotoLayout.swift in Sources */,
+				52AFDA90255DDA2F0014CDF0 /* ARSStatus.swift in Sources */,
 				521E27EB2554DF20003E7071 /* Label.swift in Sources */,
 				521E279E2554DF20003E7071 /* UtilityFunctions.swift in Sources */,
 				521E27992554DF20003E7071 /* Locale+Extensions.swift in Sources */,
@@ -954,14 +989,18 @@
 				521E27B42554DF20003E7071 /* CGRect.swift in Sources */,
 				521E27882554DF20003E7071 /* UIImageView+Extensions.swift in Sources */,
 				521E27BD2554DF20003E7071 /* LayoutEnums.swift in Sources */,
+				52AFDA8B255DDA2F0014CDF0 /* ARSProgressLoader.swift in Sources */,
 				521E27902554DF20003E7071 /* UISearchBar+Extensions.swift in Sources */,
 				521E278E2554DF20003E7071 /* UIColor+Extensions.swift in Sources */,
 				521E27D52554DF20003E7071 /* ContactsPickerViewController.swift in Sources */,
 				521E27CA2554DF20003E7071 /* CountryCell.swift in Sources */,
 				521E27D82554DF20003E7071 /* ContactCell.swift in Sources */,
+				52AFDA8E255DDA2F0014CDF0 /* ARSLineProgressCustomization.swift in Sources */,
 				521E27D92554DF20003E7071 /* ColorPickerViewController.swift in Sources */,
 				5215DB03255C52210028CE3C /* Helper.swift in Sources */,
 				521E27B72554DF20003E7071 /* UISlider.swift in Sources */,
+				52AFDA8F255DDA2F0014CDF0 /* ARSLineProgressProtocols.swift in Sources */,
+				52AFDA8A255DDA2F0014CDF0 /* ARSInfiniteLoader.swift in Sources */,
 				521E27962554DF20003E7071 /* PHFetchResult+Extensions.swift in Sources */,
 				521E27DC2554DF20003E7071 /* ItemWithImage.swift in Sources */,
 				521E27A12554DF20003E7071 /* VideoScrubber.swift in Sources */,
@@ -971,6 +1010,7 @@
 				521E278F2554DF20003E7071 /* UIImage+Extensions.swift in Sources */,
 				521E27B12554DF20003E7071 /* UIImageView.swift in Sources */,
 				521E27BB2554DF20003E7071 /* GalleryDisplacedViewsDataSource.swift in Sources */,
+				52AFDA89255DDA2F0014CDF0 /* ARSLineProgressExtensions.swift in Sources */,
 				521E278D2554DF20003E7071 /* UITextView+Extensions.swift in Sources */,
 				521E27CB2554DF20003E7071 /* TwoTextFieldsViewController.swift in Sources */,
 				521E27E02554DF20003E7071 /* AssetsCollection.swift in Sources */,

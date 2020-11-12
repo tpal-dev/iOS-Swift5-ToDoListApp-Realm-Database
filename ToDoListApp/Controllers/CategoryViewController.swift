@@ -132,7 +132,7 @@ class CategoryViewController: UITableViewController {
     
     //MARK: - Data Manipulation Methods
     
-    func save(category: Category) {
+    func saveCategory(category: Category) {
         
         do {
             try realm.write {
@@ -143,7 +143,7 @@ class CategoryViewController: UITableViewController {
         }
         
         tableView.reloadData()
-        
+        ARSLineProgress.showSuccess()
     }
     
     func loadReamDatabase() {
@@ -189,6 +189,7 @@ class CategoryViewController: UITableViewController {
             
         }
         
+        ARSLineProgress.showFail()
         tableView.reloadData()
         
     }
@@ -225,7 +226,7 @@ class CategoryViewController: UITableViewController {
                 return
             }
             
-            self.save(category: newCategory)
+            self.saveCategory(category: newCategory)
         })
         
         mainAlert.addTextField { (alertTextField) in

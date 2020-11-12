@@ -133,6 +133,7 @@ class ItemViewController: UITableViewController{
             
             deleteData(indexPath: indexPath)
             
+            
         }
     }
     /// Alternative editingStyle .delete
@@ -217,8 +218,9 @@ class ItemViewController: UITableViewController{
                 }
             }
             
+            ARSLineProgress.showSuccess()
             self.tableView.reloadData()
-            
+           
         })
         
         mainAlert.addTextField { (alertTextField) in
@@ -270,6 +272,7 @@ class ItemViewController: UITableViewController{
                 print("ERROR DELETING ITEM: \(error)")
             }
             //print("ITEM DELETED")
+            ARSLineProgress.showFail()
             self.tableView.reloadData()
             
         }
