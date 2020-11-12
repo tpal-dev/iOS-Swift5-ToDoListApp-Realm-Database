@@ -61,10 +61,10 @@ class ItemViewController: UITableViewController{
         var imageView : UIImageView
         imageView  = UIImageView(frame:CGRect(x: 0, y: 0, width: 30, height: 30))
         imageView.layer.cornerRadius = 10
-        imageView.image = UIImage(named:"checkmark.png")
+        imageView.image = UIImage(named: ImageName.chekmark)
         
         /// Set cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellName.toDoItemCell, for: indexPath)
         
         cell.accessoryView = imageView
         cell.textLabel?.numberOfLines = 0
@@ -236,7 +236,7 @@ class ItemViewController: UITableViewController{
     
     func loadItems() {
         
-        todoItems = selectedCategory?.items.sorted(byKeyPath: "dateCreated", ascending: true)
+        todoItems = selectedCategory?.items.sorted(byKeyPath: KeyPath.dateCreated, ascending: true)
         
         tableView.reloadData()
         
@@ -378,7 +378,7 @@ class ItemViewController: UITableViewController{
                 alert.addAction(title: "Cancel", style: .cancel)
                 alert.show()
                 
-                print("Long press Pressed:\(indexPath.row) \(String(describing: todoItems?[indexPath.row].title))")
+                //print("Long press Pressed:\(indexPath.row) \(String(describing: todoItems?[indexPath.row].title))")
                 
             }
         }
@@ -444,7 +444,7 @@ extension ItemViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        todoItems = todoItems?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "dateCreated", ascending: true)
+        todoItems = todoItems?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: KeyPath.dateCreated, ascending: true)
         
         tableView.reloadData()
         

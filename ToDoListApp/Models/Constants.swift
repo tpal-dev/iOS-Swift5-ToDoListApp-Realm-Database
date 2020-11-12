@@ -25,3 +25,25 @@ struct IdentifierVC {
     static let itemVC = "ItemViewController"
     static let optionsVC = "OptionsViewController"
 }
+
+struct SegueIdentifier {
+    static let goToItems = "goToItems"
+}
+
+struct ImageName {
+    static let options = "options.png"
+    static let chekmark = "checkmark.png"
+    
+}
+
+struct AnimationName {
+    static let checklist = "checklist"
+}
+
+struct CellName {
+    static let toDoItemCell = "ToDoItemCell"
+}
+
+struct KeyPath {
+    static let dateCreated = "dateCreated"
+}

@@ -149,7 +149,7 @@ class BeginViewController: UIViewController, UIScrollViewDelegate {
         
         scrollView.delegate = self
         
-        animationView = .init(name: "checklist")
+        animationView = .init(name: AnimationName.checklist)
         animationView?.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height / 1.5)
         view.addSubview(animationView!)
         

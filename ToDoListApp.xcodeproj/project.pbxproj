@@ -252,7 +252,7 @@
 		525DE16C2559BED9008FDC2D /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		529A1D3025562EEA00C6CFA3 /* BeginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginViewController.swift; sourceTree = "<group>"; };
 		529A1D32255633CC00C6CFA3 /* checklist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = checklist.json; sourceTree = "<group>"; };
-		529B5728254D8FFB006EB720 /* ToDoListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		529B5728254D8FFB006EB720 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		529B572B254D8FFC006EB720 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		529B572F254D8FFC006EB720 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		529B5732254D8FFC006EB720 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -670,7 +670,7 @@
 		529B5729254D8FFB006EB720 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				529B5728254D8FFB006EB720 /* ToDoListApp.app */,
+				529B5728254D8FFB006EB720 /* ToDoList.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -745,9 +745,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		529B5727254D8FFB006EB720 /* ToDoListApp */ = {
+		529B5727254D8FFB006EB720 /* ToDoList */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 529B573C254D9009006EB720 /* Build configuration list for PBXNativeTarget "ToDoListApp" */;
+			buildConfigurationList = 529B573C254D9009006EB720 /* Build configuration list for PBXNativeTarget "ToDoList" */;
 			buildPhases = (
 				5E7E0FF2562E8A831EC22372 /* [CP] Check Pods Manifest.lock */,
 				529B5724254D8FFB006EB720 /* Sources */,
@@ -759,9 +759,9 @@
 			);
 			dependencies = (
 			);
-			name = ToDoListApp;
+			name = ToDoList;
 			productName = ToDoListApp;
-			productReference = 529B5728254D8FFB006EB720 /* ToDoListApp.app */;
+			productReference = 529B5728254D8FFB006EB720 /* ToDoList.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -793,7 +793,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				529B5727254D8FFB006EB720 /* ToDoListApp */,
+				529B5727254D8FFB006EB720 /* ToDoList */,
 			);
 		};
 /* End PBXProject section */
@@ -1183,7 +1183,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		529B573C254D9009006EB720 /* Build configuration list for PBXNativeTarget "ToDoListApp" */ = {
+		529B573C254D9009006EB720 /* Build configuration list for PBXNativeTarget "ToDoList" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				529B573D254D9009006EB720 /* Debug */,

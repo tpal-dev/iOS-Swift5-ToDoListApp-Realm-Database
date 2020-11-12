@@ -96,7 +96,7 @@ class CategoryViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        performSegue(withIdentifier: "goToItems", sender: self)
+        performSegue(withIdentifier: SegueIdentifier.goToItems, sender: self)
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -104,7 +104,7 @@ class CategoryViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         
-        if segue.identifier == "goToItems" {
+        if segue.identifier == SegueIdentifier.goToItems {
             let destinationVC = segue.destination as! ItemViewController
             
             if let indexPath = tableView.indexPathForSelectedRow {
@@ -292,7 +292,7 @@ class CategoryViewController: UITableViewController {
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         tableView.separatorStyle = .none
         tableView.rowHeight = 60
-        navigationItem.leftBarButtonItem = UIBarButtonItem.optionsButton(self, action: #selector(optionsButtonPressed), imageName: "options")
+        navigationItem.leftBarButtonItem = UIBarButtonItem.optionsButton(self, action: #selector(optionsButtonPressed), imageName: ImageName.options)
         
     }
     
