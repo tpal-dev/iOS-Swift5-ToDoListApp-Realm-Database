@@ -17,6 +17,8 @@ struct Fonts {
 struct KeyUserDefaults {
     static let firstLaunch = "FirstLaunch"
     static let colorTheme = "DarkMode"
+    static let firstAlarmDelay = "FirstAlarmDelay"
+    static let secondAlarmDelay = "SecondAlarmDelay"
 }
 
 struct IdentifierVC {

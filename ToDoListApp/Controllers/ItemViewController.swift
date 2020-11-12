@@ -20,6 +20,7 @@ class ItemViewController: UITableViewController{
     let realm = try! Realm()
     
     let eventStore = EKEventStore()
+    let defaults = UserDefaults.standard
     
     /// Property sended from CategoryViewController by segue
     var selectedCategory : Category? {
@@ -132,7 +133,6 @@ class ItemViewController: UITableViewController{
         if (editingStyle == .delete) {
             
             deleteData(indexPath: indexPath)
-            
             
         }
     }
@@ -347,19 +347,22 @@ class ItemViewController: UITableViewController{
                                     }
                                 }
                                 
+                                let firstAlarmDelay = self.defaults.string(forKey: KeyUserDefaults.firstAlarmDelay)
+                                let secondAlarmDelay = self.defaults.string(forKey: KeyUserDefaults.secondAlarmDelay)
+                                
                                 /// Create new event
                                 let event:EKEvent = EKEvent(eventStore: self.eventStore)
                                 let startDate = targetDate
                                 let endDate = startDate.addingTimeInterval(1 * 60 * 60)
-                                let alarm = EKAlarm(relativeOffset: -300)
-                                let alarm1H = EKAlarm(relativeOffset: -3600)
+                                let alarm1 = EKAlarm(relativeOffset: -Double(firstAlarmDelay ?? "0")!  * 60)
+                                let alarm2 = EKAlarm(relativeOffset: -Double(secondAlarmDelay ?? "60")!  * 60)
                                 
                                 event.title = item.title
                                 event.startDate = startDate
                                 event.endDate = endDate
                                 event.notes = "Created by TO DO LIST CALENDAR"
-                                event.addAlarm(alarm)
-                                event.addAlarm(alarm1H)
+                                event.addAlarm(alarm1)
+                                event.addAlarm(alarm2)
                                 event.calendar = self.eventStore.defaultCalendarForNewEvents
                                 do {
                                     try self.eventStore.save(event, span: .thisEvent)
