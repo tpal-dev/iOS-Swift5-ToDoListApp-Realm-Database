@@ -129,6 +129,7 @@
 		529B5738254D9009006EB720 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 529B5736254D9009006EB720 /* LaunchScreen.storyboard */; };
 		52A653AB255207D200B7570B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A653AA255207D200B7570B /* Item.swift */; };
 		52A653AD255207E200B7570B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A653AC255207E200B7570B /* Category.swift */; };
+		52AFDA78255DC8380014CDF0 /* AboutText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFDA77255DC8380014CDF0 /* AboutText.swift */; };
 		52D025872559EEB2006DF45A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D025862559EEB2006DF45A /* CustomButton.swift */; };
 		52F028012550E144007FFE20 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F028002550E144007FFE20 /* CategoryViewController.swift */; };
 		87C49C9B0B4B318B7CAA1EFF /* Pods_ToDoListApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6D306DF5E7DCA2FABE48ED /* Pods_ToDoListApp.framework */; };
@@ -261,6 +262,7 @@
 		529B5739254D9009006EB720 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52A653AA255207D200B7570B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		52A653AC255207E200B7570B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		52AFDA77255DC8380014CDF0 /* AboutText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutText.swift; sourceTree = "<group>"; };
 		52D025862559EEB2006DF45A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		52F028002550E144007FFE20 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		8A6D306DF5E7DCA2FABE48ED /* Pods_ToDoListApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoListApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -697,6 +699,7 @@
 				52D025862559EEB2006DF45A /* CustomButton.swift */,
 				5215DAFE255C42620028CE3C /* DefaultSettings.swift */,
 				5215DB02255C52210028CE3C /* Helper.swift */,
+				52AFDA77255DC8380014CDF0 /* AboutText.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -892,6 +895,7 @@
 				521E27A92554DF20003E7071 /* UIView.swift in Sources */,
 				521E27BA2554DF20003E7071 /* GalleryItem.swift in Sources */,
 				521E27B02554DF20003E7071 /* UIViewController.swift in Sources */,
+				52AFDA78255DC8380014CDF0 /* AboutText.swift in Sources */,
 				521E27912554DF20003E7071 /* UIApplication+Extensions.swift in Sources */,
 				521E27EF2554DF20003E7071 /* PickerStyle.swift in Sources */,
 				521E27D12554DF20003E7071 /* SearchHistoryManager.swift in Sources */,

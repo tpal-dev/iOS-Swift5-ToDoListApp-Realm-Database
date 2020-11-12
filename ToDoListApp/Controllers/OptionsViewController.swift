@@ -9,7 +9,7 @@
 import UIKit
 
 class OptionsViewController: UIViewController {
-
+    
     let defaults = UserDefaults.standard
     
     @IBOutlet weak var label1: UILabel!
@@ -26,7 +26,7 @@ class OptionsViewController: UIViewController {
         super.viewDidLoad()
         
         refreshColorTheme()
-       
+        
     }
     
     
@@ -40,7 +40,33 @@ class OptionsViewController: UIViewController {
     @IBAction func darkModeButtonPressed(_ sender: Any) {
         
         setThemeColor()
-            
+        
+    }
+    
+    @IBAction func firstAlertPressed(_ sender: Any) {
+        
+    }
+    
+    @IBAction func secondAlertPressed(_ sender: Any) {
+        
+    }
+    
+    @IBAction func tutorialButtonPressed(_ sender: Any) {
+        
+    }
+    
+    @IBAction func aboutButtonPressed(_ sender: Any) {
+        let alert = UIAlertController(style: .actionSheet)
+        
+        
+        
+        alert.addTextViewer(text: .attributedText(AboutText.text))
+        alert.addAction(title: "OK".localized, style: .cancel)
+        alert.view.addSubview(UIView())
+        DispatchQueue.main.async {
+            self.present(alert, animated: false, completion: nil)
+        }
+        
     }
     
     func  setThemeColor() {
@@ -85,8 +111,11 @@ class OptionsViewController: UIViewController {
         button3.setTitleColor(settings.buttonLabelColor, for: .normal)
         button4.setTitleColor(settings.buttonLabelColor, for: .normal)
         button5.setTitleColor(settings.buttonLabelColor, for: .normal)
-      
+        
     }
     
-
+  
+    
 }
+
+

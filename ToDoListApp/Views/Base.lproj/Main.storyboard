@@ -242,7 +242,7 @@
                                         <rect key="frame" x="0.0" y="258" width="326" height="148"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgS-mX-RGo" customClass="GradientSlider" customModule="ToDoList" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="326" height="36"/>
+                                                <rect key="frame" x="-2" y="-4" width="330" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="4WT-wU-XLS"/>
                                                 </constraints>
@@ -262,7 +262,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UE4-DO-Sv8" customClass="GradientSlider" customModule="ToDoList" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="56" width="326" height="36"/>
+                                                <rect key="frame" x="-2" y="52" width="330" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="FO6-TN-84a"/>
                                                 </constraints>
@@ -283,7 +283,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D4q-t9-dA5" customClass="GradientSlider" customModule="ToDoList" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="112" width="326" height="36"/>
+                                                <rect key="frame" x="-2" y="108" width="330" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="ymJ-hy-vd9"/>
                                                 </constraints>
@@ -458,6 +458,9 @@
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="firstAlertPressed:" destination="KWe-e9-ZaD" eventType="touchUpInside" id="xip-FM-F0G"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BUd-Qh-ZVv" userLabel="Button" customClass="CustomButton" customModule="ToDoList" customModuleProvider="target">
                                                         <rect key="frame" x="160" y="0.0" width="150" height="64.333333333333329"/>
@@ -472,6 +475,9 @@
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="secondAlertPressed:" destination="KWe-e9-ZaD" eventType="touchUpInside" id="ul3-vA-ord"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -515,6 +521,9 @@
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="tutorialButtonPressed:" destination="KWe-e9-ZaD" eventType="touchUpInside" id="PiZ-eZ-aGK"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -540,6 +549,9 @@
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="aboutButtonPressed:" destination="KWe-e9-ZaD" eventType="touchUpInside" id="9Q5-LN-bPg"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>

@@ -174,7 +174,7 @@ public struct Contacts {
         var contacts: [CNContact] = [CNContact]()
         let predicate: NSPredicate
 
-        if string.endIndex.encodedOffset > 0 {
+        if string.endIndex.utf16Offset(in: string) > 0 {
             predicate = CNContact.predicateForContacts(matchingName: string)
         } else {
             predicate = CNContact.predicateForContactsInContainer(withIdentifier: CNContactStore().defaultContainerIdentifier())
@@ -218,7 +218,7 @@ public struct Telephone {
         if UIApplication.shared.canOpenURL(NSURL(string: "tel://")! as URL) {
             // Check if iOS Device supports phone calls
             // User will get an alert error when they will try to make a phone call in airplane mode
-            if let mnc: String = CTTelephonyNetworkInfo().subscriberCellularProvider?.mobileNetworkCode, !mnc.isEmpty {
+            if let mnc: String = CTTelephonyNetworkInfo().serviceSubscriberCellularProviders?.first?.value.mobileNetworkCode, !mnc.isEmpty {
                 // iOS Device is capable for making calls
                 completionHandler(true)
             } else {
