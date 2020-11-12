@@ -91,6 +91,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="mHw-kA-kvV">
+                                <rect key="frame" x="96" y="762" width="198" height="28"/>
+                            </pageControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="reT-zB-zOC">
                                 <rect key="frame" x="0.0" y="636" width="390" height="208"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -98,10 +101,26 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="NXF-ri-HnK"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="euO-g6-exa"/>
                             </scrollView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animation by Shahariar Arifin Imran on LottieFiles " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2te-rq-NDa">
+                                <rect key="frame" x="36" y="64" width="318" height="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2te-rq-NDa" firstAttribute="top" secondItem="kue-zY-ada" secondAttribute="topMargin" constant="20" id="297-vZ-O8b"/>
+                            <constraint firstItem="2te-rq-NDa" firstAttribute="leading" secondItem="kue-zY-ada" secondAttribute="leadingMargin" constant="20" id="4eO-s5-zEe"/>
+                            <constraint firstItem="mHw-kA-kvV" firstAttribute="leading" secondItem="kue-zY-ada" secondAttribute="leadingMargin" constant="80" id="9Vp-7a-mh2"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="mHw-kA-kvV" secondAttribute="bottom" constant="20" id="PPb-Rl-slL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2te-rq-NDa" secondAttribute="trailing" constant="20" id="Zsd-eG-fRe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mHw-kA-kvV" secondAttribute="trailing" constant="80" id="ZtG-E4-zdu"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="lottieLabel" destination="2te-rq-NDa" id="uhI-1V-P7n"/>
+                        <outlet property="pageControl" destination="mHw-kA-kvV" id="O9H-r3-03Q"/>
                         <outlet property="scrollView" destination="reT-zB-zOC" id="Kr6-j5-Jwn"/>
                     </connections>
                 </viewController>
@@ -338,7 +357,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhp-Oo-Bsy">
-                                                <rect key="frame" x="18" y="49.666666666666629" width="27" height="20"/>
+                                                <rect key="frame" x="18" y="49.666666666666664" width="27" height="19.999999999999993"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="27" id="Gvb-o1-u0h"/>
                                                     <constraint firstAttribute="height" constant="20" id="fCQ-px-pAc"/>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		520B0908255C919C00D8E749 /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 520B0907255C919C00D8E749 /* Slide.xib */; };
+		520B090B255C91C300D8E749 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B090A255C91C300D8E749 /* Slide.swift */; };
 		5215DAFF255C42620028CE3C /* DefaultSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215DAFE255C42620028CE3C /* DefaultSettings.swift */; };
 		5215DB03255C52210028CE3C /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215DB02255C52210028CE3C /* Helper.swift */; };
 		521E27862554DF20003E7071 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E26FA2554DF1F003E7071 /* Array+Extensions.swift */; };
@@ -134,6 +136,8 @@
 
 /* Begin PBXFileReference section */
 		44B0E2FD6916DE031EF25A56 /* Pods-ToDoListApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListApp.debug.xcconfig"; path = "Target Support Files/Pods-ToDoListApp/Pods-ToDoListApp.debug.xcconfig"; sourceTree = "<group>"; };
+		520B0907255C919C00D8E749 /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
+		520B090A255C91C300D8E749 /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
 		5215DAFE255C42620028CE3C /* DefaultSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSettings.swift; sourceTree = "<group>"; };
 		5215DB02255C52210028CE3C /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		521E26FA2554DF1F003E7071 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
@@ -712,6 +716,8 @@
 			isa = PBXGroup;
 			children = (
 				529B5731254D8FFC006EB720 /* Main.storyboard */,
+				520B0907255C919C00D8E749 /* Slide.xib */,
+				520B090A255C91C300D8E749 /* Slide.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -800,6 +806,7 @@
 				529A1D33255633CD00C6CFA3 /* checklist.json in Resources */,
 				521E27C42554DF20003E7071 /* Countries.bundle in Resources */,
 				529B5738254D9009006EB720 /* LaunchScreen.storyboard in Resources */,
+				520B0908255C919C00D8E749 /* Slide.xib in Resources */,
 				529B5735254D9009006EB720 /* Assets.xcassets in Resources */,
 				529B5733254D8FFC006EB720 /* Main.storyboard in Resources */,
 				521E27EA2554DF20003E7071 /* MMBAlertsPickersLocalizable.strings in Resources */,
@@ -915,6 +922,7 @@
 				5215DAFF255C42620028CE3C /* DefaultSettings.swift in Sources */,
 				521E279A2554DF20003E7071 /* UITextField+Extensions.swift in Sources */,
 				521E279D2554DF20003E7071 /* ItemControllerDelegate.swift in Sources */,
+				520B090B255C91C300D8E749 /* Slide.swift in Sources */,
 				521E27AB2554DF20003E7071 /* UIColor.swift in Sources */,
 				521E27A52554DF20003E7071 /* ThumbnailCell.swift in Sources */,
 				521E27DE2554DF20003E7071 /* AssetsCollection+ChangesObserver.swift in Sources */,

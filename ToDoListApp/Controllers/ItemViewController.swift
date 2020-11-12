@@ -408,6 +408,8 @@ class ItemViewController: UITableViewController{
             
             title = selectedCategory!.name
             self.navigationItem.rightBarButtonItem = self.editButtonItem
+            self.view.backgroundColor = DefaultSettings.sharedInstance.backgroundColor
+            
             //guard let navBar = navigationController?.navigationBar else {fatalError("NavigationController does not exist") }
             
             if let customColor = UIColor(hexString: colorHex) {
