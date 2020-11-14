@@ -220,7 +220,7 @@ class ItemViewController: UITableViewController{
             
             ARSLineProgress.showSuccess()
             self.tableView.reloadData()
-           
+            
         })
         
         mainAlert.addTextField { (alertTextField) in
@@ -289,8 +289,6 @@ class ItemViewController: UITableViewController{
                 
                 var dateSet : Date?
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "hh:mm  dd/MM/YYYY"
-                let dateString = dateFormatter.string(from: dateSet ?? Date())
                 
                 /// Add date to item
                 let alert = UIAlertController(title: "Date Picker", message: "Select Date", preferredStyle: .alert)
@@ -299,6 +297,8 @@ class ItemViewController: UITableViewController{
                     dateSet = date
                     
                 }
+                
+                /// Add picked date to item and set a reminder
                 alert.addAction(title: "OK", style: .default) { alert in
                     
                     if let item = self.todoItems?[indexPath.row] {
@@ -326,6 +326,7 @@ class ItemViewController: UITableViewController{
                         content.body = "\(item.title)"
                         
                         if let targetDate = dateSet {
+                            
                             let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: targetDate), repeats: false)
                             
                             let request = UNNotificationRequest(identifier: "id_\(item.title)-\(String(describing: item.dateCreated))", content: content, trigger: trigger)
@@ -374,30 +375,32 @@ class ItemViewController: UITableViewController{
                                     print("FAILED TO SAVE EVENT WITH ERROR : \(error)")
                                 }
                                 
-                                //print("EVENT SAVED with ID: \(event.eventIdentifier ?? "error ID")")
                             }
                             
-                        }
-                        
-                        // Event Time Text HUD
-                        let alert = UIAlertController(title: "Event Time Set", message: "\(dateString)", preferredStyle: .alert)
-                        if #available(iOS 13.0, *) {
-                            alert.setTitle(font: UIFont(name: Fonts.helveticNeueMedium, size: 18)!, color: .label)
-                            alert.setMessage(font: UIFont(name: Fonts.helveticNeueLight, size: 15)!, color: .label)
-                        } else {
-                            alert.setTitle(font: UIFont(name: Fonts.helveticNeueMedium, size: 18)!, color: .black)
-                            alert.setMessage(font: UIFont(name: Fonts.helveticNeueLight, size: 15)!, color: .black)
-                        }
-                        //alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = .black
-                        self.present(alert, animated: true, completion: nil)
-                        let when = DispatchTime.now() + 3
-                        DispatchQueue.main.asyncAfter(deadline: when){
-                          alert.dismiss(animated: true, completion: nil)
-                        }
+                            /// Event Time Text HUD
+                            dateFormatter.dateFormat = "hh:mm  dd/MM/YYYY"
+                            let dateString = dateFormatter.string(from: targetDate)
+                            
+                            let alert = UIAlertController(title: "Event Time Set", message: "\(dateString)", preferredStyle: .alert)
+                            if #available(iOS 13.0, *) {
+                                alert.setTitle(font: UIFont(name: Fonts.helveticNeueMedium, size: 18)!, color: .label)
+                                alert.setMessage(font: UIFont(name: Fonts.helveticNeueLight, size: 15)!, color: .label)
+                            } else {
+                                alert.setTitle(font: UIFont(name: Fonts.helveticNeueMedium, size: 18)!, color: .black)
+                                alert.setMessage(font: UIFont(name: Fonts.helveticNeueLight, size: 15)!, color: .black)
+                            }
+                            //alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = .black
+                            self.present(alert, animated: true, completion: nil)
+                            let when = DispatchTime.now() + 3
+                            DispatchQueue.main.asyncAfter(deadline: when){
+                                alert.dismiss(animated: true, completion: nil)
+                            }
+                            
+                        } else { print("ERROR, let targetDate = nil \(String(describing: dateSet))") }
                         
                         self.tableView.reloadData()
                         
-                    }
+                    } else { print("ERROR, let item = nil \(String(describing: self.todoItems?[indexPath.row]))") }
                     
                 }
                 
