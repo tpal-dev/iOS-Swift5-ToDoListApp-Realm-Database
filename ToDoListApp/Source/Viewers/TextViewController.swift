@@ -31,7 +31,7 @@ final public class TextViewerViewController: UIViewController {
     }(UITextView())
     
     struct UI {
-        static let height: CGFloat = UIScreen.main.bounds.height * 0.8
+        static let height: CGFloat = UIScreen.main.bounds.height * 0.9
         static let vInset: CGFloat = 16
         static let hInset: CGFloat = 16
     }
@@ -48,6 +48,7 @@ final public class TextViewerViewController: UIViewController {
         }
         textView.textContainerInset = UIEdgeInsets.init(top: UI.hInset, left: UI.vInset, bottom: UI.hInset, right: UI.vInset)
         //preferredContentSize.height = self.textView.contentSize.height
+        preferredContentSize.height = UIScreen.main.bounds.height * 0.8
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -67,7 +68,9 @@ final public class TextViewerViewController: UIViewController {
         
         if UIDevice.current.userInterfaceIdiom == .pad {
             preferredContentSize.width = UIScreen.main.bounds.width * 0.618
+        
         }
+        
     }
     
     override public func viewDidAppear(_ animated: Bool) {
@@ -77,7 +80,7 @@ final public class TextViewerViewController: UIViewController {
     
     override public func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        preferredContentSize.height = textView.contentSize.height
+        preferredContentSize.height = UIScreen.main.bounds.height * 0.9
         
     }
 }

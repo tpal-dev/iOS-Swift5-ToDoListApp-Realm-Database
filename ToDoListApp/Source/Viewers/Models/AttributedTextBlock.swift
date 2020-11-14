@@ -11,17 +11,41 @@ public enum AttributedTextBlock {
         let attributedString: NSMutableAttributedString
         switch self {
         case .header1(let value):
-            let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.boldSystemFont(ofSize: 20), .foregroundColor: UIColor.black]
-            attributedString = NSMutableAttributedString(string: value, attributes: attributes)
+            if #available(iOS 13.0, *) {
+                let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.boldSystemFont(ofSize: 22), .foregroundColor: UIColor.label]
+                attributedString = NSMutableAttributedString(string: value, attributes: attributes)
+            } else {
+                let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.boldSystemFont(ofSize: 22), .foregroundColor: UIColor.black]
+                attributedString = NSMutableAttributedString(string: value, attributes: attributes)
+            }
+            
         case .header2(let value):
-            let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.boldSystemFont(ofSize: 18), .foregroundColor: UIColor.black]
-            attributedString = NSMutableAttributedString(string: value, attributes: attributes)
+            if #available(iOS 13.0, *) {
+                let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.boldSystemFont(ofSize: 18), .foregroundColor: UIColor.label]
+                attributedString = NSMutableAttributedString(string: value, attributes: attributes)
+            } else {
+                let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.boldSystemFont(ofSize: 18), .foregroundColor: UIColor.black]
+                attributedString = NSMutableAttributedString(string: value, attributes: attributes)
+            }
+            
         case .normal(let value):
-            let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.black]
-            attributedString = NSMutableAttributedString(string: value, attributes: attributes)
+            if #available(iOS 13.0, *) {
+                let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.label]
+                attributedString = NSMutableAttributedString(string: value, attributes: attributes)
+            } else {
+                let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.black]
+                attributedString = NSMutableAttributedString(string: value, attributes: attributes)
+            }
+            
         case .list(let value):
-            let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.black]
-            attributedString = NSMutableAttributedString(string: "∙ " + value, attributes: attributes)
+            if #available(iOS 13.0, *) {
+                let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.label]
+                attributedString = NSMutableAttributedString(string: "∙ " + value, attributes: attributes)
+            } else {
+                let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.black]
+                attributedString = NSMutableAttributedString(string: "∙ " + value, attributes: attributes)
+            }
+            
         }
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 2

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Bfe-Cj-4V5">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
@@ -13,11 +13,11 @@
             <objects>
                 <tableViewController storyboardIdentifier="ItemViewController" id="1c5-mA-8R6" customClass="ItemViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jmo-F4-Fud">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="704"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="640"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search" translucent="NO" id="nPR-TF-DDw">
-                            <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="yes"/>
                             <connections>
@@ -26,10 +26,10 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoItemCell" textLabel="QEW-0D-Lc6" detailTextLabel="EwN-lw-bMj" style="IBUITableViewCellStyleSubtitle" id="Uzm-Bf-fcd">
-                                <rect key="frame" x="0.0" y="72" width="390" height="55.666667938232422"/>
+                                <rect key="frame" x="0.0" y="72" width="414" height="55.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Uzm-Bf-fcd" id="eR1-rK-lDh">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="55.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="55.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QEW-0D-Lc6">
@@ -79,6 +79,47 @@
             </objects>
             <point key="canvasLocation" x="1976.8115942028987" y="50.892857142857139"/>
         </scene>
+        <!--Tutorial View Controller-->
+        <scene sceneID="r04-M0-gJO">
+            <objects>
+                <viewController storyboardIdentifier="TutorialViewController" modalPresentationStyle="fullScreen" id="eUW-a7-OJN" customClass="TutorialViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="S18-go-YQc"/>
+                        <viewControllerLayoutGuide type="bottom" id="EG0-IH-wXG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rbD-pp-Ffi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="gl0-E4-FbY">
+                                <rect key="frame" x="80" y="649" width="254" height="28"/>
+                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </pageControl>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b8L-iT-ZCS">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="4H4-ur-AE0"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="cqY-kE-LXA"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gl0-E4-FbY" firstAttribute="leading" secondItem="rbD-pp-Ffi" secondAttribute="leadingMargin" constant="60" id="JMz-3a-pz3"/>
+                            <constraint firstItem="EG0-IH-wXG" firstAttribute="top" secondItem="gl0-E4-FbY" secondAttribute="bottom" constant="10" id="N4B-ev-pCC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gl0-E4-FbY" secondAttribute="trailing" constant="60" id="dNe-WD-igJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Zyu-MX-tdg"/>
+                    <connections>
+                        <outlet property="pageControl" destination="gl0-E4-FbY" id="uId-4f-N6a"/>
+                        <outlet property="scrollView" destination="b8L-iT-ZCS" id="7Mn-IY-DIs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WRF-aF-I6D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2847.826086956522" y="776.9021739130435"/>
+        </scene>
         <!--Begin View Controller-->
         <scene sceneID="h4o-1l-JzU">
             <objects>
@@ -88,21 +129,21 @@
                         <viewControllerLayoutGuide type="bottom" id="zoN-1V-nLL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kue-zY-ada">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="mHw-kA-kvV">
-                                <rect key="frame" x="96" y="762" width="198" height="28"/>
+                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="mHw-kA-kvV">
+                                <rect key="frame" x="100" y="703" width="214" height="28"/>
                             </pageControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="reT-zB-zOC">
-                                <rect key="frame" x="0.0" y="636" width="390" height="208"/>
+                                <rect key="frame" x="0.0" y="528" width="414" height="208"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="NXF-ri-HnK"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="euO-g6-exa"/>
                             </scrollView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animation by Shahariar Arifin Imran on LottieFiles " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2te-rq-NDa">
-                                <rect key="frame" x="36" y="64" width="318" height="17"/>
+                                <rect key="frame" x="40" y="20" width="334" height="17"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -112,10 +153,10 @@
                         <constraints>
                             <constraint firstItem="2te-rq-NDa" firstAttribute="top" secondItem="kue-zY-ada" secondAttribute="topMargin" constant="20" id="297-vZ-O8b"/>
                             <constraint firstItem="2te-rq-NDa" firstAttribute="leading" secondItem="kue-zY-ada" secondAttribute="leadingMargin" constant="20" id="4eO-s5-zEe"/>
-                            <constraint firstItem="mHw-kA-kvV" firstAttribute="leading" secondItem="kue-zY-ada" secondAttribute="leadingMargin" constant="80" id="9Vp-7a-mh2"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="mHw-kA-kvV" secondAttribute="bottom" constant="20" id="PPb-Rl-slL"/>
+                            <constraint firstItem="zoN-1V-nLL" firstAttribute="top" secondItem="mHw-kA-kvV" secondAttribute="bottom" constant="5" id="Wrp-rv-gZY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2te-rq-NDa" secondAttribute="trailing" constant="20" id="Zsd-eG-fRe"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mHw-kA-kvV" secondAttribute="trailing" constant="80" id="ZtG-E4-zdu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mHw-kA-kvV" secondAttribute="trailing" constant="80" id="efF-iL-Mk6"/>
+                            <constraint firstItem="mHw-kA-kvV" firstAttribute="leading" secondItem="kue-zY-ada" secondAttribute="leadingMargin" constant="80" id="mob-Iy-6GZ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -135,7 +176,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="O9g-ul-V9A"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="aPT-Y5-0ol">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" systemColor="labelColor"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -160,20 +201,20 @@
             <objects>
                 <tableViewController storyboardIdentifier="CategoryViewController" id="sPt-kG-M6u" userLabel="Category View Controller" customClass="CategoryViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3eM-0N-eAk">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="756"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="VTD-Pc-AQ1">
-                            <rect key="frame" x="0.0" y="0.0" width="390" height="5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="5"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" id="3my-me-H4A">
-                                <rect key="frame" x="0.0" y="33" width="390" height="43.666667938232422"/>
+                                <rect key="frame" x="0.0" y="33" width="414" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3my-me-H4A" id="geQ-T0-DkU">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -208,14 +249,14 @@
                         <viewControllerLayoutGuide type="bottom" id="7E4-ZM-s9Z"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JaL-jy-YC4">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="58" translatesAutoresizingMaskIntoConstraints="NO" id="mlj-pX-d4x">
-                                <rect key="frame" x="32" y="44" width="326" height="406"/>
+                                <rect key="frame" x="32" y="44" width="350" height="406"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="slr-At-2im">
-                                        <rect key="frame" x="63" y="0.0" width="200" height="200"/>
+                                        <rect key="frame" x="75" y="0.0" width="200" height="200"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="49A-oW-g7X"/>
@@ -239,10 +280,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bQx-XA-m2G">
-                                        <rect key="frame" x="0.0" y="258" width="326" height="148"/>
+                                        <rect key="frame" x="0.0" y="258" width="350" height="148"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgS-mX-RGo" customClass="GradientSlider" customModule="ToDoList" customModuleProvider="target">
-                                                <rect key="frame" x="-2" y="-4" width="330" height="44"/>
+                                                <rect key="frame" x="-2" y="-4" width="354" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="4WT-wU-XLS"/>
                                                 </constraints>
@@ -262,7 +303,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UE4-DO-Sv8" customClass="GradientSlider" customModule="ToDoList" customModuleProvider="target">
-                                                <rect key="frame" x="-2" y="52" width="330" height="44"/>
+                                                <rect key="frame" x="-2" y="52" width="354" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="FO6-TN-84a"/>
                                                 </constraints>
@@ -283,7 +324,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D4q-t9-dA5" customClass="GradientSlider" customModule="ToDoList" customModuleProvider="target">
-                                                <rect key="frame" x="-2" y="108" width="330" height="44"/>
+                                                <rect key="frame" x="-2" y="108" width="354" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="ymJ-hy-vd9"/>
                                                 </constraints>
@@ -341,23 +382,23 @@
                         <viewControllerLayoutGuide type="bottom" id="YjQ-Ji-OB3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YXb-89-e3D">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="GSm-KK-Rep">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fLR-es-njf" userLabel="Top View">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="84.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="73.666666666666671"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQO-wZ-d9V">
-                                                <rect key="frame" x="0.0" y="44.333333333333336" width="390" height="30.000000000000007"/>
+                                                <rect key="frame" x="0.0" y="33.666666666666664" width="414" height="30"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhp-Oo-Bsy">
-                                                <rect key="frame" x="18" y="49.666666666666664" width="27" height="19.999999999999993"/>
+                                                <rect key="frame" x="18" y="39" width="27" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="27" id="Gvb-o1-u0h"/>
                                                     <constraint firstAttribute="height" constant="20" id="fCQ-px-pAc"/>
@@ -380,10 +421,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0gP-Ib-tMf">
-                                        <rect key="frame" x="0.0" y="84.333333333333343" width="390" height="84.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="73.666666666666657" width="414" height="73.666666666666657"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theme" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Fw-J8-ppu" userLabel="Label">
-                                                <rect key="frame" x="0.0" y="49.666666666666664" width="390" height="29.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="39" width="414" height="29.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -396,10 +437,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9kC-wo-im7">
-                                        <rect key="frame" x="0.0" y="168.66666666666666" width="390" height="84.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="147.33333333333334" width="414" height="73.333333333333343"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyc-T7-sgp" userLabel="Button" customClass="CustomButton" customModule="ToDoList" customModuleProvider="target">
-                                                <rect key="frame" x="40" y="10" width="310" height="64.666666666666671"/>
+                                                <rect key="frame" x="40" y="10.000000000000004" width="334" height="53.333333333333343"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
                                                 <state key="normal" title="Change to Dark Mode">
@@ -424,10 +465,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o73-Dq-oxH">
-                                        <rect key="frame" x="0.0" y="253.33333333333334" width="390" height="84.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="220.66666666666666" width="414" height="73.666666666666657"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendar Event Alert Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a93-nY-8gm" userLabel="Label">
-                                                <rect key="frame" x="0.0" y="49.66666666666665" width="390" height="29.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="39.000000000000028" width="414" height="29.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -440,13 +481,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1xO-R9-iwK">
-                                        <rect key="frame" x="0.0" y="337.66666666666669" width="390" height="84.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="294.33333333333331" width="414" height="73.666666666666686"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PEu-Z6-Uwa">
-                                                <rect key="frame" x="40" y="10" width="310" height="64.333333333333329"/>
+                                                <rect key="frame" x="40" y="9.9999999999999964" width="334" height="53.666666666666657"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VUi-Sa-yfT" userLabel="Button" customClass="CustomButton" customModule="ToDoList" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="64.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="53.666666666666664"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
                                                         <state key="normal" title="1st alert">
@@ -463,7 +504,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BUd-Qh-ZVv" userLabel="Button" customClass="CustomButton" customModule="ToDoList" customModuleProvider="target">
-                                                        <rect key="frame" x="160" y="0.0" width="150" height="64.333333333333329"/>
+                                                        <rect key="frame" x="172" y="0.0" width="162" height="53.666666666666664"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
                                                         <state key="normal" title="2nd alert">
@@ -490,10 +531,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vln-pb-yLG">
-                                        <rect key="frame" x="0.0" y="422" width="390" height="84.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="368" width="414" height="73.666666666666686"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Others" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qlL-Dk-Sb0" userLabel="Label">
-                                                <rect key="frame" x="0.0" y="49.666666666666679" width="390" height="29.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="39" width="414" height="29.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -506,10 +547,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CvW-7S-Qd6">
-                                        <rect key="frame" x="0.0" y="506.33333333333331" width="390" height="84.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="441.66666666666669" width="414" height="73.666666666666686"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97P-xE-IcD" userLabel="Button" customClass="CustomButton" customModule="ToDoList" customModuleProvider="target">
-                                                <rect key="frame" x="40" y="10.000000000000057" width="310" height="64.333333333333329"/>
+                                                <rect key="frame" x="40" y="9.9999999999999964" width="334" height="53.666666666666657"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
                                                 <state key="normal" title="Tutorial">
@@ -523,6 +564,7 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="tutorialButtonPressed:" destination="KWe-e9-ZaD" eventType="touchUpInside" id="PiZ-eZ-aGK"/>
+                                                    <segue destination="eUW-a7-OJN" kind="show" id="SIC-Sd-lWe"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -534,10 +576,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="92h-PN-fvU">
-                                        <rect key="frame" x="0.0" y="590.66666666666663" width="390" height="84.666666666666629"/>
+                                        <rect key="frame" x="0.0" y="515.33333333333337" width="414" height="73.333333333333371"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TZO-oa-Obq" userLabel="Button" customClass="CustomButton" customModule="ToDoList" customModuleProvider="target">
-                                                <rect key="frame" x="40" y="10" width="310" height="64.666666666666671"/>
+                                                <rect key="frame" x="40" y="10.000000000000004" width="334" height="53.333333333333343"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
                                                 <state key="normal" title="About">
@@ -562,13 +604,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3wD-hg-Aaf">
-                                        <rect key="frame" x="0.0" y="675.33333333333337" width="390" height="84.333333333333371"/>
+                                        <rect key="frame" x="0.0" y="588.66666666666663" width="414" height="73.666666666666629"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUM-1a-NrZ">
-                                        <rect key="frame" x="0.0" y="759.66666666666663" width="390" height="84.333333333333371"/>
+                                        <rect key="frame" x="0.0" y="662.33333333333337" width="414" height="73.666666666666629"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2020 Tomasz Paluszkiewcz                 All rights reserved" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6E6-ys-VAb">
-                                                <rect key="frame" x="20" y="0.0" width="350" height="40.333333333333336"/>
+                                                <rect key="frame" x="20" y="0.0" width="374" height="40.333333333333336"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>

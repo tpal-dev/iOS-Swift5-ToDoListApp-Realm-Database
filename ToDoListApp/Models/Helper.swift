@@ -38,7 +38,7 @@ class Helper {
     static func themeCheck() {
         
         let defaults = UserDefaults.standard
-        let blackColorTheme = defaults.bool(forKey: "darkMode")
+        let blackColorTheme = defaults.bool(forKey: KeyUserDefaults.colorTheme)
         let settings = DefaultSettings.sharedInstance
         
         if blackColorTheme == true {
@@ -46,11 +46,13 @@ class Helper {
             settings.buttonBackgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             settings.buttonLabelColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             settings.labelColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            settings.buttonText = "Light Mode"
         } else {
             settings.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
             settings.buttonBackgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             settings.buttonLabelColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
             settings.labelColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            settings.buttonText = "Dark Mode"
         }
     }
     

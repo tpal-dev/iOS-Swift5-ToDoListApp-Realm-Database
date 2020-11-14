@@ -29,7 +29,7 @@ class CategoryViewController: UITableViewController {
         let firstLaunch = defaults.bool(forKey: KeyUserDefaults.firstLaunch)
         if firstLaunch == false {
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "BeginViewController") as! BeginViewController
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: IdentifierVC.beginVC) as! BeginViewController
             newViewController.modalPresentationStyle = .fullScreen
             //newViewController.modalTransitionStyle = .partialCurl
             self.navigationController?.present(newViewController, animated: true, completion: nil)

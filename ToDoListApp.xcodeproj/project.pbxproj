@@ -140,6 +140,9 @@
 		52AFDA8E255DDA2F0014CDF0 /* ARSLineProgressCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFDA84255DDA2F0014CDF0 /* ARSLineProgressCustomization.swift */; };
 		52AFDA8F255DDA2F0014CDF0 /* ARSLineProgressProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFDA85255DDA2F0014CDF0 /* ARSLineProgressProtocols.swift */; };
 		52AFDA90255DDA2F0014CDF0 /* ARSStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFDA86255DDA2F0014CDF0 /* ARSStatus.swift */; };
+		52AFDA98255DFC120014CDF0 /* SlideTutorial.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52AFDA97255DFC120014CDF0 /* SlideTutorial.xib */; };
+		52AFDA9B255DFC3A0014CDF0 /* SlideTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFDA9A255DFC3A0014CDF0 /* SlideTutorial.swift */; };
+		52B92F23255EBA6400B0E771 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B92F22255EBA6400B0E771 /* TutorialViewController.swift */; };
 		52D025872559EEB2006DF45A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D025862559EEB2006DF45A /* CustomButton.swift */; };
 		52F028012550E144007FFE20 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F028002550E144007FFE20 /* CategoryViewController.swift */; };
 		87C49C9B0B4B318B7CAA1EFF /* Pods_ToDoListApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6D306DF5E7DCA2FABE48ED /* Pods_ToDoListApp.framework */; };
@@ -283,6 +286,9 @@
 		52AFDA84255DDA2F0014CDF0 /* ARSLineProgressCustomization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressCustomization.swift; sourceTree = "<group>"; };
 		52AFDA85255DDA2F0014CDF0 /* ARSLineProgressProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressProtocols.swift; sourceTree = "<group>"; };
 		52AFDA86255DDA2F0014CDF0 /* ARSStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSStatus.swift; sourceTree = "<group>"; };
+		52AFDA97255DFC120014CDF0 /* SlideTutorial.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlideTutorial.xib; sourceTree = "<group>"; };
+		52AFDA9A255DFC3A0014CDF0 /* SlideTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideTutorial.swift; sourceTree = "<group>"; };
+		52B92F22255EBA6400B0E771 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		52D025862559EEB2006DF45A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		52F028002550E144007FFE20 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		8A6D306DF5E7DCA2FABE48ED /* Pods_ToDoListApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoListApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -741,6 +747,7 @@
 				52F028002550E144007FFE20 /* CategoryViewController.swift */,
 				529B572F254D8FFC006EB720 /* ItemViewController.swift */,
 				525DE16C2559BED9008FDC2D /* OptionsViewController.swift */,
+				52B92F22255EBA6400B0E771 /* TutorialViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -751,6 +758,8 @@
 				529B5731254D8FFC006EB720 /* Main.storyboard */,
 				520B0907255C919C00D8E749 /* Slide.xib */,
 				520B090A255C91C300D8E749 /* Slide.swift */,
+				52AFDA97255DFC120014CDF0 /* SlideTutorial.xib */,
+				52AFDA9A255DFC3A0014CDF0 /* SlideTutorial.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -843,6 +852,7 @@
 				529B5735254D9009006EB720 /* Assets.xcassets in Resources */,
 				529B5733254D8FFC006EB720 /* Main.storyboard in Resources */,
 				521E27EA2554DF20003E7071 /* MMBAlertsPickersLocalizable.strings in Resources */,
+				52AFDA98255DFC120014CDF0 /* SlideTutorial.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -927,6 +937,7 @@
 				521E27BA2554DF20003E7071 /* GalleryItem.swift in Sources */,
 				521E27B02554DF20003E7071 /* UIViewController.swift in Sources */,
 				52AFDA78255DC8380014CDF0 /* AboutText.swift in Sources */,
+				52B92F23255EBA6400B0E771 /* TutorialViewController.swift in Sources */,
 				521E27912554DF20003E7071 /* UIApplication+Extensions.swift in Sources */,
 				521E27EF2554DF20003E7071 /* PickerStyle.swift in Sources */,
 				521E27D12554DF20003E7071 /* SearchHistoryManager.swift in Sources */,
@@ -1013,6 +1024,7 @@
 				52AFDA89255DDA2F0014CDF0 /* ARSLineProgressExtensions.swift in Sources */,
 				521E278D2554DF20003E7071 /* UITextView+Extensions.swift in Sources */,
 				521E27CB2554DF20003E7071 /* TwoTextFieldsViewController.swift in Sources */,
+				52AFDA9B255DFC3A0014CDF0 /* SlideTutorial.swift in Sources */,
 				521E27E02554DF20003E7071 /* AssetsCollection.swift in Sources */,
 				521E27E82554DF20003E7071 /* LikeButtonCell.swift in Sources */,
 				521E27D32554DF20003E7071 /* Address.swift in Sources */,

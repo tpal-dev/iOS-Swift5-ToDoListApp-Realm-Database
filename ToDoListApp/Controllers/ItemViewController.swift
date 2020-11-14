@@ -288,6 +288,9 @@ class ItemViewController: UITableViewController{
             if let indexPath = tableView.indexPathForRow(at: touchPoint) {
                 
                 var dateSet : Date?
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "hh:mm  dd/MM/YYYY"
+                let dateString = dateFormatter.string(from: dateSet ?? Date())
                 
                 /// Add date to item
                 let alert = UIAlertController(title: "Date Picker", message: "Select Date", preferredStyle: .alert)
@@ -360,7 +363,7 @@ class ItemViewController: UITableViewController{
                                 event.title = item.title
                                 event.startDate = startDate
                                 event.endDate = endDate
-                                event.notes = "Created by TO DO LIST CALENDAR"
+                                event.notes = "Created by TO DO LIST CALENDAR ©"
                                 event.addAlarm(alarm1)
                                 event.addAlarm(alarm2)
                                 event.calendar = self.eventStore.defaultCalendarForNewEvents
@@ -370,9 +373,26 @@ class ItemViewController: UITableViewController{
                                 } catch let error as NSError {
                                     print("FAILED TO SAVE EVENT WITH ERROR : \(error)")
                                 }
+                                
                                 //print("EVENT SAVED with ID: \(event.eventIdentifier ?? "error ID")")
                             }
                             
+                        }
+                        
+                        // Event Time Text HUD
+                        let alert = UIAlertController(title: "Event Time Set", message: "\(dateString)", preferredStyle: .alert)
+                        if #available(iOS 13.0, *) {
+                            alert.setTitle(font: UIFont(name: Fonts.helveticNeueMedium, size: 18)!, color: .label)
+                            alert.setMessage(font: UIFont(name: Fonts.helveticNeueLight, size: 15)!, color: .label)
+                        } else {
+                            alert.setTitle(font: UIFont(name: Fonts.helveticNeueMedium, size: 18)!, color: .black)
+                            alert.setMessage(font: UIFont(name: Fonts.helveticNeueLight, size: 15)!, color: .black)
+                        }
+                        //alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = .black
+                        self.present(alert, animated: true, completion: nil)
+                        let when = DispatchTime.now() + 3
+                        DispatchQueue.main.asyncAfter(deadline: when){
+                          alert.dismiss(animated: true, completion: nil)
                         }
                         
                         self.tableView.reloadData()

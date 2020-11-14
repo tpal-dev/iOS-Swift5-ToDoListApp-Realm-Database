@@ -10,7 +10,7 @@ import UIKit
 
 class OptionsViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
    
-    let timeArray = ["0","5","10","15","20","30","45","60","90","120"]
+    let timeArray = ["0","5","10","15","30","60","120"]
     var alertDelay: String = ""
 
     
@@ -100,6 +100,9 @@ class OptionsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     @IBAction func tutorialButtonPressed(_ sender: Any) {
         
+        print("Button pressed")
+        
+       
     }
     
     
@@ -109,7 +112,7 @@ class OptionsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         let alert = UIAlertController(style: .actionSheet)
         
         alert.addTextViewer(text: .attributedText(AboutText.text))
-        alert.addAction(title: "OK".localized, style: .cancel)
+        alert.addAction(title: "OK", style: .cancel)
         alert.view.addSubview(UIView())
         DispatchQueue.main.async {
             self.present(alert, animated: false, completion: nil)
@@ -129,6 +132,7 @@ class OptionsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             settings.buttonBackgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             settings.buttonLabelColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             settings.labelColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            settings.buttonText = "Light Mode"
             defaults.set(true, forKey: KeyUserDefaults.colorTheme)
             refreshColorTheme()
         } else {
@@ -136,6 +140,7 @@ class OptionsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             settings.buttonBackgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             settings.buttonLabelColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
             settings.labelColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            settings.buttonText = "Dark Mode"
             defaults.set(false, forKey: KeyUserDefaults.colorTheme)
             refreshColorTheme()
         }
@@ -151,6 +156,7 @@ class OptionsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         label2.textColor = settings.labelColor
         label3.textColor = settings.labelColor
         label4.textColor = settings.labelColor
+        button1.setTitle(settings.buttonText, for: .normal)
         self.button1.backgroundColor = settings.buttonBackgroundColor
         self.button2.backgroundColor = settings.buttonBackgroundColor
         self.button3.backgroundColor = settings.buttonBackgroundColor

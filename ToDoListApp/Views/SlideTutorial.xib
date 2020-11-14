@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SlideTutorial" customModule="ToDoList" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAP &quot;+&quot; TO ADD A NEW CATEGORY" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZ0-6n-QJr">
+                    <rect key="frame" x="30" y="59" width="354" height="24"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="changeColor" translatesAutoresizingMaskIntoConstraints="NO" id="2a1-HT-z6Z">
+                    <rect key="frame" x="97" y="228" width="220" height="440"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="440" id="WWj-bp-tC0"/>
+                        <constraint firstAttribute="width" constant="220" id="sCD-3A-oC1"/>
+                    </constraints>
+                </imageView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCr-ax-kMp" userLabel="Button" customClass="CustomButton" customModule="ToDoList" customModuleProvider="target">
+                    <rect key="frame" x="97" y="412.5" width="220" height="71"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="71" id="Phg-ef-HVi"/>
+                        <constraint firstAttribute="width" constant="220" id="Rg1-Mf-nrf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
+                    <state key="normal" title="Exit">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <constraints>
+                <constraint firstItem="OCr-ax-kMp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="2ed-Im-JZv"/>
+                <constraint firstItem="OCr-ax-kMp" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="4YP-s8-xeJ"/>
+                <constraint firstItem="2a1-HT-z6Z" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8fu-jo-hr1"/>
+                <constraint firstItem="BZ0-6n-QJr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="8gy-7N-6Su"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="BZ0-6n-QJr" secondAttribute="trailing" constant="30" id="Mfi-ni-Jzu"/>
+                <constraint firstItem="2a1-HT-z6Z" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Szt-rf-vNe"/>
+                <constraint firstItem="BZ0-6n-QJr" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="Utl-d5-gze"/>
+            </constraints>
+            <connections>
+                <outlet property="exitButton" destination="OCr-ax-kMp" id="CZc-Bw-REK"/>
+                <outlet property="imageTutorial" destination="2a1-HT-z6Z" id="av0-Vn-cpD"/>
+                <outlet property="label" destination="BZ0-6n-QJr" id="hpO-je-FaG"/>
+            </connections>
+            <point key="canvasLocation" x="140.57971014492756" y="103.125"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="OCr-ax-kMp">
+            <size key="intrinsicContentSize" width="51" height="46"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="changeColor" width="378" height="755"/>
+    </resources>
+</document>
