@@ -22,7 +22,7 @@ You can find here:
 
 ### TO DO List Calendar. App Description:
 
-![GIF](https://s8.gifyu.com/images/Hnet-image-2ce4bdc16cbb8dda8.gif) 
+![GIF](https://s8.gifyu.com/images/Hnet-image-2ce4bdc16cbb8dda8.gi) 
 
 
 
