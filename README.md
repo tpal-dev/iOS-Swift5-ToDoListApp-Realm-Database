@@ -43,6 +43,6 @@ to use in app, and worrying about whether your text will be readable on the vari
 
 `Lottie` - It is a mobile library for Android and iOS that natively renders vector based animations and art in realtime with minimal code.
 
-`Alerts&Pickers` - Advanced usage of native UIAlertController with TextField, TextView, DatePicker, PickerView, TableView, CollectionView and MapView.
+`Alerts&Pickers` - Advanced usage of native UIAlertController with TextField, TextView, DatePicker, PickerView, TableView, CollectionView and MapView. 
 
 `ARSLineProgress` - This progress HUD will add some nice style touch to your application.
