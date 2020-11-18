@@ -27,7 +27,7 @@ You can find here:
 
 <a target="_blank" href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1540455726"><img src="https://i.postimg.cc/fbcrXYfD/Zrzut-ekranu-2020-11-18-o-02-32-14.png" alt="App Store" /></a>
 
-<img src="https://i.postimg.cc/tgQcYBPB/Zrzut-ekranu-2020-11-18-o-02-30-35.png">
+<img src="https://i.postimg.cc/85TnH1V7/Zrzut-ekranu-2020-11-18-o-02-29-31.png">
 <img src="https://i.postimg.cc/tgQcYBPB/Zrzut-ekranu-2020-11-18-o-02-30-35.png">
 
 
