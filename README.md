@@ -20,7 +20,7 @@ You can find here:
 * How to add event to calendar
 * Using UserDefaults
 
-## TO DO List Calendar. App Description:
+## App Description:
 
 ![GIF](https://s8.gifyu.com/images/Hnet-image-2ce4bdc16cbb8dda8.gif) <img src="https://i.postimg.cc/nzmXVc4s/Zrzut-ekranu-2020-11-18-o-02-28-54.png">
 
