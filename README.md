@@ -12,17 +12,22 @@ You can find here:
 * About description as UIAlert (.actionSheet)
 * Using UIPageViewController & ScrollView
 * How to change theme color by the user
-* How to change cell color by the user
 * Navigation between View Controllers
+* How to change cell color by the user
 * Pass data between View Controllers
 * Interactive animation using Lottie
 * How to add push notifications
 * How to add event to calendar
-* How to use UserDefaults
+* Using UserDefaults
 
-<br>
-## Third party libraries description:
-<br>
+### TO DO List Calendar. App Description:
+
+![GIF](https://s8.gifyu.com/images/Hnet-image-2ce4bdc16cbb8dda8.gif) 
+
+
+
+
+### Third party libraries description:
 
 Realm - Mobile database that runs directly inside phones, tablets or wearables. Realm Mobile Database alongside 
 Realm Syncto keep app data up-to-date in real time across multiple users, devices, and the MongoDB backend.
@@ -35,7 +40,3 @@ Lottie - It is a mobile library for Android and iOS that natively renders vector
 Alerts&Pickers - Advanced usage of native UIAlertController with TextField, TextView, DatePicker, PickerView, TableView, CollectionView and MapView.
 
 ARSLineProgress - This progress HUD will add some nice style touch to your application.
-<br>
-## TO DO List Calendar. App Description:
-
-![GIF](https://s8.gifyu.com/images/Hnet-image-2ce4bdc16cbb8dda8.gif) 
