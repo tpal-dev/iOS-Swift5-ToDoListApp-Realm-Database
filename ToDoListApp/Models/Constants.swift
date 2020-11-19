@@ -64,5 +64,5 @@ struct CellName {
 }
 
 struct KeyPath {
-    static let dateCreated = "dateCreated"
+    static let row = "row"
 }

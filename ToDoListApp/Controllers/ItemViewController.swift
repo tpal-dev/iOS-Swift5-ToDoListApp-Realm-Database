@@ -85,7 +85,6 @@ class ItemViewController: UITableViewController{
                 cell.backgroundColor = color
                 cell.textLabel?.textColor = ContrastColorOf(color, returnFlat: true)
                 cell.detailTextLabel?.textColor = ContrastColorOf(color, returnFlat: true)
-                //tableView.backgroundColor = UIColor(hexString: selectedCategory!.color)?.darken(byPercentage: CGFloat(indexPath.row + 1) / CGFloat(todoItems!.count + 1))
                 
             }
             /// Set checkmark (done statement) by using TERNARY OPERATOR
@@ -94,7 +93,8 @@ class ItemViewController: UITableViewController{
         }else {
             cell.textLabel?.text = "No Items Added"
         }
-        
+        print(self.selectedCategory!.items)
+        //print(items)
         return cell
     }
     
@@ -145,25 +145,27 @@ class ItemViewController: UITableViewController{
     //        return [deleteButton]
     //    }
     
+    
+    
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         
-        
         /// Drag and Drop
-        if let item = todoItems?[sourceIndexPath.row] {
+        if let currentCategory = self.selectedCategory{
             
             do {
-                try realm.write {
+                try self.realm.write {
                     
-                    swap(&item.title, &todoItems![destinationIndexPath.row].title)
-                    swap(&item.done, &todoItems![destinationIndexPath.row].done)
-                    swap(&item.dateCreated, &todoItems![destinationIndexPath.row].dateCreated)
+                    currentCategory.items.move(from: sourceIndexPath.row, to: destinationIndexPath.row)
+                    
+                    for (index, item) in currentCategory.items.enumerated() {
+                        item.row = "\(index)"
+                    }
                     
                 }
             } catch {
                 print("ERROR SAVING DONE STATUS: \(error)")
             }
         }
-        
         tableView.reloadData()
         
     }
@@ -178,6 +180,7 @@ class ItemViewController: UITableViewController{
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
+        
         /// Main property for TextField
         var textField = UITextField()
         
@@ -191,6 +194,7 @@ class ItemViewController: UITableViewController{
             /// Try to save Item
             if let currentCategory = self.selectedCategory {
                 
+                
                 do {
                     try self.realm.write {
                         
@@ -198,7 +202,7 @@ class ItemViewController: UITableViewController{
                         let newItem = Item()
                         newItem.title = textField.text!
                         newItem.dateCreated = Date()
-                        
+                        newItem.row = "\(currentCategory.items.count)"
                         
                         guard newItem.title != "" else{
                             let alert = UIAlertController(title: "Text field is empty", message: "You have to type something here", preferredStyle: .alert)
@@ -238,7 +242,7 @@ class ItemViewController: UITableViewController{
     
     func loadItems() {
         
-        todoItems = selectedCategory?.items.sorted(byKeyPath: KeyPath.dateCreated, ascending: true)
+        todoItems = selectedCategory?.items.sorted(byKeyPath: KeyPath.row, ascending: true)
         
         tableView.reloadData()
         
@@ -246,7 +250,8 @@ class ItemViewController: UITableViewController{
     
     func deleteData(indexPath: IndexPath) {
         
-        if let item = self.todoItems?[indexPath.row] {
+        
+        if let item = self.todoItems?[indexPath.row], let currentCategory = self.selectedCategory {
             
             if item.dateCreated != nil {
                 let notificationCenter = UNUserNotificationCenter.current()
@@ -265,18 +270,21 @@ class ItemViewController: UITableViewController{
             
             do {
                 try self.realm.write {
-                    //print("ITEM WITH IDENTIFIER : id_\(item.title) \(String(describing: item.dateCreated)) CalendarID: \(item.eventID ?? "no ID")")
+                    
                     self.realm.delete(item)
+                    for (index, item) in currentCategory.items.enumerated() {
+                        item.row = "\(index)"
+                    }
                 }
             } catch {
                 print("ERROR DELETING ITEM: \(error)")
             }
+            
             //print("ITEM DELETED")
             ARSLineProgress.showFail()
             self.tableView.reloadData()
             
         }
-        
     }
     
     //MARK: - LongPress Gesture Configuration (Add a New Date Notification)
@@ -473,7 +481,7 @@ extension ItemViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        todoItems = todoItems?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: KeyPath.dateCreated, ascending: true)
+        todoItems = todoItems?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: KeyPath.row, ascending: true)
         
         tableView.reloadData()
         

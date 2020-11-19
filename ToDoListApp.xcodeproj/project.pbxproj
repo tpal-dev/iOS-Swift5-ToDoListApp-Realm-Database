@@ -254,7 +254,6 @@
 		521E27792554DF20003E7071 /* CollectionViewCustomContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCustomContentCell.swift; sourceTree = "<group>"; };
 		521E277A2554DF20003E7071 /* LikeButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeButtonCell.swift; sourceTree = "<group>"; };
 		521E277B2554DF20003E7071 /* TelegramPickerResourceProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelegramPickerResourceProvider.swift; sourceTree = "<group>"; };
-		521E277E2554DF20003E7071 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/MMBAlertsPickersLocalizable.strings; sourceTree = "<group>"; };
 		521E277F2554DF20003E7071 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		521E27802554DF20003E7071 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MMBAlertsPickersLocalizable.strings; sourceTree = "<group>"; };
 		521E27812554DF20003E7071 /* SegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
@@ -828,7 +827,6 @@
 			knownRegions = (
 				en,
 				Base,
-				ar,
 			);
 			mainGroup = 529B571F254D8FFB006EB720;
 			productRefGroup = 529B5729254D8FFB006EB720 /* Products */;
@@ -1044,7 +1042,6 @@
 		521E277D2554DF20003E7071 /* MMBAlertsPickersLocalizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				521E277E2554DF20003E7071 /* ar */,
 				521E27802554DF20003E7071 /* en */,
 			);
 			name = MMBAlertsPickersLocalizable.strings;

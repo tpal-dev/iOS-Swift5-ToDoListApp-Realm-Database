@@ -141,9 +141,7 @@ class CategoryViewController: UITableViewController {
         }catch {
             print("ERROR SAVING CONTEXT: \(error)")
         }
-        
         tableView.reloadData()
-        ARSLineProgress.showSuccess()
     }
     
     func loadReamDatabase() {
@@ -225,8 +223,8 @@ class CategoryViewController: UITableViewController {
                 
                 return
             }
-            
             self.saveCategory(category: newCategory)
+            ARSLineProgress.showSuccess()
         })
         
         mainAlert.addTextField { (alertTextField) in
