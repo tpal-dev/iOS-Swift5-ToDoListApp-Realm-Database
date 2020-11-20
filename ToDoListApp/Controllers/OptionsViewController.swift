@@ -60,7 +60,7 @@ class OptionsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         pickerView.delegate = self
         pickerView.dataSource = self
         vc.view.addSubview(pickerView)
-        let editRadiusAlert = UIAlertController(title: "1st Alarm Delay", message: "Set Minutes", preferredStyle: UIAlertController.Style.alert)
+        let editRadiusAlert = UIAlertController(title: "1st Alarm(before an event start)".localized(), message: "Set Minutes".localized(), preferredStyle: UIAlertController.Style.alert)
         editRadiusAlert.setValue(vc, forKey: "contentViewController")
         
         editRadiusAlert.addAction(UIAlertAction(title: "OK", style: .default) { alert in
@@ -68,7 +68,7 @@ class OptionsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             self.defaults.set(self.alertDelay, forKey: KeyUserDefaults.firstAlarmDelay)
         })
         
-        editRadiusAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        editRadiusAlert.addAction(UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil))
         self.present(editRadiusAlert, animated: true)
         
     }
@@ -83,7 +83,7 @@ class OptionsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         pickerView.delegate = self
         pickerView.dataSource = self
         vc.view.addSubview(pickerView)
-        let editRadiusAlert = UIAlertController(title: "2nd Alarm Delay", message: "Set Minutes", preferredStyle: UIAlertController.Style.alert)
+        let editRadiusAlert = UIAlertController(title: "2nd Alarm(before an event start)".localized(), message: "Set Minutes".localized(), preferredStyle: UIAlertController.Style.alert)
         editRadiusAlert.setValue(vc, forKey: "contentViewController")
         
         editRadiusAlert.addAction(UIAlertAction(title: "OK", style: .default) { alert in
@@ -91,18 +91,9 @@ class OptionsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             self.defaults.set(self.alertDelay, forKey: KeyUserDefaults.secondAlarmDelay)
         })
         
-        editRadiusAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        editRadiusAlert.addAction(UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil))
         self.present(editRadiusAlert, animated: true)
         
-    }
-    
-    
-    
-    @IBAction func tutorialButtonPressed(_ sender: Any) {
-        
-        print("Button pressed")
-        
-       
     }
     
     
@@ -132,7 +123,7 @@ class OptionsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             settings.buttonBackgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             settings.buttonLabelColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             settings.labelColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-            settings.buttonText = "Light Mode"
+            settings.buttonText = "Light Mode".localized()
             defaults.set(true, forKey: KeyUserDefaults.colorTheme)
             refreshColorTheme()
         } else {
@@ -140,7 +131,7 @@ class OptionsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             settings.buttonBackgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             settings.buttonLabelColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
             settings.labelColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            settings.buttonText = "Dark Mode"
+            settings.buttonText = "Dark Mode".localized()
             defaults.set(false, forKey: KeyUserDefaults.colorTheme)
             refreshColorTheme()
         }

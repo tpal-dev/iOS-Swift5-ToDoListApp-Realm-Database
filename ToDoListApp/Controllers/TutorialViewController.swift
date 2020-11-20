@@ -82,43 +82,43 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
     func createSlides() -> [SlideTutorial] {
             
             let slide1: SlideTutorial = Bundle.main.loadNibNamed(ViewName.slideTutorial, owner: self, options: nil)?.first as! SlideTutorial
-            slide1.label.text = "TAP '+'\nTO ADD A NEW CATEGORY"
+        slide1.label.text = "TAP '+'\nTO ADD A NEW CATEGORY".localized()
             slide1.imageTutorial.image = UIImage(named: ImageName.addCategory)
             
             let slide2: SlideTutorial = Bundle.main.loadNibNamed(ViewName.slideTutorial, owner: self, options: nil)?.first as! SlideTutorial
-            slide2.label.text = "LONG-PRESS CATEGORY CELL\nTO CHANGE CATEGORY COLOR"
+        slide2.label.text = "LONG-PRESS CATEGORY CELL\nTO CHANGE CATEGORY COLOR".localized()
             slide2.imageTutorial.image = UIImage(named: ImageName.changeColor)
             
             let slide3: SlideTutorial = Bundle.main.loadNibNamed(ViewName.slideTutorial, owner: self, options: nil)?.first as! SlideTutorial
-            slide3.label.text = "INSIDE CATEGORY TAP '+'\nTO ADD NEW ITEM"
+        slide3.label.text = "INSIDE CATEGORY TAP '+'\nTO ADD NEW TASK".localized()
             slide3.imageTutorial.image = UIImage(named: ImageName.addNewItem)
             
             let slide4: SlideTutorial = Bundle.main.loadNibNamed(ViewName.slideTutorial, owner: self, options: nil)?.first as! SlideTutorial
-            slide4.label.text = "SWIPE TO THE LEFT\nTO DELETE ITEM OR CATEGORY"
+        slide4.label.text = "SWIPE TO THE LEFT\nTO DELETE THING TO DO OR CATEGORY".localized()
             slide4.imageTutorial.image = UIImage(named: ImageName.swipeDelete)
             
             let slide5: SlideTutorial = Bundle.main.loadNibNamed(ViewName.slideTutorial, owner: self, options: nil)?.first as! SlideTutorial
-            slide5.label.text = "LONG-PRESS ITEM\nTO SET REMINDER TIME\n/CALENDAR EVENT"
+        slide5.label.text = "LONG-PRESS THING TO DO\nTO SET REMINDER TIME\n/CALENDAR EVENT".localized()
             slide5.imageTutorial.image = UIImage(named: ImageName.addEvent)
             
             let slide6: SlideTutorial = Bundle.main.loadNibNamed(ViewName.slideTutorial, owner: self, options: nil)?.first as! SlideTutorial
-            slide6.label.text = "TAP ITEM\nTO SET A CHECKMARK"
+        slide6.label.text = "TAP THING TO DO\nTO SET A CHECKMARK".localized()
             slide6.imageTutorial.image = UIImage(named: ImageName.itemCheck)
             
             let slide7: SlideTutorial = Bundle.main.loadNibNamed(ViewName.slideTutorial, owner: self, options: nil)?.first as! SlideTutorial
-            slide7.label.text = "TAP EDIT BUTTON\nTO EDIT ITEMS"
+        slide7.label.text = "TAP EDIT BUTTON\nTO EDIT THING TO DO".localized()
             slide7.imageTutorial.image = UIImage(named: ImageName.editItems)
             
             let slide8: SlideTutorial = Bundle.main.loadNibNamed(ViewName.slideTutorial, owner: self, options: nil)?.first as! SlideTutorial
-            slide8.label.text = "EDIT MODE GIVE ACCESS\nTO DRAG AND DROP OPTION"
+        slide8.label.text = "EDIT MODE GIVE ACCESS\nTO DRAG AND DROP OPTION".localized()
             slide8.imageTutorial.image = UIImage(named: ImageName.moveItem)
             
             let slide9: SlideTutorial = Bundle.main.loadNibNamed(ViewName.slideTutorial, owner: self, options: nil)?.first as! SlideTutorial
-            slide9.label.text = "IN SETTINGS YOU CAN SET\nREMEINDER ALERTS TIME(DELAY)"
+        slide9.label.text = "IN SETTINGS YOU CAN SET\nREMEINDER ALERTS TIME(HOW MANY MINUTES BEFORE AN EVENT START)".localized()
             slide9.imageTutorial.image = UIImage(named: ImageName.optionSet)
         
         let slide10: SlideTutorial = Bundle.main.loadNibNamed(ViewName.slideTutorial, owner: self, options: nil)?.first as! SlideTutorial
-        slide10.label.text = "\nTHAT'S ALL,\n\nRIGHT NOW YOU WILL BE\nREMEMBER EVERYTHING\n\nwith\n\nTO DO LIST CALEDAR ✓"
+        slide10.label.text = "\nTHAT'S ALL,\n\nRIGHT NOW YOU WILL BE\nREMEMBER EVERYTHING\n\nwith\n\nTO DO LIST CALEDAR ✓".localized()
         slide10.imageTutorial.isHidden = true
         slide10.exitButton.isHidden = false
         slide10.exitButton.addTarget(self,

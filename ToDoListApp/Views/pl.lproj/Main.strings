@@ -1,0 +1,48 @@
+
+/* Class = "UILabel"; text = "Animation by Shahariar Arifin Imran on LottieFiles "; ObjectID = "2te-rq-NDa"; */
+"2te-rq-NDa.text" = "Animation by Shahariar Arifin Imran on LottieFiles ";
+
+/* Class = "UILabel"; text = "Copyright © 2020 Tomasz Paluszkiewcz                 All rights reserved"; ObjectID = "6E6-ys-VAb"; */
+"6E6-ys-VAb.text" = "Copyright © 2020 Tomasz Paluszkiewcz                 Wszelkie prawa zastrzeżone";
+
+/* Class = "UILabel"; text = "Theme"; ObjectID = "6Fw-J8-ppu"; */
+"6Fw-J8-ppu.text" = "Motyw";
+
+/* Class = "UIButton"; normalTitle = "Tutorial"; ObjectID = "97P-xE-IcD"; */
+"97P-xE-IcD.normalTitle" = "Samouczek";
+
+/* Class = "UILabel"; text = " Settings"; ObjectID = "BQO-wZ-d9V"; */
+"BQO-wZ-d9V.text" = " Ustawienia";
+
+/* Class = "UIButton"; normalTitle = "2nd alert"; ObjectID = "BUd-Qh-ZVv"; */
+"BUd-Qh-ZVv.normalTitle" = "2 alarm";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "EwN-lw-bMj"; */
+"EwN-lw-bMj.text" = "Subtitle";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "QEW-0D-Lc6"; */
+"QEW-0D-Lc6.text" = "Title";
+
+/* Class = "UIButton"; normalTitle = "About"; ObjectID = "TZO-oa-Obq"; */
+"TZO-oa-Obq.normalTitle" = "App Info";
+
+/* Class = "UIButton"; normalTitle = "1st alert"; ObjectID = "VUi-Sa-yfT"; */
+"VUi-Sa-yfT.normalTitle" = "1 alarm";
+
+/* Class = "UINavigationItem"; title = "Items"; ObjectID = "WOF-QK-TYw"; */
+"WOF-QK-TYw.title" = "Items";
+
+/* Class = "UILabel"; text = "Calendar Event Alert Time"; ObjectID = "a93-nY-8gm"; */
+"a93-nY-8gm.text" = "Czas alarmów powiadomień";
+
+/* Class = "UISearchBar"; placeholder = "Search"; ObjectID = "nPR-TF-DDw"; */
+"nPR-TF-DDw.placeholder" = "Szukaj";
+
+/* Class = "UINavigationItem"; title = "Category"; ObjectID = "oZe-aF-CxJ"; */
+"oZe-aF-CxJ.title" = "Moje kategorie";
+
+/* Class = "UILabel"; text = "Others"; ObjectID = "qlL-Dk-Sb0"; */
+"qlL-Dk-Sb0.text" = "Inne";
+
+/* Class = "UIButton"; normalTitle = "Change to Dark Mode"; ObjectID = "zyc-T7-sgp"; */
+"zyc-T7-sgp.normalTitle" = "Change to Dark Mode";

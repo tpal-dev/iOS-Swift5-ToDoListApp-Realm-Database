@@ -53,7 +53,7 @@ class CategoryViewController: UITableViewController {
     @objc func optionsButtonPressed() {
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "OptionsViewController") as! OptionsViewController
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: IdentifierVC.optionsVC) as! OptionsViewController
         newViewController.modalPresentationStyle = .fullScreen
         //newViewController.modalTransitionStyle = .partialCurl
         self.navigationController?.present(newViewController, animated: true, completion: nil)
@@ -202,11 +202,11 @@ class CategoryViewController: UITableViewController {
         var textField = UITextField()
         
         /// Set Alert Window
-        let mainAlert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
+        let mainAlert = UIAlertController(title: "Add New Category".localized(), message: "", preferredStyle: .alert)
         
-        mainAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        mainAlert.addAction(UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil))
         
-        mainAlert.addAction(UIAlertAction(title: "Add", style: .default) { (action) in
+        mainAlert.addAction(UIAlertAction(title: "Add".localized(), style: .default) { (action) in
             
             /// Add new Category
             let newCategory = Category()
@@ -215,7 +215,7 @@ class CategoryViewController: UITableViewController {
             
             
             guard newCategory.name != "" else{
-                let alert = UIAlertController(title: "Text field is empty", message: "You have to type something here", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Text field is empty".localized(), message: "You have to type something here".localized(), preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
                     self.present(mainAlert, animated: true, completion: nil)
                 }))
@@ -228,7 +228,7 @@ class CategoryViewController: UITableViewController {
         })
         
         mainAlert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "Create a new category"
+            alertTextField.placeholder = "Title".localized()
             alertTextField.autocorrectionType = .yes
             alertTextField.spellCheckingType = .yes
             textField = alertTextField
@@ -271,7 +271,7 @@ class CategoryViewController: UITableViewController {
                     self.tableView.reloadData()
                     
                 }
-                alert.addAction(title: "Cancel", style: .cancel)
+                alert.addAction(title: "Cancel".localized(), style: .cancel)
                 alert.show()
                 
             }

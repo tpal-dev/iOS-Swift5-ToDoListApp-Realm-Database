@@ -91,7 +91,7 @@ class ItemViewController: UITableViewController{
             cell.accessoryView = item.done ? imageView : .none
             
         }else {
-            cell.textLabel?.text = "No Items Added"
+            cell.textLabel?.text = "No Items Added".localized()
         }
         print(self.selectedCategory!.items)
         //print(items)
@@ -185,11 +185,11 @@ class ItemViewController: UITableViewController{
         var textField = UITextField()
         
         /// Set Alert Window
-        let mainAlert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
+        let mainAlert = UIAlertController(title: "Add New Task".localized(), message: "", preferredStyle: .alert)
         
-        mainAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        mainAlert.addAction(UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil))
         
-        mainAlert.addAction(UIAlertAction(title: "Add Item", style: .default) { (action) in
+        mainAlert.addAction(UIAlertAction(title: "Add Task".localized(), style: .default) { (action) in
             
             /// Try to save Item
             if let currentCategory = self.selectedCategory {
@@ -205,7 +205,7 @@ class ItemViewController: UITableViewController{
                         newItem.row = "\(currentCategory.items.count)"
                         
                         guard newItem.title != "" else{
-                            let alert = UIAlertController(title: "Text field is empty", message: "You have to type something here", preferredStyle: .alert)
+                            let alert = UIAlertController(title: "Text field is empty".localized(), message: "You have to type something here".localized(), preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
                                 self.present(mainAlert, animated: true, completion: nil)
                             }))
@@ -228,7 +228,7 @@ class ItemViewController: UITableViewController{
         })
         
         mainAlert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "Create a new item"
+            alertTextField.placeholder = "Title".localized()
             alertTextField.autocorrectionType = .yes
             alertTextField.spellCheckingType = .yes
             textField = alertTextField
@@ -299,7 +299,7 @@ class ItemViewController: UITableViewController{
                 let dateFormatter = DateFormatter()
                 
                 /// Add date to item
-                let alert = UIAlertController(title: "Date Picker", message: "Select Date", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Date Picker".localized(), message: "Select the event date".localized(), preferredStyle: .alert)
                 alert.addDatePicker(mode: .dateAndTime, date: Date(), minimumDate: nil, maximumDate: nil) { date in
                     
                     dateSet = date
@@ -329,7 +329,7 @@ class ItemViewController: UITableViewController{
                         
                         /// Create a new PUSH Notification
                         let content = UNMutableNotificationContent()
-                        content.title = "TO DO LIST - You have something to do :)"
+                        content.title = "TO DO LIST - You have something to do :)".localized()
                         content.sound = .default
                         content.body = "\(item.title)"
                         
@@ -372,7 +372,7 @@ class ItemViewController: UITableViewController{
                                 event.title = item.title
                                 event.startDate = startDate
                                 event.endDate = endDate
-                                event.notes = "Created by TO DO LIST CALENDAR ©"
+                                event.notes = "Created by TO DO LIST CALENDAR ©".localized()
                                 event.addAlarm(alarm1)
                                 event.addAlarm(alarm2)
                                 event.calendar = self.eventStore.defaultCalendarForNewEvents
@@ -389,7 +389,7 @@ class ItemViewController: UITableViewController{
                             dateFormatter.dateFormat = "hh:mm  dd/MM/YYYY"
                             let dateString = dateFormatter.string(from: targetDate)
                             
-                            let alert = UIAlertController(title: "Event Time Set", message: "\(dateString)", preferredStyle: .alert)
+                            let alert = UIAlertController(title: "Event Time Set".localized(), message: "\(dateString)", preferredStyle: .alert)
                             if #available(iOS 13.0, *) {
                                 alert.setTitle(font: UIFont(name: Fonts.helveticNeueMedium, size: 18)!, color: .label)
                                 alert.setMessage(font: UIFont(name: Fonts.helveticNeueLight, size: 15)!, color: .label)
@@ -412,7 +412,7 @@ class ItemViewController: UITableViewController{
                     
                 }
                 
-                alert.addAction(title: "Cancel", style: .cancel)
+                alert.addAction(title: "Cancel".localized(), style: .cancel)
                 alert.show()
                 
                 //print("Long press Pressed:\(indexPath.row) \(String(describing: todoItems?[indexPath.row].title))")

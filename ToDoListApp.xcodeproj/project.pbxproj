@@ -118,6 +118,8 @@
 		521E27EE2554DF20003E7071 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E27832554DF20003E7071 /* TextField.swift */; };
 		521E27EF2554DF20003E7071 /* PickerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E27842554DF20003E7071 /* PickerStyle.swift */; };
 		521E27F02554DF20003E7071 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521E27852554DF20003E7071 /* Button.swift */; };
+		5229B10525671A51006C16A1 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5229B10425671A51006C16A1 /* StringExtension.swift */; };
+		5229B10D25672352006C16A1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5229B10F25672352006C16A1 /* Localizable.strings */; };
 		5258BA632558D1B300A5C1FB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258BA622558D1B300A5C1FB /* Constants.swift */; };
 		525DE16D2559BED9008FDC2D /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525DE16C2559BED9008FDC2D /* OptionsViewController.swift */; };
 		529A1D3125562EEA00C6CFA3 /* BeginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529A1D3025562EEA00C6CFA3 /* BeginViewController.swift */; };
@@ -261,6 +263,10 @@
 		521E27832554DF20003E7071 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		521E27842554DF20003E7071 /* PickerStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerStyle.swift; sourceTree = "<group>"; };
 		521E27852554DF20003E7071 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		5229B10425671A51006C16A1 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		5229B10725671E48006C16A1 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Main.strings; sourceTree = "<group>"; };
+		5229B10E25672352006C16A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5229B1112567235A006C16A1 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5258BA622558D1B300A5C1FB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		525DE16C2559BED9008FDC2D /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		529A1D3025562EEA00C6CFA3 /* BeginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginViewController.swift; sourceTree = "<group>"; };
@@ -735,6 +741,7 @@
 				52D025862559EEB2006DF45A /* CustomButton.swift */,
 				5215DAFE255C42620028CE3C /* DefaultSettings.swift */,
 				52AFDA77255DC8380014CDF0 /* AboutText.swift */,
+				5229B10425671A51006C16A1 /* StringExtension.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -768,6 +775,7 @@
 			children = (
 				529A1D32255633CC00C6CFA3 /* checklist.json */,
 				529B5734254D9009006EB720 /* Assets.xcassets */,
+				5229B10F25672352006C16A1 /* Localizable.strings */,
 				529B5736254D9009006EB720 /* LaunchScreen.storyboard */,
 				529B5739254D9009006EB720 /* Info.plist */,
 			);
@@ -827,6 +835,7 @@
 			knownRegions = (
 				en,
 				Base,
+				pl,
 			);
 			mainGroup = 529B571F254D8FFB006EB720;
 			productRefGroup = 529B5729254D8FFB006EB720 /* Products */;
@@ -847,6 +856,7 @@
 				521E27C42554DF20003E7071 /* Countries.bundle in Resources */,
 				529B5738254D9009006EB720 /* LaunchScreen.storyboard in Resources */,
 				520B0908255C919C00D8E749 /* Slide.xib in Resources */,
+				5229B10D25672352006C16A1 /* Localizable.strings in Resources */,
 				529B5735254D9009006EB720 /* Assets.xcassets in Resources */,
 				529B5733254D8FFC006EB720 /* Main.storyboard in Resources */,
 				521E27EA2554DF20003E7071 /* MMBAlertsPickersLocalizable.strings in Resources */,
@@ -1024,6 +1034,7 @@
 				521E27CB2554DF20003E7071 /* TwoTextFieldsViewController.swift in Sources */,
 				52AFDA9B255DFC3A0014CDF0 /* SlideTutorial.swift in Sources */,
 				521E27E02554DF20003E7071 /* AssetsCollection.swift in Sources */,
+				5229B10525671A51006C16A1 /* StringExtension.swift in Sources */,
 				521E27E82554DF20003E7071 /* LikeButtonCell.swift in Sources */,
 				521E27D32554DF20003E7071 /* Address.swift in Sources */,
 				521E27C12554DF20003E7071 /* GalleryPagingDataSource.swift in Sources */,
@@ -1047,10 +1058,20 @@
 			name = MMBAlertsPickersLocalizable.strings;
 			sourceTree = "<group>";
 		};
+		5229B10F25672352006C16A1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5229B10E25672352006C16A1 /* en */,
+				5229B1112567235A006C16A1 /* pl */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		529B5731254D8FFC006EB720 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				529B5732254D8FFC006EB720 /* Base */,
+				5229B10725671E48006C16A1 /* pl */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

@@ -65,19 +65,19 @@ class BeginViewController: UIViewController, UIScrollViewDelegate {
     
     func createSlides() -> [Slide] {
         
-        let slide1: Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide1.label.text = "Welcome\n\nSwipe to begin\n"
+        let slide1: Slide = Bundle.main.loadNibNamed(ViewName.slide, owner: self, options: nil)?.first as! Slide
+        slide1.label.text = "Welcome\n\nSwipe to begin\n".localized()
 
-        let slide2: Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
+        let slide2: Slide = Bundle.main.loadNibNamed(ViewName.slide, owner: self, options: nil)?.first as! Slide
         slide2.label.text = "First tip:\n\nLongPress Category Cell\nto Change Color\n"
 
-        let slide3: Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
+        let slide3: Slide = Bundle.main.loadNibNamed(ViewName.slide, owner: self, options: nil)?.first as! Slide
         slide3.label.text = "Second tip:\n\nLongPress Item Cell\nto set Reminder\n"
     
-        let slide4: Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
+        let slide4: Slide = Bundle.main.loadNibNamed(ViewName.slide, owner: self, options: nil)?.first as! Slide
         slide4.label.isHidden = true
         slide4.button.isHidden = false
-        slide4.button.setTitle("Let's start", for: .normal)
+        slide4.button.setTitle("Let's start".localized(), for: .normal)
         slide4.button.titleLabel?.font = UIFont(name: Fonts.helveticNeueBold, size: 25)
         slide4.button.setTitleColor(.black, for: .normal)
         slide4.button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -96,21 +96,6 @@ class BeginViewController: UIViewController, UIScrollViewDelegate {
         
         scrollView.isPagingEnabled = true
         
-        let button = UIButton(frame: CGRect(x: scrollView.center.x + CGFloat(slides.count) * self.view.frame.size.width - 80,
-                                            y: 50,
-                                            width: 160,
-                                            height: 80))
-        button.setTitle("Let's start", for: .normal)
-        button.titleLabel?.font = UIFont(name: Fonts.helveticNeueBold, size: 25)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        button.layer.cornerRadius = button.frame.height / 2
-        
-        button.addTarget(self,
-                         action: #selector(buttonAction),
-                         for: .touchUpInside)
-        
-        scrollView.addSubview(button)
         
         for i in 0..<slides.count {
             slides[i].frame = CGRect(x: view.frame.width * CGFloat(i), y: 0, width: view.frame.width, height: view.frame.height)

@@ -46,13 +46,13 @@ class Helper {
             settings.buttonBackgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             settings.buttonLabelColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             settings.labelColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-            settings.buttonText = "Light Mode"
+            settings.buttonText = "Light Mode".localized()
         } else {
             settings.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
             settings.buttonBackgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             settings.buttonLabelColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
             settings.labelColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            settings.buttonText = "Dark Mode"
+            settings.buttonText = "Dark Mode".localized()
         }
     }
     
