@@ -69,10 +69,10 @@ class BeginViewController: UIViewController, UIScrollViewDelegate {
         slide1.label.text = "Welcome\n\nSwipe to begin\n".localized()
 
         let slide2: Slide = Bundle.main.loadNibNamed(ViewName.slide, owner: self, options: nil)?.first as! Slide
-        slide2.label.text = "First tip:\n\nLongPress Category Cell\nto Change Color\n"
+        slide2.label.text = "First tip:\n\nLongPress Category Cell\nto Change Color\n".localized()
 
         let slide3: Slide = Bundle.main.loadNibNamed(ViewName.slide, owner: self, options: nil)?.first as! Slide
-        slide3.label.text = "Second tip:\n\nLongPress Item Cell\nto set Reminder\n"
+        slide3.label.text = "Second tip:\n\nLongPress Item Cell\nto set Reminder\n".localized()
     
         let slide4: Slide = Bundle.main.loadNibNamed(ViewName.slide, owner: self, options: nil)?.first as! Slide
         slide4.label.isHidden = true

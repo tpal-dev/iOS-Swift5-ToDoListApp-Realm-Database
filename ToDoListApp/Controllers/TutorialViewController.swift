@@ -98,7 +98,7 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
             slide4.imageTutorial.image = UIImage(named: ImageName.swipeDelete)
             
             let slide5: SlideTutorial = Bundle.main.loadNibNamed(ViewName.slideTutorial, owner: self, options: nil)?.first as! SlideTutorial
-        slide5.label.text = "LONG-PRESS THING TO DO\nTO SET REMINDER TIME\n/CALENDAR EVENT".localized()
+        slide5.label.text = "LONG-PRESS THING TO DO\nTO SET REMINDER TIME\nCALENDAR EVENT".localized()
             slide5.imageTutorial.image = UIImage(named: ImageName.addEvent)
             
             let slide6: SlideTutorial = Bundle.main.loadNibNamed(ViewName.slideTutorial, owner: self, options: nil)?.first as! SlideTutorial
@@ -114,11 +114,11 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
             slide8.imageTutorial.image = UIImage(named: ImageName.moveItem)
             
             let slide9: SlideTutorial = Bundle.main.loadNibNamed(ViewName.slideTutorial, owner: self, options: nil)?.first as! SlideTutorial
-        slide9.label.text = "IN SETTINGS YOU CAN SET\nREMEINDER ALERTS TIME(HOW MANY MINUTES BEFORE AN EVENT START)".localized()
+        slide9.label.text = "IN SETTINGS YOU CAN SET\nREMINDER ALERTS TIME(HOW MANY MINUTES BEFORE AN EVENT START)".localized()
             slide9.imageTutorial.image = UIImage(named: ImageName.optionSet)
         
         let slide10: SlideTutorial = Bundle.main.loadNibNamed(ViewName.slideTutorial, owner: self, options: nil)?.first as! SlideTutorial
-        slide10.label.text = "\nTHAT'S ALL,\n\nRIGHT NOW YOU WILL BE\nREMEMBER EVERYTHING\n\nwith\n\nTO DO LIST CALEDAR ✓".localized()
+        slide10.label.text = "THAT'S ALL,\n\nRIGHT NOW YOU WILL BE\nREMEMBER EVERYTHING\n\nwith\n\nTO DO LIST CALEDAR ✓".localized()
         slide10.imageTutorial.isHidden = true
         slide10.exitButton.isHidden = false
         slide10.exitButton.addTarget(self,

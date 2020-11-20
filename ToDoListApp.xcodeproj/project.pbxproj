@@ -154,6 +154,8 @@
 		44B0E2FD6916DE031EF25A56 /* Pods-ToDoListApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListApp.debug.xcconfig"; path = "Target Support Files/Pods-ToDoListApp/Pods-ToDoListApp.debug.xcconfig"; sourceTree = "<group>"; };
 		520B0907255C919C00D8E749 /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
 		520B090A255C91C300D8E749 /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
+		520E0A6725674F3000CF8844 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		520E0A6825674F3100CF8844 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5215DAFE255C42620028CE3C /* DefaultSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSettings.swift; sourceTree = "<group>"; };
 		5215DB02255C52210028CE3C /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		521E26FA2554DF1F003E7071 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
@@ -836,6 +838,7 @@
 				en,
 				Base,
 				pl,
+				de,
 			);
 			mainGroup = 529B571F254D8FFB006EB720;
 			productRefGroup = 529B5729254D8FFB006EB720 /* Products */;
@@ -1063,6 +1066,7 @@
 			children = (
 				5229B10E25672352006C16A1 /* en */,
 				5229B1112567235A006C16A1 /* pl */,
+				520E0A6825674F3100CF8844 /* de */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1072,6 +1076,7 @@
 			children = (
 				529B5732254D8FFC006EB720 /* Base */,
 				5229B10725671E48006C16A1 /* pl */,
+				520E0A6725674F3000CF8844 /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

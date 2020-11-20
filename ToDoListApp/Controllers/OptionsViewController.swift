@@ -123,7 +123,7 @@ class OptionsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             settings.buttonBackgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             settings.buttonLabelColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             settings.labelColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-            settings.buttonText = "Light Mode".localized()
+            settings.buttonText = "Dark Mode".localized()
             defaults.set(true, forKey: KeyUserDefaults.colorTheme)
             refreshColorTheme()
         } else {
@@ -131,7 +131,7 @@ class OptionsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             settings.buttonBackgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             settings.buttonLabelColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
             settings.labelColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            settings.buttonText = "Dark Mode".localized()
+            settings.buttonText = "Light Mode".localized()
             defaults.set(false, forKey: KeyUserDefaults.colorTheme)
             refreshColorTheme()
         }

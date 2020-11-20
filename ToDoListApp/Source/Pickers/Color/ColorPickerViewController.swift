@@ -12,7 +12,7 @@ extension UIAlertController {
         let selection: ColorPickerViewController.Selection? = selection
         var color: UIColor = color
         
-        let buttonSelection = UIAlertAction(title: "Select".localized, style: .default) { action in
+        let buttonSelection = UIAlertAction(title: "Select".localized(), style: .default) { action in
             selection?(color)
         }
         buttonSelection.isEnabled = true
