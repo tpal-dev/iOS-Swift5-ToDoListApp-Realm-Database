@@ -2,6 +2,8 @@
 To Do List application using Realm Database CRUD | alternative for Apple CoreData | in Swift 5 <br>
 ✓CocoaPods -RealmSwift -Chameleon -Alerts&Pickers -Lottie -ARSLineProgress <br>
 
+Multilanguage: English, Polish, German.
+
 You can find here:
 
 * How to store data in Realm Database - CRUD Create Read Update Delete
@@ -18,12 +20,12 @@ You can find here:
 * Interactive animation using Lottie
 * How to add push notifications
 * How to add event to calendar
+* Multilanguage - Localize
 * Using UserDefaults
 
 ## App Description:
 
-![GIF](https://s8.gifyu.com/images/Hnet-image-2ce4bdc16cbb8dda8.gif) <img src="https://i.postimg.cc/nzmXVc4s/Zrzut-ekranu-2020-11-18-o-02-28-54.png">
-
+![GIF](https://s8.gifyu.com/images/Hnet-image-2ce4bdc16cbb8dda8.gif) <img src="https://i.ibb.co/sKgKkMX/Zrzut-ekranu-2020-11-18-o-02-28-54.png">
 
 <a target="_blank" href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1540455726"><img src="https://i.postimg.cc/fbcrXYfD/Zrzut-ekranu-2020-11-18-o-02-32-14.png" alt="App Store" /></a>
 
