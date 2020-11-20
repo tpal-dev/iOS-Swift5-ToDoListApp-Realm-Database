@@ -366,7 +366,7 @@ class ItemViewController: UITableViewController{
                                 let event:EKEvent = EKEvent(eventStore: self.eventStore)
                                 let startDate = targetDate
                                 let endDate = startDate.addingTimeInterval(1 * 60 * 60)
-                                let alarm1 = EKAlarm(relativeOffset: -Double(firstAlarmDelay ?? "0")!  * 60)
+                                let alarm1 = EKAlarm(relativeOffset: -Double(firstAlarmDelay ?? "5")!  * 60)
                                 let alarm2 = EKAlarm(relativeOffset: -Double(secondAlarmDelay ?? "60")!  * 60)
                                 
                                 event.title = item.title
