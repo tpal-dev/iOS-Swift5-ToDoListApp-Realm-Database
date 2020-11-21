@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 import RealmSwift
 
 @UIApplicationMain
@@ -15,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    /// Orientation lock extra option
     var orientationLock = UIInterfaceOrientationMask.all
 
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIDevice.current.setValue(rotateOrientation.rawValue, forKey: "orientation")
         }
     }
-    
+    ///
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -42,7 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Helper.navBarIOS13()
         Helper.themeCheck()
     
-        
         /// Realm Database Config
         //print(Realm.Configuration.defaultConfiguration.fileURL)
         do {

@@ -40,11 +40,14 @@ class BeginViewController: UIViewController, UIScrollViewDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        /// Orientation lock portrait
         AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.portrait, andRotateTo: UIInterfaceOrientation.portrait)
+        
         startAnimation()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        /// Orientation unlocked
         AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.all)
     }
     
