@@ -145,7 +145,8 @@
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animation by Shahariar Arifin Imran on LottieFiles " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2te-rq-NDa">
                                 <rect key="frame" x="40" y="20" width="334" height="17"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -657,17 +658,8 @@
         <designable name="BUd-Qh-ZVv">
             <size key="intrinsicContentSize" width="88" height="38"/>
         </designable>
-        <designable name="D4q-t9-dA5">
-            <size key="intrinsicContentSize" width="-1" height="28"/>
-        </designable>
-        <designable name="GgS-mX-RGo">
-            <size key="intrinsicContentSize" width="-1" height="28"/>
-        </designable>
         <designable name="TZO-oa-Obq">
             <size key="intrinsicContentSize" width="60" height="38"/>
-        </designable>
-        <designable name="UE4-DO-Sv8">
-            <size key="intrinsicContentSize" width="-1" height="28"/>
         </designable>
         <designable name="VUi-Sa-yfT">
             <size key="intrinsicContentSize" width="82" height="38"/>

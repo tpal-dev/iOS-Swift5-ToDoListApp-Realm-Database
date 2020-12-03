@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
@@ -11,16 +11,18 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SlideTutorial" customModule="ToDoList" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P8Z-Ov-5t1">
-                    <rect key="frame" x="0.0" y="0.0" width="428" height="204"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="222"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAP &quot;+&quot; TO ADD A NEW CATEGORY" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZ0-6n-QJr">
-                            <rect key="frame" x="5" y="25" width="418" height="179"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BZ0-6n-QJr">
+                            <rect key="frame" x="5" y="25" width="404" height="197"/>
+                            <string key="text">TAP '+' TO ADD A NEW CATEGORY TAP '+' TO ADD A NEW CATEGORY TAP '+' TO ADD A NEW CATEGORY TAP '+' TO ADD A NEW CATEGORYTAP '+' TO ADD A NEW CATEGORY TAP '+' TO ADD A NEW CATEGORY</string>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <constraints>
@@ -31,13 +33,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vqv-Yr-wQ1">
-                    <rect key="frame" x="0.0" y="204" width="428" height="688"/>
+                    <rect key="frame" x="0.0" y="222" width="414" height="640"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="changeColor" translatesAutoresizingMaskIntoConstraints="NO" id="2a1-HT-z6Z">
-                            <rect key="frame" x="88" y="0.0" width="252" height="625"/>
-                        </imageView>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCr-ax-kMp" userLabel="Button" customClass="CustomButton" customModule="ToDoList" customModuleProvider="target">
-                            <rect key="frame" x="84" y="304" width="260" height="80"/>
+                            <rect key="frame" x="77" y="289" width="260" height="80"/>
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="260" id="9TX-yu-kB8"/>
@@ -54,13 +53,16 @@
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </button>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="changeColor" translatesAutoresizingMaskIntoConstraints="NO" id="2a1-HT-z6Z">
+                            <rect key="frame" x="88" y="8" width="238" height="528"/>
+                        </imageView>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="OCr-ax-kMp" firstAttribute="centerY" secondItem="Vqv-Yr-wQ1" secondAttribute="centerY" id="1Gl-1t-IVs"/>
+                        <constraint firstItem="OCr-ax-kMp" firstAttribute="centerY" secondItem="Vqv-Yr-wQ1" secondAttribute="centerY" constant="9" id="1Gl-1t-IVs"/>
                         <constraint firstItem="OCr-ax-kMp" firstAttribute="centerX" secondItem="Vqv-Yr-wQ1" secondAttribute="centerX" id="3ar-FL-LUq"/>
                         <constraint firstAttribute="trailing" secondItem="2a1-HT-z6Z" secondAttribute="trailing" constant="88" id="V3e-2l-zho"/>
-                        <constraint firstAttribute="bottom" secondItem="2a1-HT-z6Z" secondAttribute="bottom" constant="63" id="bbh-Ir-DLx"/>
-                        <constraint firstItem="2a1-HT-z6Z" firstAttribute="top" secondItem="Vqv-Yr-wQ1" secondAttribute="top" id="dgD-Pp-D7H"/>
+                        <constraint firstAttribute="bottom" secondItem="2a1-HT-z6Z" secondAttribute="bottom" constant="104" id="bbh-Ir-DLx"/>
+                        <constraint firstItem="2a1-HT-z6Z" firstAttribute="top" secondItem="Vqv-Yr-wQ1" secondAttribute="top" constant="8" id="dgD-Pp-D7H"/>
                         <constraint firstItem="2a1-HT-z6Z" firstAttribute="leading" secondItem="Vqv-Yr-wQ1" secondAttribute="leading" constant="88" id="qZ2-XU-c90"/>
                     </constraints>
                 </view>
@@ -71,7 +73,7 @@
                 <constraint firstItem="Vqv-Yr-wQ1" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="6mV-gT-d33"/>
                 <constraint firstItem="Vqv-Yr-wQ1" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="EZZ-og-egh"/>
                 <constraint firstItem="P8Z-Ov-5t1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Uvh-BX-zlv"/>
-                <constraint firstItem="Vqv-Yr-wQ1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="204" id="jQP-35-acC"/>
+                <constraint firstItem="Vqv-Yr-wQ1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="222" id="jQP-35-acC"/>
                 <constraint firstItem="Vqv-Yr-wQ1" firstAttribute="top" secondItem="P8Z-Ov-5t1" secondAttribute="bottom" id="mjz-dq-2UG"/>
                 <constraint firstItem="Vqv-Yr-wQ1" firstAttribute="top" secondItem="P8Z-Ov-5t1" secondAttribute="bottom" id="o8E-yj-G0w"/>
                 <constraint firstItem="P8Z-Ov-5t1" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="sf2-jt-qvy"/>
@@ -82,7 +84,7 @@
                 <outlet property="imageTutorial" destination="2a1-HT-z6Z" id="av0-Vn-cpD"/>
                 <outlet property="label" destination="BZ0-6n-QJr" id="hpO-je-FaG"/>
             </connections>
-            <point key="canvasLocation" x="139.13043478260872" y="102.45535714285714"/>
+            <point key="canvasLocation" x="137.68115942028987" y="101.78571428571428"/>
         </view>
     </objects>
     <designables>
